@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>상품 관리</h1>
-	<a href="/shopping/categoryAdd">카테고리 등록</a>
-	<a href="/shopping/categoryList">카테고리 목록</a>
-	<a href="">상품 등록</a>
-	<a href="">상품 목록</a>
-	재고 관리
+	<h1 align="center">상품 관리</h1>
+	<ul>
+	<li><a href="/shopping/categoryAdd">카테고리 등록</a></li>
+	<li><a href="/shopping/category_list">카테고리 목록</a></li>
+	<li><a href="#">상품 등록</a></li>
+	<li><a href="#">상품 목록</a></li>
+	<li>재고 관리</li>
+	</ul>
 </body>
 </html>

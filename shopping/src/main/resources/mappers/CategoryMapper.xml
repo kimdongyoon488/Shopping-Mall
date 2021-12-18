@@ -6,15 +6,13 @@
 	
 <mapper namespace="com.example.shopping.dao.ICategoryMapper">
 
-	<resultMap id="resultMap" type="com.example.shopping.vo.CategoryVO">
-		<result property="cnum" column="cnum"/>
-		<result property="code" column="code"/>
-		<result property="cname" column="cname"/>
-	</resultMap>
 	<insert id="insert">
 		 insert into category
  		 values(cate_seq.NEXTVAL,#{code},#{cname})
 	</insert>
 	
+	<select id="list" resultType="com.example.shopping.vo.CategoryVO">
+		select * from category
+	</select>
 	
 </mapper>
