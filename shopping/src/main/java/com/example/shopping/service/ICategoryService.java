@@ -3,6 +3,7 @@ package com.example.shopping.service;
 import java.util.List;
 
 import com.example.shopping.vo.CategoryVO;
+import com.example.shopping.vo.GoodsVO;
 
 public interface ICategoryService {
 
@@ -15,4 +16,6 @@ public interface ICategoryService {
 	public void delete(int cnum);
 	
 	public void update(CategoryVO vo);
+	
+	public void insertGoods(GoodsVO vo);
 }

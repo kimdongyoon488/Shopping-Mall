@@ -26,4 +26,10 @@
 	<delete id="delete">
 		delete from category where cnum=#{num}
 	</delete>
+	
+	<insert id="insertGoods">
+		insert into product values(prod_seq.nextval, #{pname}, #{pcode}, #{pcompany}, #{price},
+			#{pspec}, #{pcontent}, #{pimage}, 0, #{point}, #{sale}) 
+	</insert>
+	
 </mapper>

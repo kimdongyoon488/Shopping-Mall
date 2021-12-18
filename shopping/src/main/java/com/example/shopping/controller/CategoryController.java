@@ -82,8 +82,16 @@ public class CategoryController {
 	@GetMapping("/goodsInput")
 	public String product8(Model model) {
 		List<CategoryVO> list = service.list();
+		if (list == null && list.size() == 0) {
+			return "redirect:/";
+		}
 		model.addAttribute("listCategory",list);
 		return "ProductManagement/goodsInput";
 	}
 	
+	@PostMapping("/goodsInput2")
+	public String product9() {
+		
+		return "";
+	}
 }

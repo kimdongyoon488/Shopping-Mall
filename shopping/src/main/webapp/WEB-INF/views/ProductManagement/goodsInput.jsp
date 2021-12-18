@@ -8,7 +8,7 @@
 </head>
 <body>
 <div align="center">
-<form name="f" action="#" method="post" enctype="multipart/form-data">
+<form name="f" action="/shopping/goodsInput2" method="post" enctype="multipart/form-data">
 	<table border="0" width="600">
 		<caption>상품등록카테고리</caption>
 		<tr>
