@@ -59,5 +59,24 @@ public class CategoryController {
 		return "ProductManagement/category_list";
 	}
 	
+	@GetMapping("/category_edit")
+	public String product5(int cnum,Model model) {
+		CategoryVO vo = service.select(cnum);
+		model.addAttribute("getCategory",vo);
+		return "ProductManagement/category_edit";
+	}
+	
+	@PostMapping("/category_edit2")
+	public String product6(CategoryVO vo) {
+		service.update(vo);
+		System.out.println(vo);
+		return "redirect:/category_list";
+	}
+	
+	@GetMapping("/category_delete")
+	public String product7(int cnum) {
+		service.delete(cnum);
+		return "redirect:/category_list";
+	}
 
 }

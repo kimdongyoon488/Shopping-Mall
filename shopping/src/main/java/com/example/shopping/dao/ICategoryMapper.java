@@ -16,7 +16,9 @@ public interface ICategoryMapper {
 	
 	public List<CategoryVO> list();
 	
-	//public void delete(int num);
+	public void delete(int num);
 	
-	//public void update(CategoryVO vo);
+	public void update(CategoryVO vo);
+	
+	public CategoryVO select(int num);
 }

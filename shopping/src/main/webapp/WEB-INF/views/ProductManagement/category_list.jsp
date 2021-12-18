@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- cate_list.jsp -->
 <html>
 <head>
-	<title>д╚ев╟М╦╝╦Я╥о</title>
+	<title>Л╧╢М┘▄ЙЁ═К╕╛К╙╘К║²</title>
 	<script type="text/javascript"> 
 	function checkDel(cnum){
-		var isDel = window.confirm("а╓╦╩╥н ╩Ха╕го╫ц╟з╫ю╢о╠Н?");
+		var isDel = window.confirm("Л═∙К╖░К║° Л┌╜Л═°М∙≤Л▀°Й╡═Л┼╣К▀┬Й╧▄?");
 		if (isDel){
-			location.href="cate_delete.do?cnum="+cnum;
+			location.href="/shopping/category_delete?cnum="+cnum;
 		} 
 	}
 </script>
@@ -17,17 +17,17 @@
 <body>
 <div align="center">
 	<table border="1" width="500">
-		<caption valign="top"><h2>д╚ев╟М╦╝ ╦Я╥о</h2></caption>
+		<caption valign="top"><h2>Л╧╢М┘▄ЙЁ═К╕╛ К╙╘К║²</h2></caption>
 		<tr bgcolor="yellow">
-			<th>╧Ьхё</th>
-			<th>д╚ев╟М╦╝дз╣Е</th>
-			<th>д╚ев╟М╦╝юл╦╖</th>
-			<th>╪Жа╓|╩Ха╕</th>
+			<th>К╡┬М≤╦</th>
+			<th>Л╧╢М┘▄ЙЁ═К╕╛Л╫■К⌠°</th>
+			<th>Л╧╢М┘▄ЙЁ═К╕╛Л²╢К╕└</th>
+			<th>Л┬≤Л═∙|Л┌╜Л═°</th>
 		</tr> 
 		
 		<c:if test="${empty listCategory}">
 		<tr>
-			<td colspan="6">╣Н╥о╣х д╚ев╟М╦╝╟║ ╬Ь╫ю╢о╢ы.</td>
+			<td colspan="6">К⌠╠К║²К░° Л╧╢М┘▄ЙЁ═К╕╛Й╟─ Л≈├Л┼╣К▀┬К▀╓.</td>
 		</tr>		
 	</c:if>		
 	<c:forEach var="dto" items="${listCategory}">
@@ -36,8 +36,8 @@
 			<td>${dto.code}</td>
 			<td>${dto.cname}</td>
 			<td>
-				<a href="category_edit?cnum=${dto.cnum}">╪Жа╓</a> | 
-				<a href="javascript:checkDel('${dto.cnum}')">╩Ха╕</a>
+				<a href="/shopping/category_edit?cnum=${dto.cnum}">Л┬≤Л═∙</a> | 
+				<a href="javascript:checkDel('${dto.cnum}')">Л┌╜Л═°</a>
 			</td>
 		</tr>		
 	</c:forEach>

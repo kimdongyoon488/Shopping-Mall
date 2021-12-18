@@ -10,5 +10,9 @@ public interface ICategoryService {
 
 	public List<CategoryVO> list();
 	
+	public CategoryVO select(int cnum);
 	
+	public void delete(int cnum);
+	
+	public void update(CategoryVO vo);
 }

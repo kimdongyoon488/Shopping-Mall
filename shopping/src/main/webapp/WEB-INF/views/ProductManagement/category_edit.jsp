@@ -1,28 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- cate_edit.jsp -->
 <html>
 <head>
-<title>д╚ев╟М╦╝╪Жа╓</title>
+<title>Л╧╢М┘▄ЙЁ═К╕╛Л┬≤Л═∙</title>
 </head>
 <body>
 <div align="center">
-<form name="f" action="cate_edit.do" method="post">
+<form action="/shopping/category_edit2" method="post">
 	<input type="hidden" name="cnum" value="${getCategory.cnum}"/>
 	<table border="1" width="400" height="150">
-		<caption valign="top"><h2>д╚ев╟М╦╝╣Н╥о</h2></caption>
+		<h1>Л╧╢М┘▄ЙЁ═К╕╛К⌠╠К║²</h1>
 		<tr>
-			<th bgcolor="yellow">д╚ев╟М╦╝дз╣Е</th>
+			<th bgcolor="yellow">Л╧╢М┘▄ЙЁ═К╕╛Л╫■К⌠°</th>
 			<td><input type="text" name="code" readOnly value="${getCategory.code}"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">д╚ев╟М╦╝юл╦╖</th>
+			<th bgcolor="yellow">Л╧╢М┘▄ЙЁ═К╕╛Л²╢К╕└</th>
 			<td><input type="text" name="cname" value="${getCategory.cname}"></td>
 		</tr>
 		<tr bgcolor="orange">
 			<td colspan="2" align="center">
-				<input type="submit" value="╪Жа╓">
-				<input type="reset" value="цК╪р">
+				<input type="submit" value="Л┬≤Л═∙">
+				<input type="reset" value="Л╥╗Л├▄">
 			</td>
 		</tr>
 	</table>	

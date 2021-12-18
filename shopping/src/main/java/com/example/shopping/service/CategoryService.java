@@ -27,6 +27,27 @@ public class CategoryService implements ICategoryService{
 		
 		return mapper.list();
 	}
+
+
+	@Override
+	public CategoryVO select(int cnum) {
+		
+		return mapper.select(cnum);
+	}
+
+
+	@Override
+	public void delete(int cnum) {
+		mapper.delete(cnum);
+		
+	}
+
+
+	@Override
+	public void update(CategoryVO vo) {
+		mapper.update(vo);
+		
+	}
 	
 	
 }

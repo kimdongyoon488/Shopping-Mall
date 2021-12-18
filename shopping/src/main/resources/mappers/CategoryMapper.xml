@@ -15,4 +15,15 @@
 		select * from category
 	</select>
 	
+	<select id="select" resultType="com.example.shopping.vo.CategoryVO">
+		select * from category where cnum=#{num}
+	</select>
+	
+	<update id="update">
+		update category set cname=#{cname} where cnum=#{cnum}
+	</update>
+	
+	<delete id="delete">
+		delete from category where cnum=#{num}
+	</delete>
 </mapper>
