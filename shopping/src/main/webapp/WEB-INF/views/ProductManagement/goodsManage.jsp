@@ -11,7 +11,7 @@
 	<ul>
 	<li><a href="/shopping/categoryAdd">카테고리 등록</a></li>
 	<li><a href="/shopping/category_list">카테고리 목록</a></li>
-	<li><a href="#">상품 등록</a></li>
+	<li><a href="/shopping/goodsInput">상품 등록</a></li>
 	<li><a href="#">상품 목록</a></li>
 	<li>재고 관리</li>
 	</ul>

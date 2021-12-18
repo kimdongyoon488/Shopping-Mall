@@ -78,5 +78,12 @@ public class CategoryController {
 		service.delete(cnum);
 		return "redirect:/category_list";
 	}
-
+	
+	@GetMapping("/goodsInput")
+	public String product8(Model model) {
+		List<CategoryVO> list = service.list();
+		model.addAttribute("listCategory",list);
+		return "ProductManagement/goodsInput";
+	}
+	
 }

@@ -12,6 +12,7 @@ import com.example.shopping.vo.CategoryVO;
 @Mapper
 public interface ICategoryMapper {
 	
+
 	public void insert(CategoryVO vo);
 	
 	public List<CategoryVO> list();
@@ -21,4 +22,6 @@ public interface ICategoryMapper {
 	public void update(CategoryVO vo);
 	
 	public CategoryVO select(int num);
+
+	
 }
