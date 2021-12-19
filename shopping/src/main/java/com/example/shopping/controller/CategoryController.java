@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -160,6 +159,14 @@ public class CategoryController {
 		}
 		System.out.println(vo.getPimage());	
 		service.updateGoods(vo);
+		return "redirect:/goodsList";
+	}
+	
+	@GetMapping("/goodsDelete")
+	public String product13(int pnum,String pimage) {
+		service.deleteGoods(pnum);
+		File file = new File("c:\\Temp\\upload",pimage);
+		file.delete();
 		return "redirect:/goodsList";
 	}
 }

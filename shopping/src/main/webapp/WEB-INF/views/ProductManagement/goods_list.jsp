@@ -7,7 +7,7 @@
 	function checkDel(pnum, pimage){
 		var isDel = window.confirm("정말로 삭제하시겠습니까?");
 		if (isDel){
-			location.href="prod_delete.jsp?pnum="+pnum + "&pimage="+pimage;
+			location.href="/shopping/goodsDelete?pnum="+pnum + "&pimage="+pimage;
 		} 
 	}
 </script>
@@ -39,7 +39,7 @@
 		<td>${vo.price}</td>
 		<td>${vo.pqty}</td>
 		<td>
-			<a href="/shopping/goodsUpdate?num=${vo.pnum}">수정</a> |
+			<a href="/shopping/goodsUpdate?num=${vo.pnum}">수정</a>
 			<a href="javascript:checkDel('${vo.pnum}','${vo.pimage}')">삭제</a>
 		</td>
 	</tr>
