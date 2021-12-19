@@ -2,16 +2,25 @@ package com.example.shopping.controller;
 
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.shopping.service.CategoryService;
 import com.example.shopping.vo.CategoryVO;
+import com.example.shopping.vo.GoodsVO;
 
 
 
@@ -90,8 +99,22 @@ public class CategoryController {
 	}
 	
 	@PostMapping("/goodsInput2")
-	public String product9() {
-		
-		return "";
+	public String product9(HttpServletRequest req,GoodsVO vo, 
+					BindingResult result) {
+		if (result.hasErrors()) {
+			vo.setPimage("");
+		}
+		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
+		MultipartFile file = mr.getFile("pimage");
+		File target = new File("c:\\Temp\\upload",file.getOriginalFilename());
+		if (file.getSize()>0) {
+			try {
+				file.transferTo(target);
+			}catch(IOException e) {}
+		vo.setPimage(file.getOriginalFilename());
+		}
+		vo.setPcode(req.getParameter("category_fk") + vo.getPcode());
+		service.insertGoods(vo);
+		return "ProductManagement/goodsManage";
 	}
 }
