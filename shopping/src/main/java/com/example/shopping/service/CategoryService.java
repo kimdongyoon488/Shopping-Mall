@@ -62,6 +62,27 @@ public class CategoryService implements ICategoryService{
 	public List<GoodsVO> goodsList() {
 		return mapper.goodsList();
 	}
+
+
+	@Override
+	public GoodsVO selectGoods(int num) {
+		
+		return mapper.selectGoods(num);
+	}
+
+
+	@Override
+	public void updateGoods(GoodsVO vo) {
+		mapper.updateGoods(vo);
+		
+	}
+
+
+	@Override
+	public void deleteGoods(int num) {
+		
+		mapper.deleteGoods(num);
+	}
 	
 	
 }

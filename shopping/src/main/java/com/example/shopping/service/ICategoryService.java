@@ -20,4 +20,10 @@ public interface ICategoryService {
 	public void insertGoods(GoodsVO vo);
 	
 	public List<GoodsVO> goodsList();
+	
+	public GoodsVO selectGoods(int num);
+	
+	public void updateGoods(GoodsVO vo);
+	
+	public void deleteGoods(int num);
 }

@@ -36,4 +36,17 @@
 		select * from product
 	</select>
 	
+	<select id="selectGoods" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product where pnum = #{num}
+	</select>
+	
+	<update id="updateGoods">
+		update product set pname=#{pname}, pcompany=#{pcompany}, price=#{price},
+		pspec=#{pspec}, sale=#{sale}, pcontent=#{pcontent} , 
+		pimage=#{pimage}, point=#{point} where pnum=#{pnum}
+	</update>
+	<delete id="deleteGoods">
+		delete from product where pnum = #{num}
+	</delete>
+	
 </mapper>

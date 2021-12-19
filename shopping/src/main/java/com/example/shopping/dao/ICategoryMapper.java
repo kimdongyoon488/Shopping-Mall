@@ -28,6 +28,12 @@ public interface ICategoryMapper {
 	
 	public List<GoodsVO> goodsList();
 	
-	public GoodsVO selectGoods();
+	public GoodsVO selectGoods(int num);
+	
+	public void updateGoods(GoodsVO vo);
+	
+	public void deleteGoods(int num);
+	
+	
 	
 }

@@ -36,7 +36,7 @@
 			<td>${dto.code}</td>
 			<td>${dto.cname}</td>
 			<td>
-				<a href="/shopping/category_edit?cnum=${dto.cnum}">수정</a> | 
+				<a href="/shopping/category_edit?num=${dto.cnum}">수정</a> | 
 				<a href="javascript:checkDel('${dto.cnum}')">삭제</a>
 			</td>
 		</tr>		

@@ -129,4 +129,37 @@ public class CategoryController {
 		req.setAttribute("listProduct",list);
 		return "ProductManagement/goods_list";
 	}
+	
+	@GetMapping("/goodsUpdate")
+	public String product11(int num , Model model) {
+		GoodsVO vo = service.selectGoods(num);
+		model.addAttribute("getProduct", vo);
+		return "ProductManagement/goods_update";
+	}
+	
+	
+	
+	@PostMapping("/goodsUpdate2")
+	public String product12(HttpServletRequest req , GoodsVO vo,
+							BindingResult result) {
+		if (result.hasErrors()) {
+			vo.setPimage("");
+		}
+		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
+		MultipartFile file = mr.getFile("pimage");
+		File target = new File("c:\\Temp\\upload", file.getOriginalFilename());
+		if (file.getSize()>0) {
+			try {
+				file.transferTo(target);
+				vo.setPimage(file.getOriginalFilename());
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+			vo.setPimage(req.getParameter("pimage2"));
+		}
+		System.out.println(vo.getPimage());	
+		service.updateGoods(vo);
+		return "redirect:/goodsList";
+	}
 }
