@@ -117,4 +117,16 @@ public class CategoryController {
 		service.insertGoods(vo);
 		return "ProductManagement/goodsManage";
 	}
+	
+	@GetMapping("/goodsList")
+	public String product10(HttpServletRequest req) {
+		List<GoodsVO> list = service.goodsList();
+		for (int i=0; i<list.size(); i++) {
+			GoodsVO vo  = list.get(i);
+			System.out.print(vo.getPimage()); 
+			System.out.println();
+		}
+		req.setAttribute("listProduct",list);
+		return "ProductManagement/goods_list";
+	}
 }

@@ -18,4 +18,6 @@ public interface ICategoryService {
 	public void update(CategoryVO vo);
 	
 	public void insertGoods(GoodsVO vo);
+	
+	public List<GoodsVO> goodsList();
 }

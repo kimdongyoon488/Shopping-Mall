@@ -56,6 +56,12 @@ public class CategoryService implements ICategoryService{
 		mapper.insertGoods(vo);
 		
 	}
+
+
+	@Override
+	public List<GoodsVO> goodsList() {
+		return mapper.goodsList();
+	}
 	
 	
 }

@@ -26,4 +26,8 @@ public interface ICategoryMapper {
 
 	public void insertGoods(GoodsVO vo);
 	
+	public List<GoodsVO> goodsList();
+	
+	public GoodsVO selectGoods();
+	
 }

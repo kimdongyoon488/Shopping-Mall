@@ -32,4 +32,8 @@
 			#{pspec}, #{pcontent}, #{pimage}, 0, #{point}, #{sale}) 
 	</insert>
 	
+	<select id="goodsList" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product
+	</select>
+	
 </mapper>
