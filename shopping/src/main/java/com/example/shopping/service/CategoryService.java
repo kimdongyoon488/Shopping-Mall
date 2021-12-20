@@ -32,15 +32,15 @@ public class CategoryService implements ICategoryService{
 
 
 	@Override
-	public CategoryVO select(int cnum) {
+	public CategoryVO select(int num) {
 		
-		return mapper.select(cnum);
+		return mapper.select(num);
 	}
 
 
 	@Override
-	public void delete(int cnum) {
-		mapper.delete(cnum);
+	public void delete(int num) {
+		mapper.delete(num);
 		
 	}
 

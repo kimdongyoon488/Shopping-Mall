@@ -8,27 +8,39 @@ import com.example.shopping.vo.SearchVO;
 
 public interface ICategoryService {
 
-	public void insert(CategoryVO vo);
+	//카테고리 등록
+		public void insert(CategoryVO vo);
+		
+		//전체 카테고리 조회
+		public List<CategoryVO> list();
+		
+		//카테고리 삭제
+		public void delete(int num);
+		
+		//카테고리 수정
+		public void update(CategoryVO vo);
+		
+		//특정 카테고리 조회
+		public CategoryVO select(int num);
 
-	public List<CategoryVO> list();
-	
-	public CategoryVO select(int cnum);
-	
-	public void delete(int cnum);
-	
-	public void update(CategoryVO vo);
-	
-	public void insertGoods(GoodsVO vo);
-	
-	public List<GoodsVO> goodsList();
-	
-	public GoodsVO selectGoods(int num);
-	
-	public void updateGoods(GoodsVO vo);
-	
-	public void deleteGoods(int num);
-	
-	public List<GoodsVO> findCategoryGoods(SearchVO vo);
-	
-	public List<GoodsVO> findNameGoods(SearchVO vo);
+		//상품 등록
+		public void insertGoods(GoodsVO vo);
+		
+		//전체 상품 조회
+		public List<GoodsVO> goodsList();
+		
+		//특정 상품 조회
+		public GoodsVO selectGoods(int num);
+		
+		//상품 수정
+		public void updateGoods(GoodsVO vo);
+		
+		//상품 삭제
+		public void deleteGoods(int num);
+		
+		//카테고리별 상품 조회
+		public List<GoodsVO> findCategoryGoods(SearchVO vo);
+		
+		//이름별 상품 조회
+		public List<GoodsVO> findNameGoods(SearchVO vo);
 }
