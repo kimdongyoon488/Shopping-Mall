@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.shopping.dao.ICategoryMapper;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.SearchVO;
 
 
 @Service
@@ -82,6 +83,20 @@ public class CategoryService implements ICategoryService{
 	public void deleteGoods(int num) {
 		
 		mapper.deleteGoods(num);
+	}
+
+
+	@Override
+	public List<GoodsVO> findCategoryGoods(SearchVO vo) {
+		
+		return mapper.findCategoryGoods(vo);
+	}
+
+
+	@Override
+	public List<GoodsVO> findNameGoods(SearchVO vo) {
+		
+		return mapper.findNameGoods(vo);
 	}
 	
 	

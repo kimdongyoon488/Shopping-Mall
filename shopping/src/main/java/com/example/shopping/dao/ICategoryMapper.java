@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.SearchVO;
 
 
 @Mapper
@@ -34,6 +35,9 @@ public interface ICategoryMapper {
 	
 	public void deleteGoods(int num);
 	
+	public List<GoodsVO> findCategoryGoods(SearchVO vo);
+	
+	public List<GoodsVO> findNameGoods(SearchVO vo);
 	
 	
 }

@@ -14,6 +14,15 @@
 <div align="center">
 <table border="1" width="800">
 	<caption>상품목록</caption>
+	<form action="/shopping/goodsSearch" method="post">
+		<select name="condition">
+			<option value="cate">카테고리명</option>
+			<option value="name">상품명</option>
+			<option value="all">전체상품</option>
+		</select>
+		<input type="text" name="search">
+		<input type="submit" value="검색">		
+	</form>
 	<tr bgcolor="yellow">
 		<th>번호</th>
 		<th>상품명</th>

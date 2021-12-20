@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.SearchVO;
 
 public interface ICategoryService {
 
@@ -26,4 +27,8 @@ public interface ICategoryService {
 	public void updateGoods(GoodsVO vo);
 	
 	public void deleteGoods(int num);
+	
+	public List<GoodsVO> findCategoryGoods(SearchVO vo);
+	
+	public List<GoodsVO> findNameGoods(SearchVO vo);
 }

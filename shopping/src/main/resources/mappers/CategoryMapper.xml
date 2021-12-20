@@ -45,8 +45,19 @@
 		pspec=#{pspec}, sale=#{sale}, pcontent=#{pcontent} , 
 		pimage=#{pimage}, point=#{point} where pnum=#{pnum}
 	</update>
+	
 	<delete id="deleteGoods">
 		delete from product where pnum = #{num}
 	</delete>
+	
+	<select id="findCategoryGoods" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product where 
+			${condition} like (select A.code from 
+			(select * from category where cname=#{search})A)||'%'
+	</select>
+	
+	<select id="findNameGoods" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product where ${condition} like '%'||#{search}||'%'
+	</select>
 	
 </mapper>

@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.example.shopping.service.CategoryService;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.SearchVO;
 
 
 
@@ -168,5 +169,24 @@ public class CategoryController {
 		File file = new File("c:\\Temp\\upload",pimage);
 		file.delete();
 		return "redirect:/goodsList";
+	}
+	
+	@PostMapping("/goodsSearch")
+	public String prod_find(HttpServletRequest req,SearchVO vo) {
+		System.out.println(vo);
+		List<GoodsVO> list = null;
+		if (vo.getCondition().equals("all")) {
+			list = service.goodsList();
+		}else {
+			if (vo.getCondition().equals("cate")) {
+				vo.setCondition("pcode");
+				list = service.findCategoryGoods(vo);
+			}else {
+				vo.setCondition("pname");
+				list = service.findNameGoods(vo);
+			}
+		}
+		req.setAttribute("listProduct", list);
+		return "ProductManagement/goods_list";
 	}
 }
