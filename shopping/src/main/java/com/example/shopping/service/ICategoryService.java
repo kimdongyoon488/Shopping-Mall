@@ -8,7 +8,7 @@ import com.example.shopping.vo.SearchVO;
 
 public interface ICategoryService {
 
-	//카테고리 등록
+		//카테고리 등록
 		public void insert(CategoryVO vo);
 		
 		//전체 카테고리 조회

@@ -107,9 +107,11 @@ public class CategoryController {
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
 		File target = new File("c:\\Temp\\upload",file.getOriginalFilename());
+		File target2 = new File("src/main/resources/static/images",file.getOriginalFilename());
 		if (file.getSize()>0) {
 			try {
 				file.transferTo(target);
+				file.transferTo(target2);
 			}catch(IOException e) {}
 		vo.setPimage(file.getOriginalFilename());
 		}

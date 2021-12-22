@@ -31,11 +31,6 @@ public class CategoryService implements ICategoryService{
 	}
 
 
-	@Override
-	public CategoryVO select(int num) {
-		
-		return mapper.select(num);
-	}
 
 
 	@Override
@@ -49,6 +44,12 @@ public class CategoryService implements ICategoryService{
 	public void update(CategoryVO vo) {
 		mapper.update(vo);
 		
+	}
+	
+	@Override
+	public CategoryVO select(int num) {
+		
+		return mapper.select(num);
 	}
 
 

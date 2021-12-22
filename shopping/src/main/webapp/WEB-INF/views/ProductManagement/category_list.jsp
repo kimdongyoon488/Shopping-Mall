@@ -15,6 +15,7 @@
 </script>
 </head>
 <body>
+<button type="button" onclick="location.href='/shopping/goodsManage'">뒤로가기</button>
 <div align="center">
 	<table border="1" width="500">
 		<caption valign="top"><h2>카테고리 목록</h2></caption>
