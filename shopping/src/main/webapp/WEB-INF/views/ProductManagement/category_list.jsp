@@ -43,6 +43,17 @@
 		</tr>		
 	</c:forEach>
 	</table>
+
+
+	
+		<a class="page-link" href="#" 
+			style="background-color: #ff52a0; margin-top: 0; heght: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+		
+		<a href="#" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;"></a>
+	
+		<a class="page-link" href="#" 
+		style="background-color: #ff52a0; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+	
 </div>
 </body>
 </html>

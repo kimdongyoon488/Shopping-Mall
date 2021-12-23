@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
 import com.example.shopping.vo.SearchVO;
@@ -17,8 +18,14 @@ public interface ICategoryMapper {
 	//카테고리 등록
 	public void insert(CategoryVO vo);
 	
+	//페이징 카테고리 조회
+	public List<CategoryVO> list(PageVO vo);
+	
 	//전체 카테고리 조회
-	public List<CategoryVO> list();
+	public List<CategoryVO> allList();
+	
+	//전체 카테고리 수 조회
+	public int countAllList();
 	
 	//카테고리 삭제
 	public void delete(int num);

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.CategoryService;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
@@ -60,8 +61,8 @@ public class CategoryController {
 	
 	
 	@GetMapping("/category_list")
-	public String product4(Model model) {
-		List<CategoryVO> list = service.list();
+	public String product4(Model model, PageVO vo) {
+		List<CategoryVO> list = service.list(vo);
 		System.out.println(list);
 		System.out.println("==============");
 		model.addAttribute("listCategory",list);
@@ -90,11 +91,11 @@ public class CategoryController {
 	
 	@GetMapping("/goodsInput")
 	public String product8(Model model) {
-		List<CategoryVO> list = service.list();
-		if (list == null && list.size() == 0) {
+		List<CategoryVO> allList = service.allList();
+		if (allList == null && allList.size() == 0) {
 			return "redirect:/";
 		}
-		model.addAttribute("listCategory",list);
+		model.addAttribute("listCategory",allList);
 		return "ProductManagement/goodsInput";
 	}
 	

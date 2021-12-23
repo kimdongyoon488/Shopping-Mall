@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.shopping.dao.ICategoryMapper;
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
 import com.example.shopping.vo.SearchVO;
@@ -25,11 +26,22 @@ public class CategoryService implements ICategoryService{
 
 	
 	@Override
-	public List<CategoryVO> list() {
+	public List<CategoryVO> list(PageVO vo) {
 		
-		return mapper.list();
+		return mapper.list(vo);
 	}
 
+	@Override
+	public List<CategoryVO> allList() {
+		
+		return mapper.allList();
+	}
+
+	@Override
+	public int countAllList() {
+		
+		return mapper.countAllList();
+	}
 
 
 
@@ -99,6 +111,11 @@ public class CategoryService implements ICategoryService{
 		
 		return mapper.findNameGoods(vo);
 	}
+
+
+	
+
+	
 	
 	
 }

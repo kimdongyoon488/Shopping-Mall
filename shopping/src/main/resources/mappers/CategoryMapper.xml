@@ -12,7 +12,16 @@
 	</insert>
 	
 	<select id="list" resultType="com.example.shopping.vo.CategoryVO">
+		select * from category OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY 
+	</select>
+	
+	<select id="allList" resultType="com.example.shopping.vo.CategoryVO">
 		select * from category
+	</select>
+	
+	
+	<select id="countAllList" resultType="int">
+		select count(*) from category
 	</select>
 	
 	<select id="select" resultType="com.example.shopping.vo.CategoryVO">
