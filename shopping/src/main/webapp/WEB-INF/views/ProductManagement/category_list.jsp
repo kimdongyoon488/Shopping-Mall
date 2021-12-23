@@ -31,14 +31,14 @@
 			<td colspan="6">등록된 카테고리가 없습니다.</td>
 		</tr>		
 	</c:if>		
-	<c:forEach var="dto" items="${listCategory}">
+	<c:forEach var="vo" items="${listCategory}">
 		<tr>
-			<td>${dto.cnum}</td>
-			<td>${dto.code}</td>
-			<td>${dto.cname}</td>
+			<td>${vo.cnum}</td>
+			<td>${vo.code}</td>
+			<td>${vo.cname}</td>
 			<td>
-				<a href="/shopping/category_edit? num=${dto.cnum}">수정</a>
-				<a href="javascript:checkDel('${dto.cnum}')">삭제</a>
+				<a href="/shopping/category_edit? num=${vo.cnum}">수정</a>
+				<a href="javascript:checkDel('${vo.cnum}')">삭제</a>
 			</td>
 		</tr>		
 	</c:forEach>
@@ -46,12 +46,12 @@
 
 
 	
-		<a class="page-link" href="#" 
+		<a class="page-link" href="/shopping/category_list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}" 
 			style="background-color: #ff52a0; margin-top: 0; heght: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
-		
-		<a href="#" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;"></a>
-	
-		<a class="page-link" href="#" 
+		<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+			<a href="/shopping/category_list?page=${pageNum}&countPerPage=4" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;">${pageNum}</a>
+		</c:forEach>
+		<a class="page-link" href="/shopping/category_list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}" 
 		style="background-color: #ff52a0; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
 	
 </div>
