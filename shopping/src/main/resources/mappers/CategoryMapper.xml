@@ -41,8 +41,16 @@
 			#{pspec}, #{pcontent}, #{pimage}, 0, #{point}, #{sale}) 
 	</insert>
 	
-	<select id="goodsList" resultType="com.example.shopping.vo.GoodsVO">
+	<select id="allGoodsList" resultType="com.example.shopping.vo.GoodsVO">
 		select * from product
+	</select>
+	
+	<select id="countAllGoods" resultType="int">
+		select count(*) from product 
+	</select>
+	
+	<select id="goodsList" resultType="com.example.shopping.vo.GoodsVO">
+		SELECT * FROM product OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>
 	
 	<select id="selectGoods" resultType="com.example.shopping.vo.GoodsVO">

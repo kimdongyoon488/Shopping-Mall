@@ -40,7 +40,13 @@ public interface ICategoryMapper {
 	public void insertGoods(GoodsVO vo);
 	
 	//전체 상품 조회
-	public List<GoodsVO> goodsList();
+	public List<GoodsVO> allGoodsList();
+	
+	//전체 상품 수 조회
+	public int countAllGoods();
+	
+	//페이징 상품 조회
+	public List<GoodsVO> goodsList(PageVO vo);
 	
 	//특정 상품 조회
 	public GoodsVO selectGoods(int num);

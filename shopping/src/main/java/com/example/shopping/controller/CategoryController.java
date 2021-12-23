@@ -66,7 +66,7 @@ public class CategoryController {
 		List<CategoryVO> list = service.list(vo);
 		PageCreator pc = new PageCreator();
 		pc.setPaging(vo);
-		pc.setTotalCategory(service.countAllList());
+		pc.setTotalCount(service.countAllList());
 		System.out.println(list);
 		System.out.println("==============");
 		model.addAttribute("listCategory",list);
@@ -127,14 +127,13 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/goodsList")
-	public String product10(HttpServletRequest req) {
-		List<GoodsVO> list = service.goodsList();
-		for (int i=0; i<list.size(); i++) {
-			GoodsVO vo  = list.get(i);
-			System.out.print(vo.getPimage()); 
-			System.out.println();
-		}
+	public String product10(HttpServletRequest req , PageVO vo) {
+		List<GoodsVO> list = service.goodsList(vo);
+		PageCreator pc = new PageCreator();
+		pc.setPaging(vo);
+		pc.setTotalCount(service.countAllGoods());
 		req.setAttribute("listProduct",list);
+		req.setAttribute("pc", pc);
 		return "ProductManagement/goods_list";
 	}
 	
@@ -180,11 +179,14 @@ public class CategoryController {
 	}
 	
 	@PostMapping("/goodsSearch")
-	public String prod_find(HttpServletRequest req,SearchVO vo) {
+	public String prod_find(HttpServletRequest req, SearchVO vo , PageVO vo2) {
 		System.out.println(vo);
+		PageCreator pc = new PageCreator();
+		pc.setPaging(vo2);
+		pc.setTotalCount(service.countAllGoods());
 		List<GoodsVO> list = null;
 		if (vo.getCondition().equals("all")) {
-			list = service.goodsList();
+			list = service.goodsList(vo2);
 		}else {
 			if (vo.getCondition().equals("cate")) {
 				vo.setCondition("pcode");
@@ -195,6 +197,7 @@ public class CategoryController {
 			}
 		}
 		req.setAttribute("listProduct", list);
+		req.setAttribute("pc", pc);
 		return "ProductManagement/goods_list";
 	}
 }

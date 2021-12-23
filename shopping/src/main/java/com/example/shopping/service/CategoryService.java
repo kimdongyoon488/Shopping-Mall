@@ -73,10 +73,21 @@ public class CategoryService implements ICategoryService{
 
 
 	@Override
-	public List<GoodsVO> goodsList() {
-		return mapper.goodsList();
+	public List<GoodsVO> allGoodsList() {
+		return mapper.allGoodsList();
 	}
 
+	@Override
+	public int countAllGoods() {
+		
+		return mapper.countAllGoods();
+	}
+
+	@Override
+	public List<GoodsVO> goodsList(PageVO vo) {
+		
+		return mapper.goodsList(vo);
+	}
 
 	@Override
 	public GoodsVO selectGoods(int num) {
@@ -111,6 +122,11 @@ public class CategoryService implements ICategoryService{
 		
 		return mapper.findNameGoods(vo);
 	}
+
+
+
+
+	
 
 
 	

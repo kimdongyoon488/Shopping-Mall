@@ -6,7 +6,7 @@ public class PageCreator {
 	private PageVO paging;
 	private int beginPage;
 	private int endPage;
-	private int totalCategory;
+	private int totalCount;
 	private boolean prev;
 	private boolean next;
 	
@@ -17,9 +17,9 @@ public class PageCreator {
 		endPage = (int)(Math.ceil((double)paging.getPage()/displayPage))*displayPage;
 		beginPage = (endPage - displayPage) + 1;
 		prev = (beginPage == 1) ? false : true;
-		next = (totalCategory > (endPage * paging.getCountPerPage())) ? true : false; 
+		next = (totalCount > (endPage * paging.getCountPerPage())) ? true : false; 
 		if(!next) {
-			endPage = (int)(Math.ceil((double)totalCategory / paging.getCountPerPage()));
+			endPage = (int)(Math.ceil((double)totalCount / paging.getCountPerPage()));
 		}
 	}
 	
@@ -47,12 +47,12 @@ public class PageCreator {
 		this.endPage = endPage;
 	}
 	
-	public int getTotalCategory() {
-		return totalCategory;
+	public int getTotalCount() {
+		return totalCount;
 	}
 	
-	public void setTotalCategory(int totalCategory) {
-		this.totalCategory = totalCategory;
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
 		calc();
 	}
 	
