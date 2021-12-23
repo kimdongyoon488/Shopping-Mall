@@ -7,7 +7,7 @@ public class PageVO {
 	
 	public PageVO() {
 		this.page = 1;
-		this.countPerPage = 5;
+		this.countPerPage = 2;
 	}
 	
 	public int getStartPage() {

@@ -10,7 +10,7 @@ public class PageCreator {
 	private boolean prev;
 	private boolean next;
 	
-	private final int displayPage = 4;
+	private final int displayPage = 2;
 	
 	public void calc() {
 		
