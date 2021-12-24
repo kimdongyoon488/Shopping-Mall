@@ -37,7 +37,7 @@
 			<td>${vo.code}</td>
 			<td>${vo.cname}</td>
 			<td>
-				<a href="/shopping/category_edit? num=${vo.cnum}">수정</a>
+				<a href="/shopping/category_edit?cnum=${vo.cnum}">수정</a>
 				<a href="javascript:checkDel('${vo.cnum}')">삭제</a>
 			</td>
 		</tr>		

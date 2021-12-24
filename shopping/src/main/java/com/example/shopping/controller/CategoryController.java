@@ -154,7 +154,8 @@ public class CategoryController {
 		}
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
-		File target = new File("c:\\Temp\\upload", file.getOriginalFilename());
+		File target = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images", file.getOriginalFilename());
+		//이미지를 바꾸고 수정했을때
 		if (file.getSize()>0) {
 			try {
 				file.transferTo(target);
@@ -162,9 +163,12 @@ public class CategoryController {
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
-		}else {
-			vo.setPimage(req.getParameter("pimage2"));
+		} 
+		//이미지를 안바꾸고 수정했을때
+		else {
+			vo.setPimage(req.getParameter("pimage2")); 
 		}
+		
 		System.out.println(vo.getPimage());	
 		service.updateGoods(vo);
 		return "redirect:/goodsList";
@@ -173,7 +177,7 @@ public class CategoryController {
 	@GetMapping("/goodsDelete")
 	public String product13(int pnum,String pimage) {
 		service.deleteGoods(pnum);
-		File file = new File("c:\\Temp\\upload",pimage);
+		File file = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images",pimage);
 		file.delete();
 		return "redirect:/goodsList";
 	}

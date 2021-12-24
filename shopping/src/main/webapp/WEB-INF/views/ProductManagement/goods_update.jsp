@@ -27,7 +27,7 @@
 		<tr>
 			<th bgcolor="yellow">상품이미지</th>
 			<td align="left">
-				<img src="resources/files/${getProduct.pimage}" width="60" height="60">
+				<img src="images/${getProduct.pimage}" width="60" height="60">
 				<input type="file" name="pimage">
 				<input type="hidden" name="pimage2" value="${getProduct.pimage}"/>
 			</td>
