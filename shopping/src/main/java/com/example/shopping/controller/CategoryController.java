@@ -187,6 +187,7 @@ public class CategoryController {
 		List<GoodsVO> list = null;
 		if (vo.getCondition().equals("all")) {
 			list = service.goodsList(vo2);
+			req.setAttribute("pc", pc);
 		}else {
 			if (vo.getCondition().equals("cate")) {
 				vo.setCondition("pcode");
@@ -197,7 +198,6 @@ public class CategoryController {
 			}
 		}
 		req.setAttribute("listProduct", list);
-		req.setAttribute("pc", pc);
 		return "ProductManagement/goods_list";
 	}
 }

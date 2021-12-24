@@ -55,12 +55,20 @@
 	</tr>
 </c:forEach>
 </table>
-		<a class="page-link" href="#" 
-			style="background-color: #ff52a0; margin-top: 0; heght: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
-
-			<a href="#" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;"></a>
-	
 		
-		<a class="page-link" href="#" 
-		style="background-color: #ff52a0; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+	<c:if test="${not empty pc}">
+	
+		<c:if test="${pc.prev}"> 
+			<a class="page-link" href="/shopping/goodsList?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}" 
+				style=" margin-top: 0; heght: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+			</c:if>
+			<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+				<a href="/shopping/goodsList?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
+			</c:forEach>
+		<c:if test="${pc.next}">
+			<a class="page-link" href="/shopping/goodsList?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}" 
+			style=" margin-top: 0; height: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+		</c:if>
+		
+	</c:if>
 </div>
