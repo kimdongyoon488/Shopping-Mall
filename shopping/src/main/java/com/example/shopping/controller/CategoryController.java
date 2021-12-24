@@ -32,6 +32,7 @@ public class CategoryController {
 	@Autowired
 	CategoryService service;
 	
+	//관리자 페이지 이동
 	@GetMapping("/")
 	public String home() {
 		
@@ -39,19 +40,21 @@ public class CategoryController {
 		
 	}
 	
+	//상품관리 페이지 이동
 	@GetMapping("/goodsManage")
 	public String product1() {
 		return "ProductManagement/goodsManage";
 		
 	}
 	
+	//카테고리 등록 페이지 이동
 	@GetMapping("/categoryAdd")
 	public String product2() {
 		return "ProductManagement/categoryAdd";
 		
 	}
 	
-	
+	//카테고리 등록
 	@PostMapping("/categoryAdd2")
 	public String product3(CategoryVO vo) {
 		System.out.println(vo);
@@ -61,6 +64,7 @@ public class CategoryController {
 	}
 	
 	
+	//카테고리 목록 페이지 이동
 	@GetMapping("/category_list")
 	public String product4(Model model, PageVO vo) {
 		List<CategoryVO> list = service.list(vo);
@@ -74,6 +78,7 @@ public class CategoryController {
 		return "ProductManagement/category_list";
 	}
 	
+	//카테고리 수정 페이지 이동
 	@GetMapping("/category_edit")
 	public String product5(int cnum,Model model) {
 		CategoryVO vo = service.select(cnum);
@@ -81,6 +86,7 @@ public class CategoryController {
 		return "ProductManagement/category_edit";
 	}
 	
+	//카테고리 수정
 	@PostMapping("/category_edit2")
 	public String product6(CategoryVO vo) {
 		service.update(vo);
@@ -88,12 +94,14 @@ public class CategoryController {
 		return "redirect:/category_list";
 	}
 	
+	//카테고리 삭제
 	@GetMapping("/category_delete")
 	public String product7(int cnum) {
 		service.delete(cnum);
 		return "redirect:/category_list";
 	}
 	
+	//상품 등록 페이지 이동
 	@GetMapping("/goodsInput")
 	public String product8(Model model) {
 		List<CategoryVO> allList = service.allList();
@@ -104,6 +112,7 @@ public class CategoryController {
 		return "ProductManagement/goodsInput";
 	}
 	
+	//상품 등록
 	@PostMapping("/goodsInput2")
 	public String product9(HttpServletRequest req,GoodsVO vo, 
 					BindingResult result) {
@@ -126,6 +135,7 @@ public class CategoryController {
 		return "ProductManagement/goodsManage";
 	}
 	
+	//상품 목록 페이지 이동
 	@GetMapping("/goodsList")
 	public String product10(HttpServletRequest req , PageVO vo) {
 		List<GoodsVO> list = service.goodsList(vo);
@@ -137,6 +147,8 @@ public class CategoryController {
 		return "ProductManagement/goods_list";
 	}
 	
+	
+	//상품 수정 페이지 이동
 	@GetMapping("/goodsUpdate")
 	public String product11(int num , Model model) {
 		GoodsVO vo = service.selectGoods(num);
@@ -145,7 +157,7 @@ public class CategoryController {
 	}
 	
 	
-	
+	//상품 수정
 	@PostMapping("/goodsUpdate2")
 	public String product12(HttpServletRequest req , GoodsVO vo,
 							BindingResult result) {
@@ -155,6 +167,7 @@ public class CategoryController {
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
 		File target = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images", file.getOriginalFilename());
+		
 		//이미지를 바꾸고 수정했을때
 		if (file.getSize()>0) {
 			try {
@@ -174,6 +187,7 @@ public class CategoryController {
 		return "redirect:/goodsList";
 	}
 	
+	//상품 삭제
 	@GetMapping("/goodsDelete")
 	public String product13(int pnum,String pimage) {
 		service.deleteGoods(pnum);
@@ -182,6 +196,7 @@ public class CategoryController {
 		return "redirect:/goodsList";
 	}
 	
+	//상품 검색
 	@PostMapping("/goodsSearch")
 	public String prod_find(HttpServletRequest req, SearchVO vo , PageVO vo2) {
 		System.out.println(vo);
