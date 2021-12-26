@@ -64,4 +64,7 @@ public interface ICategoryMapper {
 	public List<GoodsVO> findNameGoods(SearchVO vo);
 	
 	public List<GoodsVO> listPspec(String pspec);
+	
+	public List<GoodsVO> listPcode(String pcode);
+	
 }

@@ -131,6 +131,13 @@ public class CategoryService implements ICategoryService{
 	}
 
 
+	@Override
+	public List<GoodsVO> listPcode(String pcode) {
+		
+		return mapper.listPcode(pcode);
+	}
+
+
 
 
 	

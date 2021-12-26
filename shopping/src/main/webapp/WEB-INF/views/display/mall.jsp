@@ -3,6 +3,7 @@
 <!-- mall_index.jsp -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ include file="mall_top.jsp"%>
 <div align="center">
 	<hr color="green" width="300">
 	<h2> H I T</h2>
@@ -83,3 +84,4 @@
 		</table>
 	</c:if>
 </div>
+<%@ include file="mall_bottom.jsp"%>

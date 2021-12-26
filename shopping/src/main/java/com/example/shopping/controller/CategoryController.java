@@ -225,7 +225,20 @@ public class CategoryController {
 	@GetMapping("/mall")
 	public String product15(HttpServletRequest req) {
 		
-		Hashtable<String,List<GoodsVO>> ht = new Hashtable<>();
+		List<CategoryVO> clist = service.allList();
+		
+		if (clist == null && clist.size() == 0) {
+			req.setAttribute("msg", "아직 쇼핑몰이 준비되지 못했습니다. main페이지로 이동합니다");
+			req.setAttribute("url", "/shopping/");
+			return "message";
+		}
+		System.out.println(clist);
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("listCategory", clist);
+		
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("pspec");
+		if (ht == null) ht = new Hashtable<String, List<GoodsVO>>();
 		
 		String[] str = new String[] {"HIT","NEW","SALE"};
 		for(String s : str) {
@@ -233,8 +246,19 @@ public class CategoryController {
 			ht.put(s,list);
 		}
 		
-		HttpSession session = req.getSession();
+	
 		session.setAttribute("pspec",ht);
 		return "display/mall";
+	}
+	
+	@GetMapping("/mall_categoryList")
+	public String product16(HttpServletRequest req , String code) {
+		List<GoodsVO> list = service.listPcode(code);
+		HttpSession session = req.getSession();
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("pspec");
+		ht.put(code, list);
+		session.setAttribute("pspec", ht);
+		req.setAttribute("cateGoods", list);
+		return "display/mall_cateGoodsList";
 	}
 }
