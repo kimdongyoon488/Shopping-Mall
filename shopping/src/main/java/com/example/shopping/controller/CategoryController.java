@@ -237,7 +237,7 @@ public class CategoryController {
 		HttpSession session = req.getSession();
 		session.setAttribute("listCategory", clist);
 		
-		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("pspec");
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
 		if (ht == null) ht = new Hashtable<String, List<GoodsVO>>();
 		
 		String[] str = new String[] {"HIT","NEW","SALE"};
@@ -247,7 +247,7 @@ public class CategoryController {
 		}
 		
 	
-		session.setAttribute("pspec",ht);
+		session.setAttribute("viewGoods",ht);
 		return "display/mall";
 	}
 	
@@ -255,9 +255,9 @@ public class CategoryController {
 	public String product16(HttpServletRequest req , String code , String cname) {
 		List<GoodsVO> list = service.listPcode(code);
 		HttpSession session = req.getSession();
-		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("pspec");
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
 		ht.put(code, list);
-		session.setAttribute("pspec", ht);
+		session.setAttribute("viewGoods", ht);
 		req.setAttribute("cateGoods", list);
 		req.setAttribute("cname", cname);
 		return "display/mall_cateGoodsList";

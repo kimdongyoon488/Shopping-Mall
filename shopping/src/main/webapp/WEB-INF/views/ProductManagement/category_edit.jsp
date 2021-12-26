@@ -7,7 +7,7 @@
 </head>
 <body>
 <div align="center">
-<form action="/shopping/goodsUpdate2" method="post">
+<form action="/shopping/category_edit2" method="post">
 	<input type="hidden" name="cnum" value="${getCategory.cnum}"/>
 	<table border="1" width="400" height="150">
 		<h1>카테고리등록</h1>
