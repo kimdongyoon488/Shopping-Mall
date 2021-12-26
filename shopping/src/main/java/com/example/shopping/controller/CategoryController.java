@@ -259,7 +259,22 @@ public class CategoryController {
 		ht.put(code, list);
 		session.setAttribute("viewGoods", ht);
 		req.setAttribute("cateGoods", list);
-		req.setAttribute("cname", cname);
 		return "display/mall_cateGoodsList";
 	}
+	
+	@GetMapping("/mall_goodsView")
+	public String product17(HttpServletRequest req , String code , int pnum){
+		HttpSession session = req.getSession();
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
+		List<GoodsVO> list = ht.get(code);
+		for(GoodsVO vo : list) {
+			if (pnum == vo.getPnum()) {
+				req.setAttribute("getProduct", vo);
+				break;
+			}
+		}
+		return"display/mall_goodsView"; 
+	}
+	
+	
 }
