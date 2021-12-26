@@ -4,11 +4,13 @@
 <!-- mall_cgProdList.jsp -->
 <div align="center">
 	<c:if test="${empty cateGoods}">
-		${param.cname} 카테고리에 등록된 상품이 없습니다. 
+		${cname}
+		카테고리에 등록된 상품이 없습니다. 
 	</c:if>
 	<c:if test="${not empty cateGoods}">
 		<hr color="green" width="300">
-		<h2>${param.cname}</h2>
+		<h2>${cname}
+		</h2>
 		<hr color="green" width="300">
 		<table width="80%" border="0" align="center">
  			<c:set var="co" value="1"/>

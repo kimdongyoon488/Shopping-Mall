@@ -251,14 +251,15 @@ public class CategoryController {
 		return "display/mall";
 	}
 	
-	@GetMapping("/mall_categoryList")
-	public String product16(HttpServletRequest req , String code) {
+	@PostMapping("/mall_categoryList")
+	public String product16(HttpServletRequest req , String code , String cname) {
 		List<GoodsVO> list = service.listPcode(code);
 		HttpSession session = req.getSession();
 		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("pspec");
 		ht.put(code, list);
 		session.setAttribute("pspec", ht);
 		req.setAttribute("cateGoods", list);
+		req.setAttribute("cname", cname);
 		return "display/mall_cateGoodsList";
 	}
 }
