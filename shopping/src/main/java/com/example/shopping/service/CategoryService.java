@@ -124,6 +124,13 @@ public class CategoryService implements ICategoryService{
 	}
 
 
+	@Override
+	public List<GoodsVO> listPspec(String pspec) {
+		
+		return mapper.listPspec(pspec);
+	}
+
+
 
 
 	

@@ -77,4 +77,8 @@
 		select * from product where ${condition} like '%'||#{search}||'%'
 	</select>
 	
+	<select id="listPspec" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product where pspec=#{pspec}
+	</select>
+	
 </mapper>

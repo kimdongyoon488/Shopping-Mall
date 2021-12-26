@@ -15,7 +15,7 @@
 	<br><br>
 	<li><h3><a href="/shopping/board">게시판관리</a></h3></li>
 	<br><br>
-	<li><h3><a href="/shopping/sale">매출관리</a></h3></li>
+	<li><h3><a href="/shopping/mall">매출관리</a></h3></li>
 </ul>
 </body>
 </html>

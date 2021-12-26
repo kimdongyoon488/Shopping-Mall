@@ -56,4 +56,6 @@ public interface ICategoryService {
 		
 		//이름별 상품 조회
 		public List<GoodsVO> findNameGoods(SearchVO vo);
+		
+		public List<GoodsVO> listPspec(String pspec);
 }

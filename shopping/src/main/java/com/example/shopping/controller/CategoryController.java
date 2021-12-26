@@ -4,9 +4,11 @@ package com.example.shopping.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -198,7 +200,7 @@ public class CategoryController {
 	
 	//상품 검색
 	@PostMapping("/goodsSearch")
-	public String prod_find(HttpServletRequest req, SearchVO vo , PageVO vo2) {
+	public String product14(HttpServletRequest req, SearchVO vo , PageVO vo2) {
 		System.out.println(vo);
 		PageCreator pc = new PageCreator();
 		pc.setPaging(vo2);
@@ -218,5 +220,21 @@ public class CategoryController {
 		}
 		req.setAttribute("listProduct", list);
 		return "ProductManagement/goods_list";
+	}
+	
+	@GetMapping("/mall")
+	public String product15(HttpServletRequest req) {
+		
+		Hashtable<String,List<GoodsVO>> ht = new Hashtable<>();
+		
+		String[] str = new String[] {"HIT","NEW","SALE"};
+		for(String s : str) {
+			List<GoodsVO> list = service.listPspec(s);
+			ht.put(s,list);
+		}
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("pspec",ht);
+		return "display/mall";
 	}
 }
