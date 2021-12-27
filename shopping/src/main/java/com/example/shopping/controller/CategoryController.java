@@ -291,12 +291,21 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/goods_output")
-	public String product20(int pnum) {
-		return "";
+	public String product20(HttpServletRequest req , int pnum) {
+		GoodsVO vo = service.selectGoods(pnum);
+		req.setAttribute("getProduct", vo);
+		return "ProductManagement/goods_out";
 	}
 	
 	@PostMapping("/goods_output2")
-	public String product21(int pnum) {
-		return "";
+	public String product21(HttpServletRequest req, GoodsVO vo) {
+		vo.setPqty(vo.getPqty() - Integer.parseInt(req.getParameter("out")));
+		if (vo.getPqty() < 0) {
+			req.setAttribute("msg", "현재 재고보다 많은 수가 출고되었습니다. 다시 확인해 주세요!!");
+			req.setAttribute("url", "/shopping/goods_output?pnum=" + vo.getPnum());
+			return "message";
+		}
+		service.inOutput(vo);
+		return "redirect:/goodsList";
 	}
 }

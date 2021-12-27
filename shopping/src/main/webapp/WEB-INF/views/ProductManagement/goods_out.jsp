@@ -8,7 +8,7 @@
 <body>
 	<div align="center">
 	<h2>상 품 출 고</h2>
-	<form name="f" action="#" method="post">
+	<form name="f" action="/shopping/goods_output2" method="post">
 		현재 상품 갯수 : ${getProduct.pqty}개<br>
 		${getProduct.pname} 상품 출고 : <input type="text" name="out">개
 		<input type="hidden" name="pnum" value="${getProduct.pnum}"/>
