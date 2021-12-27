@@ -276,5 +276,27 @@ public class CategoryController {
 		return"display/mall_goodsView"; 
 	}
 	
+	@GetMapping("/goods_input")
+	public String product18(HttpServletRequest req , int pnum) {
+		GoodsVO vo = service.selectGoods(pnum);
+		req.setAttribute("getProduct", vo);
+		return "ProductManagement/goods_input";
+	}
 	
+	@PostMapping("/goods_input2")
+	public String product19(HttpServletRequest req, GoodsVO vo) {
+		vo.setPqty(vo.getPqty() + Integer.parseInt(req.getParameter("input")));
+		service.inOutput(vo);
+		return "redirect:/goodsList";
+	}
+	
+	@GetMapping("/goods_output")
+	public String product20(int pnum) {
+		return "";
+	}
+	
+	@PostMapping("/goods_output2")
+	public String product21(int pnum) {
+		return "";
+	}
 }

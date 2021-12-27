@@ -67,4 +67,5 @@ public interface ICategoryMapper {
 	
 	public List<GoodsVO> listPcode(String pcode);
 	
+	public void inOutput(GoodsVO vo); 
 }

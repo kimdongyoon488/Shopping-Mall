@@ -60,4 +60,6 @@ public interface ICategoryService {
 		public List<GoodsVO> listPspec(String pspec);
 		
 		public List<GoodsVO> listPcode(String pcode);
+		
+		public void inOutput(GoodsVO vo); 
 }

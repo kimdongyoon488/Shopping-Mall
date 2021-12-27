@@ -85,4 +85,8 @@
 		select * from product where pcode like #{pcode}||'%'
 	</select>
 	
+	<update id="inOutput">
+		update product set pqty = #{pqty} where pnum=#{pnum}
+	</update>
+	
 </mapper>

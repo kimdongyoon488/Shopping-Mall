@@ -138,6 +138,13 @@ public class CategoryService implements ICategoryService{
 	}
 
 
+	@Override
+	public void inOutput(GoodsVO vo) {
+		mapper.inOutput(vo);
+		
+	}
+
+
 
 
 	
