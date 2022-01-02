@@ -20,3 +20,20 @@ create table category(
 );
 
 create sequence cate_seq
+
+
+create table board(
+	num number primary key,
+    writer varchar(20),
+    email varchar(50),
+    subject varchar(50),
+    readcount number,
+    content varchar(200),
+    re_step number,
+    re_level number
+);
+
+create sequence board_seq;
+
+
+
