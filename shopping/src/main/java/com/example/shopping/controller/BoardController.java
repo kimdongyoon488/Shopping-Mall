@@ -6,12 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.shopping.paging.PageCreator;
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.BoardService;
 import com.example.shopping.vo.BoardVO;
 
@@ -23,15 +24,20 @@ public class BoardController {
 	private BoardService service;
 
 	@GetMapping("/list")
-	public String board1(HttpServletRequest req) {
-		List<BoardVO> list = service.listBoard();
+	public String board1(HttpServletRequest req , PageVO vo) {
+		List<BoardVO> list = service.listBoard(vo);
+		System.out.println(list);
+		PageCreator pc = new PageCreator();
+		pc.setPaging(vo);
+		pc.setTotalCount(service.allList());
 		req.setAttribute("listBoard", list);
+		req.setAttribute("pc", pc);
 		return "board/list";
 	}
 	
 	@GetMapping("/write")
 	public String board2() {
-		
+	
 		return "board/write";
 	}
 	

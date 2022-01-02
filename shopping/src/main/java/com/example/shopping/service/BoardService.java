@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.shopping.dao.IBoardMapper;
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.BoardVO;
 
 @Service
@@ -17,9 +18,9 @@ public class BoardService implements IBoardService {
 	IBoardMapper mapper;
 	
 	@Override
-	public List<BoardVO> listBoard() {
+	public List<BoardVO> listBoard(PageVO vo) {
 		
-		return mapper.listBoard();
+		return mapper.listBoard(vo);
 	}
 
 

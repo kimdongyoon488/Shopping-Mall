@@ -6,7 +6,7 @@
 <mapper namespace="com.example.shopping.dao.IBoardMapper">
 
 	<select id="listBoard" resultType="com.example.shopping.vo.BoardVO">
-		select * from board
+		SELECT * FROM board OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>
 	
 	
@@ -19,20 +19,20 @@
 		select * from board where num = #{num}
 	</select>
 	
-	<update id="plusReadcount" >
+	<update id="plusReadcount">
 		update board set readcount = readcount + 1 where num = #{num}
 	</update>
 	
-	<delete id="delete" >
+	<delete id="delete">
 		delete from board where num = #{num}
 	</delete>
 	
-	<update id="update" >
+	<update id="update">
 		update board set writer=#{writer}, email=#{email}, 
 							subject=#{subject}, content=#{content} where num = #{num}
 	</update>
 	
-	<select id="allList" resultType="com.example.shopping.vo.BoardVO">
+	<select id="allList" resultType="int">
 		select count(*) from board
 	</select>
 

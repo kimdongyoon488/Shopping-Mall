@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.BoardVO;
 
 @Mapper
 public interface IBoardMapper {
 	
-	List<BoardVO> listBoard();
+	List<BoardVO> listBoard(PageVO vo);
 	
 	void plusReadcount(int num);
 	
