@@ -4,6 +4,7 @@ package com.example.shopping.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -308,4 +309,49 @@ public class CategoryController {
 		service.inOutput(vo);
 		return "redirect:/goodsList";
 	}
+	
+	@PostMapping("/cartAdd")
+	public String product22(HttpServletRequest req , String code , String pnum , String qty) {
+		HttpSession session = req.getSession();
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		if (cart == null) {
+			cart = new ArrayList<GoodsVO>();
+		}
+		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
+		List<GoodsVO> list = ht.get(code);
+		for(GoodsVO vo : list) {
+			if (Integer.parseInt(pnum) == vo.getPnum()) {
+				vo.setPqty(Integer.parseInt(qty));
+				cart.add(vo);
+				break;
+			}
+		}
+		session.setAttribute("cart", cart);
+		return "display/mall_cartList";
+	}
+	
+	@PostMapping("/cartEdit")
+	public String product23(HttpServletRequest req , String index , String pqty) {
+		HttpSession session = req.getSession();
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		GoodsVO vo = cart.get(Integer.parseInt(index));
+		vo.setPqty(Integer.parseInt(pqty));
+		//cart.remove(index);
+		if (vo.getPqty()<=0) {
+			cart.remove(Integer.parseInt(index));
+		}
+		return "display/mall_cartList";
+	}
+	
+	
+	@GetMapping("/cartDelete")
+	public String product23(HttpServletRequest req , String index) {
+		HttpSession session = req.getSession();
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		cart.remove(Integer.parseInt(index));
+		return "display/mall_cartList";
+	}
+	
+	
+	
 }

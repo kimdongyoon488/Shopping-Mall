@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ include file="mall_top.jsp"%>
-
+<script type="text/javascript">
+	function goCart(){
+		document.f.action="/shopping/cartAdd"
+		document.f.submit()
+	}
+</script>
 <table width="99%" border="0" class="outline">
 	<tr class="m1">
 		<td colspan="2" align="center">
