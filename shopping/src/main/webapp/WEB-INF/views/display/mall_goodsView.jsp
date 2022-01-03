@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="mall_top.jsp"%>
 <script type="text/javascript">
 	function goCart(){
@@ -10,7 +10,7 @@
 <table width="99%" border="0" class="outline">
 	<tr class="m1">
 		<td colspan="2" align="center">
-			<b>[${getProduct.pname}] »óÇ° Á¤º¸</b>
+			<b>[${getProduct.pname}] ìƒí’ˆ ì •ë³´</b>
 		</td>
 	</tr>
 	<tr>
@@ -19,21 +19,21 @@
 		</td>
 		<td class="m3">
 			<form name="f" method="post">
-				»óÇ°¹øÈ£ : ${getProduct.pnum}<br>
-				»óÇ°ÀÌ¸§ : ${getProduct.pname}<br>
-				»óÇ°°¡°İ : <font color="red">${getProduct.price}</font>¿ø<br>
-				»óÇ°Æ÷ÀÎÆ® : <font color="red">[${getProduct.point}]</font>point<br>
-				»óÇ°°¹¼ö : <input type="text" name="qty" size="3" value="1">°³<br><br>
+				ìƒí’ˆë²ˆí˜¸ : ${getProduct.pnum}<br>
+				ìƒí’ˆì´ë¦„ : ${getProduct.pname}<br>
+				ìƒí’ˆê°€ê²© : <font color="red">${getProduct.price}</font>ì›<br>
+				ìƒí’ˆí¬ì¸íŠ¸ : <font color="red">[${getProduct.point}]</font>point<br>
+				êµ¬ë§¤í•  ìˆ˜ëŸ‰ : <input type="text" name="qty" size="3" value="1" >ê°œ<br><br>
 				<input type="hidden" name="pnum" value="${getProduct.pnum}">
 				<input type="hidden" name="code" value="${param.code}">
-				<a href="javascript:goCart()">Àå¹Ù±¸´Ï</a>
-				<a href="javascript:goOrder()">Áï½Ã±¸¸Å</a>
+				<a href="javascript:goCart()">ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€</a>
+				<a href="javascript:goOrder()">ì¦‰ì‹œêµ¬ë§¤</a>
 			</form>	
 		</td>
 	</tr>	
 	<tr>
 		<td colspan="2" align="left">
-			<b>»óÇ° »ó¼¼ ¼³¸í</b><br>
+			<b>ìƒí’ˆ ìƒì„¸ ì„¤ëª…</b><br>
 			${getProduct.pcontent}
 		</td>
 	</tr>		

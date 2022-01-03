@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- mall_bottom.jsp -->
 				</td>
 			</tr>
 			<tr height="10%">
 				<td align="center" colspan="2">
-					K G æ∆ ¿Ã ∆º π ≈© ¿• «¡ ∑Œ ¡ß ∆Æ π›
+				   Í≥†Í∞ùÏÑºÌÑ∞<br/>
+				   Tel : 1577-1577 
 				</td>
 			</tr>
 		</table>

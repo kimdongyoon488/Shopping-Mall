@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- mall_top.jsp -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<title>¼îÇÎ¸ô</title>
+	<title>ì‡¼í•‘ëª°</title>
 	<script type="text/javascript">
 		function nextPage(var1, var2){
 			document.cgList.action = "/shopping/mall_categoryList";
@@ -22,11 +22,11 @@
 	<div align="center">
 		<table border="1" width="800" height="600">
 			<tr height="10%">
-				<td align="center" colspan="2">¼îÇÎ¸ô | Àå¹Ù±¸´Ï | MAIN</td>
+				<td align="center" colspan="2">ì‡¼í•‘ëª° | ìž¥ë°”êµ¬ë‹ˆ | MAIN</td>
 			</tr>
 			<tr>
 				<td width="20%" align="center" valign="top">
-					<font size="3">Ä«Å×°í¸®</font><br>
+					<font size="3">ì¹´í…Œê³ ë¦¬</font><br>
 					<table border="1">
 						<c:forEach var="cdto" items="${listCategory}">
 							<tr>

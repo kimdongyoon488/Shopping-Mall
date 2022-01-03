@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!-- mall_index.jsp -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ include file="mall_top.jsp"%>
@@ -9,7 +9,7 @@
 	<h2> H I T</h2>
 	<hr color="green" width="300">
 	<c:if test="${empty viewGoods.HIT}">
-		<h3>HIT»óÇ°ÀÌ ¾ø½À´Ï´Ù</h3>
+		<h3>HITìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤</h3>
 	</c:if>
  	<c:if test="${not empty viewGoods.HIT}">
  		<table width="800" border="0" align="center">
@@ -19,7 +19,7 @@
 					<td align="center">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
 						${vo.pname}<br>
-						<font color="red">${vo.price}</font>¿ø<br>
+						<font color="red">${vo.price}</font>ì›<br>
 						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>
@@ -35,7 +35,7 @@
 	<h2>N E W</h2>
 	<hr color="green" width="300">
 	<c:if test="${empty viewGoods.NEW}">
-		<h3>NEW»óÇ°ÀÌ ¾ø½À´Ï´Ù</h3>
+		<h3>NEWìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤</h3>
 	</c:if>
  	<c:if test="${not empty viewGoods.NEW}">
  		<table width="800" border="0" align="center">
@@ -45,7 +45,7 @@
 					<td align="center">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
 						${vo.pname}<br>
-						<font color="red">${vo.price}</font>¿ø<br>
+						<font color="red">${vo.price}</font>ì›<br>
 						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>
@@ -61,7 +61,7 @@
 	<h2>S A L E</h2>
 	<hr color="green" width="300">
 	<c:if test="${empty viewGoods.SALE}">
-		<h3>SALE»óÇ°ÀÌ ¾ø½À´Ï´Ù</h3>
+		<h3>SALEìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤</h3>
 	</c:if>
  	<c:if test="${not empty viewGoods.SALE}">
  		<table width="800" border="0" align="center">
@@ -71,7 +71,7 @@
 					<td align="center">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
 						${vo.pname}<br>
-						<font color="red">${vo.price}</font>¿ø<br>
+						<font color="red">${vo.price}</font>ì›<br>
 						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>

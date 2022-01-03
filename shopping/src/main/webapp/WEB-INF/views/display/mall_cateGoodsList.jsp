@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="mall_top.jsp"%>
 <!-- mall_cgProdList.jsp -->
 <div align="center">
 	<c:if test="${empty cateGoods}">
 		${param.cname}
-		Ä«Å×°í¸®¿¡ µî·ÏµÈ »óÇ°ÀÌ ¾ø½À´Ï´Ù. 
+		ì¹´í…Œê³ ë¦¬ì— ë“±ë¡ëœ ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤. 
 	</c:if>
 	<c:if test="${not empty cateGoods}">
 		<hr color="green" width="300">
@@ -20,7 +20,7 @@
 						<a href="/shopping/mall_goodsView?code=${param.code}&pnum=${vo.pnum}">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
 						${vo.pname} </a> <br>
-						<font color="red">${vo.price}</font>¿ø<br>
+						<font color="red">${vo.price}</font>ì›<br>
 						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>

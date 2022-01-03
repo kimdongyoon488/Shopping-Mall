@@ -1,68 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="mall_top.jsp"%>  
 <table width="99%" border="1" align="center">
 	<tr class="m2"> 
 		<td colspan="6" align="center">
-			<h4>Àå¹Ù±¸´Ï º¸±â</h4>
+			<h4>ìž¥ë°”êµ¬ë‹ˆ</h4>
 		</td>
 	</tr>
 	<tr class="m1">
-		<th width="10%">¹øÈ£</th>
-		<th width="30%">»óÇ°¸í</th>
-		<th width="10%">¼ö·®</th>
-		<th width="20%">´Ü°¡</th>
-		<th width="20%">±Ý¾×</th>
-		<th width="10%">»èÁ¦</th>
+		<th width="10%">ë²ˆí˜¸</th>
+		<th width="30%">ìƒí’ˆëª…</th>
+		<th width="10%">ìˆ˜ëŸ‰</th>
+		<th width="20%">ë‹¨ê°€</th>
+		<th width="20%">ê¸ˆì•¡</th>
+		<th width="10%">ì‚­ì œ</th>
 	</tr>	
 	<c:set var="cartTotalPrice" value="0"/>
 	<c:set var="cartTotalPoint" value="0"/>
 	<c:if test="${empty cart}">
 		<tr>
-			<td colspan="6">Àå¹Ù±¸´Ï°¡ ºñ¾ú½À´Ï´Ù.</td>
+			<td colspan="6">ìž¥ë°”êµ¬ë‹ˆê°€ ë¹„ì—ˆìŠµë‹ˆë‹¤.</td>
 		</tr>	
 	</c:if>
 		
-	<c:forEach var="dto" items="${cart}" varStatus="i">
+	<c:forEach var="vo" items="${cart}" varStatus="i">
 	<tr>
+		<!-- indexëŠ” 0ë¶€í„° countëŠ” 1ë¶€í„° -->
 		<td align="center">${i.count}</td>
 		<td align="center">
-			<img src="images/${dto.pimage}" width="40" height="40"><br>
-			<b>${dto.pname}</b>
+			<img src="images/${vo.pimage}" width="40" height="40"><br>
+			<b>${vo.pname}</b>
 		</td>
 		<td align="center">
 			<form name="f" method="post" action="/shopping/cartEdit">
 				<br>
-				<input type="text" size="3" name="pqty" value="${dto.pqty}">°³
+				<input type="text" size="3" name="pqty" value="${vo.pqty}">ê°œ
 				<input type="hidden" name="index" value="${i.count-1}">
-				<input type="submit" value="¼öÁ¤">
+				<input type="submit" value="ìˆ˜ì •">
 			</form>			
 		</td>
 		<td align="right">
-			<b>${dto.price}¿ø<br>
-			[${dto.point}] point</b>
+			<b>${vo.price}ì›<br>
+			[${vo.point}] point</b>
 		</td>	
 		<td align="right">
 			<font color="red">
-			<b>${dto.price * dto.pqty}¿ø<br>
-			[${dto.point*dto.pqty}] point</b>
+			<b>${vo.price * vo.pqty}ì›<br>
+			[${vo.point*vo.pqty}] point</b>
 			</font>
 		</td>
 		<td align="center">
-			<a href="/shopping/cartDelete?index=${i.count-1}">»èÁ¦</a>	
+			<a href="/shopping/cartDelete?index=${i.count-1}">ì‚­ì œ</a>	
 		</td>
 	</tr>
-		<c:set var="cartTotalPrice" value="${cartTotalPrice + dto.price *dto.pqty}"/>
-		<c:set var="cartTotalPoint" value="${cartTotalPoint + dto.point *dto.pqty}"/>
+		<c:set var="cartTotalPrice" value="${cartTotalPrice + vo.price * vo.pqty}"/>
+		<c:set var="cartTotalPoint" value="${cartTotalPoint + vo.point * vo.pqty}"/>
 	</c:forEach>
 	<tr class="m1">
-		<td colspan="4"><b>Àå¹Ù±¸´Ï ÃÑ¾×</b> : 
-			<font color="red"><c:out value="${cartTotalPrice}"/>¿ø<br></font>
-			<font color="green">ÃÑ Àû¸³ Æ÷ÀÎÆ® : [<c:out value="${cartTotalPoint}"/>] point</font>	
+		<td colspan="4"><b>ìž¥ë°”êµ¬ë‹ˆ ì´ì•¡</b> : 
+			<font color="red"><c:out value="${cartTotalPrice}"/>ì›<br></font>
+			<font color="green">ì´ ì ë¦½ í¬ì¸íŠ¸ : [<c:out value="${cartTotalPoint}"/>] point</font>	
 		</td>
 		<td colspan="2">
-			<a href="#">[ÁÖ¹®ÇÏ±â]</a>
-			<a href="/shopping/mall">[°è¼Ó¼îÇÎ]</a>
+			<a href="#">[ì£¼ë¬¸í•˜ê¸°]</a>
+			<a href="/shopping/mall">[ê³„ì†ì‡¼í•‘]</a>
 		</td>
 	</tr>			
 </table>	
