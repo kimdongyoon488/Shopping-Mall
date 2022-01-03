@@ -43,13 +43,16 @@
 		</tr>
 	</table>
 	
-	<form method="post" action="#">
+	<p>댓글 목록</p>
+	
+	<form method="post" action="/shopping/board/writeComment">
 	
 		<p>
 			<label>댓글 작성자</label> <input type="text" name="writer">
 		</p>
 		<p>
 			<textarea rows="5" cols="50" name="content"></textarea>
+			<input type="hidden" name="bno" value="${getBoard.num}">
 		</p>
 		<p>
 			<button type="submit">댓글 작성</button>

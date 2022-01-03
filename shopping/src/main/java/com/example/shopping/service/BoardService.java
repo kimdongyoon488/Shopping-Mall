@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.shopping.dao.IBoardMapper;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.BoardVO;
+import com.example.shopping.vo.CommentVO;
 
 @Service
 public class BoardService implements IBoardService {
@@ -59,6 +60,27 @@ public class BoardService implements IBoardService {
 	public int allList() {
 	
 		return mapper.allList();
+	}
+
+
+	@Override
+	public void insertComment(CommentVO vo) {
+		mapper.insertComment(vo);
+		
+	}
+
+
+	@Override
+	public void deleteComment(int cno) {
+		mapper.deleteComment(cno);
+		
+	}
+
+
+	@Override
+	public List<CommentVO> getComment(int bno) {
+	
+		return mapper.getComment(bno);
 	}
 
 }

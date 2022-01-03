@@ -35,5 +35,17 @@
 	<select id="allList" resultType="int">
 		select count(*) from board
 	</select>
-
+	
+	<insert id="insertComment"> 
+		insert into board_comment(cno,bno,writer,content) 
+		values(comment_seq.nextval,#{bno},#{writer},#{content})
+	</insert>
+	
+	<delete id="deleteComment">
+		delete board_comment where cno=#{cno}
+	</delete>
+	
+	<select id="getComment" resultType="com.example.shopping.vo.CommentVO">
+		select * from board_comment where bno=#{bno}
+	</select>
 </mapper>   

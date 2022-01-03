@@ -15,6 +15,7 @@ import com.example.shopping.paging.PageCreator;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.BoardService;
 import com.example.shopping.vo.BoardVO;
+import com.example.shopping.vo.CommentVO;
 
 @Controller
 @RequestMapping("/board")
@@ -78,11 +79,17 @@ public class BoardController {
 	}
 	
 	@GetMapping("/delete")
-	public String deleteForm(int num ,  HttpServletRequest req) {
+	public String board7(int num ,  HttpServletRequest req) {
 		service.delete(num);
 		req.setAttribute("msg", "게시글 삭제 성공!! 게시글 목록페이지로 이동합니다.");
 		req.setAttribute("url", "/shopping/board/list");
 		return "message";
 	}
 	
+	@PostMapping("/writeComment")
+	public String board8(CommentVO vo , HttpServletRequest req) {
+		service.insertComment(vo);
+		String referer = req.getHeader("Referer"); // 헤더에서 이전 페이지를 읽는다.
+		return "redirect:"+ referer;
+	}
 }
