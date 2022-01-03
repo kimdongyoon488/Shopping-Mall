@@ -95,7 +95,14 @@ public class BoardController {
 	@PostMapping("/writeComment")
 	public String board8(CommentVO vo , HttpServletRequest req) {
 		service.insertComment(vo);
-		String referer = req.getHeader("Referer"); // 헤더에서 이전 페이지를 읽는다.
+		String referer = req.getHeader("Referer"); 
+		return "redirect:"+ referer;
+	}
+	
+	@GetMapping("/deleteComment")
+	public String board9(int cno , HttpServletRequest req) {
+		service.deleteComment(cno); 
+		String referer = req.getHeader("Referer"); 
 		return "redirect:"+ referer;
 	}
 }

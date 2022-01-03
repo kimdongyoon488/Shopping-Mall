@@ -7,6 +7,23 @@
 <html>
 <head>
 	<title>글내용보기</title>
+	<script type="text/javascript">
+		
+		function check(){
+			if (f.writer.value==""){
+				alert("작성자를 입력해 주세요!!")
+				f.writer.focus()
+				return false
+			}
+			if (f.content.value==""){
+				alert("내용을 입력해 주세요!!")
+				f.content.focus()
+				return false
+			}
+			
+			return true
+		}
+	</script>
 </head>
 <body>	
 <div align="center">
@@ -52,10 +69,11 @@
 				<th>작성자</th>
 				<th>내용</th>
 				<th>작성일</th>
+				<th>삭제</th>
 		</tr>
 	 <c:if test="${empty getComment}">
 		<tr>
-			<td colspan="3">등록된 게시글이 없습니다.</td>
+			<td colspan="3">등록된 댓글이 없습니다.</td>
 		</tr>		
 	 </c:if>
 	<c:forEach var="vo" items="${getComment}">
@@ -63,14 +81,15 @@
 			<td>${vo.writer}</td>
 			<td>${vo.content}</td>
 			<td> <fmt:formatDate pattern = "yyyy/MM/dd" value="${vo.regDate}"/> </td>
+			<td><a href="/shopping/board/deleteComment?cno=${vo.cno}">삭제</a></td>
 		</tr>
 	</c:forEach>
 	
 	</table>
-	<form method="post" action="/shopping/board/writeComment">
+	<form name="f" method="post" action="/shopping/board/writeComment" onsubmit="return check()">
 	
 		<p>
-			<label>댓글 작성자</label> <input type="text" name="writer">
+			<label>작성자</label> <input type="text" name="writer">
 		</p>
 		<p>
 			<textarea rows="5" cols="50" name="content"></textarea>
