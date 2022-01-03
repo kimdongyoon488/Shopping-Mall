@@ -336,8 +336,7 @@ public class CategoryController {
 		List<GoodsVO> cart = (List)session.getAttribute("cart");
 		GoodsVO vo = cart.get(Integer.parseInt(index));
 		vo.setPqty(Integer.parseInt(pqty));
-		//cart.remove(index);
-		if (vo.getPqty()<=0) {
+		if (vo.getPqty() <= 0) {
 			cart.remove(Integer.parseInt(index));
 		}
 		return "display/mall_cartList";

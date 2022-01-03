@@ -15,13 +15,13 @@
 		<table width="80%" border="0" align="center">
  			<c:set var="co" value="1"/>
  			<tr>
-				<c:forEach var="dto" items="${cateGoods}">
+				<c:forEach var="vo" items="${cateGoods}">
 					<td align="center">
-						<a href="/shopping/mall_goodsView?code=${param.code}&pnum=${dto.pnum}">
-						<img src="images/${dto.pimage}" width="80" height="60"><br>
-						${dto.pname} </a> <br>
-						<font color="red">${dto.price}</font>¿ø<br>
-						<font color="blue">${dto.point}</font>point
+						<a href="/shopping/mall_goodsView?code=${param.code}&pnum=${vo.pnum}">
+						<img src="images/${vo.pimage}" width="80" height="60"><br>
+						${vo.pname} </a> <br>
+						<font color="red">${vo.price}</font>¿ø<br>
+						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>
 					<c:if test="${co>3}">

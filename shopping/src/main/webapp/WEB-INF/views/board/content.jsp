@@ -42,6 +42,20 @@
 			</td>
 		</tr>
 	</table>
+	
+	<form method="post" action="#">
+	
+		<p>
+			<label>댓글 작성자</label> <input type="text" name="writer">
+		</p>
+		<p>
+			<textarea rows="5" cols="50" name="content"></textarea>
+		</p>
+		<p>
+			<button type="submit">댓글 작성</button>
+		</p>
+	</form>
+	
 </div>
 </body>
 </html>
