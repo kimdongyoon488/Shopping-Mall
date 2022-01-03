@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,10 +57,15 @@ public class BoardController {
 	}
 	
 	@GetMapping("/content")
-	public String board4(int num , HttpServletRequest req) {
+	public String board4(int num , HttpServletRequest req , Model model) {
+		System.out.println(num);
+		System.out.println("==============");
 		service.plusReadcount(num);
+		List<CommentVO> list = service.getComment(num);
+		System.out.println(list.get(0));
 		BoardVO vo = service.getBoard(num);
 		req.setAttribute("getBoard", vo);
+		model.addAttribute("getComment", list);
 		return "board/content";
 	}
 	

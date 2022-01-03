@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!-- content.jsp -->
 <html>
 <head>
@@ -44,7 +47,26 @@
 	</table>
 	
 	<p>댓글 목록</p>
+	<table border="1">
+		<tr>
+				<th>작성자</th>
+				<th>내용</th>
+				<th>작성일</th>
+		</tr>
+	 <c:if test="${empty getComment}">
+		<tr>
+			<td colspan="3">등록된 게시글이 없습니다.</td>
+		</tr>		
+	 </c:if>
+	<c:forEach var="vo" items="${getComment}">
+		<tr>
+			<td>${vo.writer}</td>
+			<td>${vo.content}</td>
+			<td> <fmt:formatDate pattern = "yyyy/MM/dd" value="${vo.regDate}"/> </td>
+		</tr>
+	</c:forEach>
 	
+	</table>
 	<form method="post" action="/shopping/board/writeComment">
 	
 		<p>
