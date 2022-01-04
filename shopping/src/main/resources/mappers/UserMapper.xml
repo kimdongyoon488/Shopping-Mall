@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.shopping.dao.IUserMapper">
+	
+	
+	<resultMap id="Map" type="com.example.shopping.vo.UserVO">
+		<result property="id" column="id"/>
+		<result property="password" column="password"/>
+		<result property="age" column="age"/>
+		<result property="tel" column="tel"/>
+		<result property="name" column="name"/>
+		<result property="joinDate" column="join_date"/>
+	</resultMap>
+
+	<insert id="insert">
+		insert into member(id,password,age,tel,name) values(#{id},#{password},#{age},#{tel},#{name})
+	</insert>
+	
+	
+	<delete id="delete">
+		delete from member where id=#{id}
+	</delete>
+	
+	
+	<update id="update">
+		update member set age=#{age},tel=#{tel},name=#{name} where id=#{id}
+	</update>
+	
+	
+	<select id="getUser" resultMap="Map">
+		select * from member where id=#{id}
+	</select>
+	
+	<select id="checkId" resultType="int">
+		select count(*) from member where id=#{id}
+	</select>	
+
+	<select id="getAllUser" resultType="Map">
+		select * from member 
+	</select>	
+
+
+
+
+</mapper>

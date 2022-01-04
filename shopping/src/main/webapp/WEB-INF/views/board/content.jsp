@@ -11,12 +11,12 @@
 		
 		function check(){
 			if (f.writer.value==""){
-				alert("작성자를 입력해 주세요!!")
+				alert("작성자를 입력해 주세요")
 				f.writer.focus()
 				return false
 			}
 			if (f.content.value==""){
-				alert("내용을 입력해 주세요!!")
+				alert("내용을 입력해 주세요")
 				f.content.focus()
 				return false
 			}
