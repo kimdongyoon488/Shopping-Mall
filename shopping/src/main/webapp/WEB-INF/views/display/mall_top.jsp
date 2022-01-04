@@ -22,7 +22,7 @@
 	<div align="center">
 		<table border="1" width="800" height="600">
 			<tr height="10%">
-				<td align="center" colspan="2">쇼핑몰 | 장바구니 | MAIN</td>
+				<td align="center" colspan="2">쇼핑몰 | 장바구니 | MAIN | <a href="/shopping/login">로그인</a></td>
 			</tr>
 			<tr>
 				<td width="20%" align="center" valign="top">

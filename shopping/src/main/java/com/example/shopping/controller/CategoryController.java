@@ -351,6 +351,14 @@ public class CategoryController {
 		return "display/mall_cartList";
 	}
 	
+	@GetMapping("/login")
+	public String product24() {
+		return "display/mall_login";
+	}
 	
+	@GetMapping("/loginSign")
+	public String product25() {
+		return "display/mall_login_sign";
+	}
 	
 }
