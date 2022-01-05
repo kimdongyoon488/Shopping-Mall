@@ -35,5 +35,15 @@ create table board(
 
 create sequence board_seq;
 
+create table member(
+    id varchar(20) primary key,
+    password varchar(100) not null,
+    age number default 0,
+    tel number default 0,
+    name VARCHAR(20) not null
+);
+
+alter table member add permission varchar(20) not null;
+
 
 

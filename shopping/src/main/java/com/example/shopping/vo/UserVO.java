@@ -10,6 +10,8 @@ public class UserVO {
 	private int tel;
 	private String name;
 	private Date joinDate;
+	private String permission;
+	
 	
 	public Date getJoinDate() {
 		return joinDate;
@@ -46,6 +48,18 @@ public class UserVO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPermission() {
+		return permission;
+	}
+	public void setPermission(String permission) {
+		this.permission = permission;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", password=" + password + ", age=" + age + ", tel=" + tel + ", name=" + name
+				+ ", joinDate=" + joinDate + ", permission=" + permission + "]";
 	}
 	
 	

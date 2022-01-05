@@ -35,9 +35,18 @@ public class UserController {
 			if(vo != null) {
 				if(encoder.matches(input.getPassword(),vo.getPassword())) {
 					session.setAttribute("login", vo);
-					req.setAttribute("msg", "로그인 성공");
-					req.setAttribute("url", "/shopping/mall");
-					return "message";
+					//로그인 한사람이 일반유저 일때
+					if(vo.getPermission().equals("user")) {
+						req.setAttribute("msg", "로그인 성공");
+						req.setAttribute("url", "/shopping/mall");
+						return "message"; 
+					} 
+					//로그인 한사람이 관리자 일때
+					else {
+						req.setAttribute("msg", "관리자 로그인 성공");
+						req.setAttribute("url","/shopping/");
+						return "message";
+					}
 				}else {
 					req.setAttribute("msg", "비밀번호가 틀렸습니다");
 					req.setAttribute("url", "/shopping/user/login");

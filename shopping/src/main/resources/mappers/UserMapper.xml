@@ -13,10 +13,12 @@
 		<result property="tel" column="tel"/>
 		<result property="name" column="name"/>
 		<result property="joinDate" column="join_date"/>
+		<result property="permission" column="permission"/>
 	</resultMap>
 
 	<insert id="insert">
-		insert into member(id,password,age,tel,name) values(#{id},#{password},#{age},#{tel},#{name})
+		insert into member(id,password,age,tel,name,permission) 
+		values(#{id},#{password},#{age},#{tel},#{name},#{permission})
 	</insert>
 	
 	

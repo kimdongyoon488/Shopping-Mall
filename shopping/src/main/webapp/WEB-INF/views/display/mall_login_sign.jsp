@@ -20,12 +20,12 @@
 				return false
 			}
 			if (f.id.value==""){
-				alert("나이를 입력해 주세요")
+				alert("아이디를 입력해 주세요")
 				f.id.focus()
 				return false
 			}
 			if (f.password.value==""){
-				alert("나이를 입력해 주세요")
+				alert("비밀번호를 입력해 주세요")
 				f.password.focus()
 				return false
 			}
@@ -42,9 +42,14 @@
 		<form name="f" action="/shopping/user/loginSign" method="post" onsubmit="return check()">
 			이름: <input type="text" name="name"/><br>
 		    나이: <input type="number" name="age"/><br>
-		    전화번호:<input type="tel" name="phone"/><br>
+		    전화번호:<input type="tel" name="tel"/><br>
 		    아이디: <input type="text" name="id"/><br>
 		    비밀번호: <input type="password" name="password"/><br>
+		    권한: <select name="permission"> 
+			    	<option value="user">일반 유저</option>
+			    	<option value="admin">관리자</option>
+		    	</select> 
+		    	<br><br>
 			<input type="submit" value="회원가입"/>
 		</form>
 		
