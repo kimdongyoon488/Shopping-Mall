@@ -1,5 +1,7 @@
 package com.example.shopping.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -38,13 +40,13 @@ public class UserController {
 					//로그인 한사람이 일반유저 일때
 					if(vo.getPermission().equals("user")) {
 						req.setAttribute("msg", "로그인 성공");
-						req.setAttribute("url", "/shopping/mall");
+						req.setAttribute("url", "/shopping/");
 						return "message"; 
 					} 
 					//로그인 한사람이 관리자 일때
 					else {
 						req.setAttribute("msg", "관리자 로그인 성공");
-						req.setAttribute("url","/shopping/");
+						req.setAttribute("url","/shopping/admin");
 						return "message";
 					}
 				}else {
@@ -67,9 +69,19 @@ public class UserController {
 		
 		@PostMapping("/loginSign")
 		public String user3(UserVO vo , HttpServletRequest req) {
-			service.insert(vo);
-			req.setAttribute("msg", "회원가입 완료");
-			req.setAttribute("url", "/shopping/user/login");
+			int id = service.checkId(vo.getId());
+			int tel = service.checkTel(vo.getTel());
+			if(id == 0 && tel == 0) {
+				service.insert(vo);
+				req.setAttribute("msg", "회원가입 완료");
+				req.setAttribute("url", "/shopping/user/login");
+			} else if(id > 0) {
+				req.setAttribute("msg", "중복된 아이디가 존재합니다 다시 입력해주세요");
+				req.setAttribute("url", "/shopping/user/loginSign");
+			} else {
+				req.setAttribute("msg", "같은 전화번호의 계정이 존재합니다");
+				req.setAttribute("url", "/shopping/user/loginSign");
+			}
 			return "message";
 		}
 		
@@ -101,13 +113,62 @@ public class UserController {
 				session.removeAttribute("login");
 				session.invalidate();
 				req.setAttribute("msg", "로그아웃 완료");
-				req.setAttribute("url", "/shopping/mall");
+				req.setAttribute("url", "/shopping/");
 				return "message";
 			}
 			else {
 				req.setAttribute("msg", "로그아웃 실패");
-				req.setAttribute("url", "/shopping/mall");
+				req.setAttribute("url", "/shopping/");
 				return "message";
 			}
+		}
+
+		@GetMapping("/searchId")
+		public String searchId() {
+			return "display/mall_login_searchId";
+		}
+		
+		@PostMapping("/searchId")
+		public String searchId2(UserVO vo , HttpServletRequest req) {
+			
+			String msg = null, url = null;
+			System.out.println(vo);
+			UserVO user = service.searchId(vo);
+			System.out.println(user);
+			if(user != null) {
+				msg = "아이디 : " + user.getId();
+				url = "/shopping/user/login";
+			} else {
+				msg = "존재하지 않는 회원입니다 다시 입력해주세요";
+				url = "/shopping/user/login";
+			}
+			
+			req.setAttribute("msg", msg);
+			req.setAttribute("url", url);
+			return "message";
+		}
+		
+		@GetMapping("/searchPw")
+		public String searchPw() {
+			return "display/mall_login_searchPw";
+		}
+		
+		@PostMapping("/searchPw")
+		public String searchPw2(UserVO vo, HttpServletRequest req) {
+			String msg = null, url = null;
+			System.out.println(vo);
+			UserVO user = service.searchId(vo);
+			if(user != null) {
+				service.changePw(vo);
+				msg = "비밀번호가 변경되었습니다";
+				url = "/shopping/user/login";
+			} else {
+				msg = "존재하지 않는 회원입니다 다시 입력해주세요";
+				url = "/shopping/user/login";
+			}
+			
+			req.setAttribute("msg", msg);
+			req.setAttribute("url", url);
+			return "message";
 		}
 }

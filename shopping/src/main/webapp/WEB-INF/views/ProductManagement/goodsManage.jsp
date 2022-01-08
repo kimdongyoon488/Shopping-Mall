@@ -13,7 +13,7 @@
 	<li><a href="/shopping/category_list">카테고리 목록</a></li>
 	<li><a href="/shopping/goodsInput">상품 등록</a></li>
 	<li><a href="/shopping/goodsList">상품 목록</a></li>
-	<li><a href="/shopping/mall">쇼핑몰 홈</a></li>
+	<li><a href="/shopping/">쇼핑몰 홈</a></li>
 	</ul>
 </body>
 </html>

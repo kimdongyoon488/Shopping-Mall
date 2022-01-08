@@ -27,6 +27,8 @@
 		   비밀번호: <input type="password" name="password"/><br>
 			<input type="submit" value="로그인"/> 
 			<button type="button" onclick="location.href='/shopping/user/loginSign'">회원가입</button>
+			<button type="button" onclick="location.href='/shopping/user/searchId'">아이디 찾기</button>
+			<button type="button" onclick="location.href='/shopping/user/searchPw'">비밀번호 찾기</button>
 		</form>
 		
 	</div>

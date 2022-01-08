@@ -1,6 +1,7 @@
 package com.example.shopping.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -47,11 +48,32 @@ public class UserService implements IUserService{
 		
 		return mapper.checkId(id);
 	}
+	
+	@Override
+	public int checkTel(String tel) {
+		
+		return mapper.checkTel(tel);
+	}
 
 	@Override
 	public List<UserVO> getAllUser() {
 		
 		return mapper.getAllUser();
 	}
+
+	@Override
+	public UserVO searchId(UserVO vo) {
+		
+		return mapper.searchId(vo);
+	}
+
+	@Override
+	public void changePw(UserVO vo) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		vo.setPassword(encoder.encode(vo.getPassword()));
+		mapper.changePw(vo);
+	}
+
+	
 
 }

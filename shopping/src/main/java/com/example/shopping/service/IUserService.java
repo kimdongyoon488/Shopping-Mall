@@ -1,6 +1,7 @@
 package com.example.shopping.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.example.shopping.vo.UserVO;
 
@@ -21,6 +22,15 @@ public interface IUserService {
 	 //아이디 중복확인
 	 public int checkId(String id);
 	 
+	 //전화번호 중복확인
+	 public int checkTel(String tel);
+	 
 	 //회원 전체조회
 	 public List<UserVO> getAllUser();
+	 
+	 //아이디 찾기
+	 public UserVO searchId(UserVO vo);
+	 
+	 //비밀번호 변경
+	 public void changePw(UserVO vo);
 }

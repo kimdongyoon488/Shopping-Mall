@@ -7,11 +7,14 @@ public class UserVO {
 	private String id;
 	private String password;
 	private int age;
-	private int tel;
+	private String tel;
 	private String name;
 	private Date joinDate;
 	private String permission;
 	
+	 public UserVO() {
+		this.age = 0;
+	}
 	
 	public Date getJoinDate() {
 		return joinDate;
@@ -37,10 +40,10 @@ public class UserVO {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getName() {

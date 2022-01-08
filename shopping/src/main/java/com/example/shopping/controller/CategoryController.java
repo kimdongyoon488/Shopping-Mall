@@ -35,8 +35,38 @@ public class CategoryController {
 	@Autowired
 	CategoryService service;
 	
-	//관리자 페이지 이동
+	//쇼핑몰 페이지 이동
 	@GetMapping("/")
+	public String main(HttpServletRequest req) {
+			
+			List<CategoryVO> clist = service.allList();
+			
+			if (clist == null && clist.size() == 0) {
+				req.setAttribute("msg", "아직 쇼핑몰이 준비되지 못했습니다. 관리자 페이지로 이동합니다");
+				req.setAttribute("url", "/shopping/");
+				return "message";
+			}
+			System.out.println(clist);
+			
+			HttpSession session = req.getSession();
+			session.setAttribute("listCategory", clist);
+			
+			Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
+			if (ht == null) ht = new Hashtable<String, List<GoodsVO>>();
+			
+			String[] str = new String[] {"HIT","NEW","SALE"};
+			for(String s : str) {
+				List<GoodsVO> list = service.listPspec(s);
+				ht.put(s,list);
+			}
+			
+		
+			session.setAttribute("viewGoods",ht);
+			return "display/mall";
+	}
+	
+	//관리자 페이지 이동
+	@GetMapping("/admin")
 	public String home() {
 		
 		return "Home/home";
@@ -223,34 +253,7 @@ public class CategoryController {
 		return "ProductManagement/goods_list";
 	}
 	
-	@GetMapping("/mall")
-	public String product15(HttpServletRequest req) {
-		
-		List<CategoryVO> clist = service.allList();
-		
-		if (clist == null && clist.size() == 0) {
-			req.setAttribute("msg", "아직 쇼핑몰이 준비되지 못했습니다. main페이지로 이동합니다");
-			req.setAttribute("url", "/shopping/");
-			return "message";
-		}
-		System.out.println(clist);
-		
-		HttpSession session = req.getSession();
-		session.setAttribute("listCategory", clist);
-		
-		Hashtable<String, List<GoodsVO>> ht = (Hashtable)session.getAttribute("viewGoods");
-		if (ht == null) ht = new Hashtable<String, List<GoodsVO>>();
-		
-		String[] str = new String[] {"HIT","NEW","SALE"};
-		for(String s : str) {
-			List<GoodsVO> list = service.listPspec(s);
-			ht.put(s,list);
-		}
-		
 	
-		session.setAttribute("viewGoods",ht);
-		return "display/mall";
-	}
 	
 	@PostMapping("/mall_categoryList")
 	public String product16(HttpServletRequest req , String code , String cname) {
