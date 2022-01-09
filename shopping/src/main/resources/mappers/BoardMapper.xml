@@ -12,7 +12,7 @@
 	
 	<insert id="insert">
 		insert into board values(board_seq.nextval, #{writer},#{email}, #{subject}, 
-					 0, #{content})
+					 0, #{content},#{id})
 	</insert>
 	
 	<select id="getBoard" resultType="com.example.shopping.vo.BoardVO">
@@ -28,8 +28,8 @@
 	</delete>
 	
 	<update id="update">
-		update board set writer=#{writer}, email=#{email}, 
-							subject=#{subject}, content=#{content} where num = #{num}
+		update board set email=#{email}, 
+		subject=#{subject}, content=#{content} where num = #{num}
 	</update>
 	
 	<select id="allList" resultType="int">

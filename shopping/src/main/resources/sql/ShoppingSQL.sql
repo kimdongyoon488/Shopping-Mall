@@ -33,6 +33,7 @@ create table board(
     re_level number
 );
 
+alter table board add id varchar(50);
 create sequence board_seq;
 
 create table member(

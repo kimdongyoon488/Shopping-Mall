@@ -33,7 +33,10 @@
 		<tr>
 			<th bgcolor="yellow" width="20%">작성자</th>
 			<td align="center" width="30%">${getBoard.writer}</td>
+			<th bgcolor="yellow" width="20%">아이디</th>
+			<td align="center" width="30%">${getBoard.id}</td>
 		</tr>
+		
 		<tr>
 			<th bgcolor="yellow" width="20%">글제목</th>
 			<td width="80%" colspan="3">
@@ -48,10 +51,12 @@
 		</tr>
 		<tr bgcolor="yellow">
 			<td colspan="4" align="right">
-				<input type="button" value="글수정"
-									onclick="window.location='/shopping/board/update?num=${getBoard.num}'">
-				<input type="button" value="글삭제"
-									onclick="window.location='/shopping/board/delete?num=${getBoard.num}'">
+				<c:if test="${login.id == getBoard.id}">
+					<input type="button" value="글수정"
+										onclick="window.location='/shopping/board/update?num=${getBoard.num}'">
+					<input type="button" value="글삭제"
+										onclick="window.location='/shopping/board/delete?num=${getBoard.num}'">
+				</c:if>
 				<input type="button" value="글목록" 
 									onclick="window.location='/shopping/board/list'">
 			</td>

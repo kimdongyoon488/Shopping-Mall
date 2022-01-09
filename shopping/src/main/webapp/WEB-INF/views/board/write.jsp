@@ -36,6 +36,10 @@
 			<td align="center" colspan="2">글 쓰 기</td>
 		</tr>
 		<tr>
+			<th bgcolor="yellow" width="20%">아이디</th>
+			<td><input type="text" name="id" value="${login.id}" readonly></td>
+		</tr>
+		<tr>
 			<th bgcolor="yellow" width="20%">이 름</th>
 			<td><input type="text" name="writer" value="${login.name}" readonly></td>
 		</tr>
