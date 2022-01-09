@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.shopping.dao.IUserMapper;
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.UserVO;
 
 @Service
@@ -56,10 +57,23 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public List<UserVO> getAllUser() {
+	public List<UserVO> getAllUser(PageVO vo) {
 		
-		return mapper.getAllUser();
+		return mapper.getAllUser(vo);
 	}
+	
+	@Override
+	public List<UserVO> searchUser(String id) {
+		
+		return mapper.searchUser(id);
+	}
+	
+	@Override
+	public int userCnt() {
+		
+		return mapper.userCnt();
+	}
+
 
 	@Override
 	public UserVO searchId(UserVO vo) {
@@ -74,6 +88,9 @@ public class UserService implements IUserService{
 		mapper.changePw(vo);
 	}
 
+	
+
+	
 	
 
 }

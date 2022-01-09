@@ -4,16 +4,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<title>게시판</title>
+	<title>Q&A 게시판</title>
 </head>
 <body>
 <div align="center">
-	<b>글목록</b>
+	<b>Q&A 게시판</b>
+	<c:if test="${!empty login}">
 	<table border="0" width="800">
 		<tr bgcolor="yellow">
 			<td align="right"><a href="/shopping/board/write">글쓰기</a></td>
 		</tr>
 	</table>
+	</c:if>
 	<table border="1" width="800">
 		<tr bgcolor="green">
 			<th>번호</th>

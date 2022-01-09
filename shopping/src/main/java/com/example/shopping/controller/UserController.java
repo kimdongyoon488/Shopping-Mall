@@ -1,5 +1,6 @@
 package com.example.shopping.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.shopping.paging.PageCreator;
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.UserService;
 import com.example.shopping.vo.UserVO;
 
@@ -36,15 +39,17 @@ public class UserController {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			if(vo != null) {
 				if(encoder.matches(input.getPassword(),vo.getPassword())) {
-					session.setAttribute("login", vo);
+					
 					//로그인 한사람이 일반유저 일때
 					if(vo.getPermission().equals("user")) {
+						session.setAttribute("login", vo);
 						req.setAttribute("msg", "로그인 성공");
 						req.setAttribute("url", "/shopping/");
 						return "message"; 
 					} 
 					//로그인 한사람이 관리자 일때
 					else {
+						session.setAttribute("loginAdmin", vo);
 						req.setAttribute("msg", "관리자 로그인 성공");
 						req.setAttribute("url","/shopping/admin");
 						return "message";
@@ -85,25 +90,37 @@ public class UserController {
 			return "message";
 		}
 		
-		/*
-		//회원탈퇴
-		@GetMapping("")
-		public String delete(String id) {
-			service.delete(id);
-			return "deleteSuccess";
-		}*/
 		
-		/*
-		//회원조회
-		@GetMapping("")
-		public UserVO select(String id) {
-			System.out.println("========================");
-			System.out.println(id);
-			UserVO vo = service.getUser(id);
-			System.out.println(vo);
-			return vo;
+		//회원탈퇴
+		@GetMapping("/delete")
+		public String delete(String id , HttpServletRequest req) {
+			service.delete(id);
+			req.setAttribute("msg","삭제가 완료되었습니다");
+			req.setAttribute("url","/shopping/user/list");
+			return "message";
 		}
-		*/
+		
+		//회원 관리 페이지에서 아이디로 회원찾기
+		@PostMapping("/search")
+		public String search(String id , HttpServletRequest req){
+			List<UserVO> list = service.searchUser(id);
+			req.setAttribute("listUser", list);
+			return "ProductManagement/user_list";
+		}
+		
+		//회원관리 페이지 리스트 조회
+		@GetMapping("/list")
+		public String list(PageVO vo , HttpServletRequest req) {
+			List<UserVO> list = service.getAllUser(vo);
+			System.out.println("========================");
+			PageCreator pc = new PageCreator();
+			pc.setPaging(vo);
+			pc.setTotalCount(service.userCnt());
+			req.setAttribute("listUser", list);
+			req.setAttribute("pc", pc);
+			return "ProductManagement/user_list";
+		}
+		
 		
 		//로그아웃
 		@GetMapping("/logout")

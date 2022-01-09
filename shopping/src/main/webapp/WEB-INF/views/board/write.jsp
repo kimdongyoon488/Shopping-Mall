@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<th bgcolor="yellow" width="20%">이 름</th>
-			<td><input type="text" name="writer"></td>
+			<td><input type="text" name="writer" value="${login.name}" readonly></td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow" width="20%">제 목</th>

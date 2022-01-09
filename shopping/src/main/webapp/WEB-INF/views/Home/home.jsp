@@ -11,7 +11,7 @@
 <ul>
 	<li><h3><a href="/shopping/goodsManage">상품관리</a></h3></li>
 	<br><br>
-	<li><h3><a href="/shopping/user">회원관리</a></h3></li>
+	<li><h3><a href="/shopping/user/list">회원관리</a></h3></li>
 	<br><br>
 	<li><h3><a href="/shopping/board/list">게시판관리</a></h3></li>
 	<br><br>

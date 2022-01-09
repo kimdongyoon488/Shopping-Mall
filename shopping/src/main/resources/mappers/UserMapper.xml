@@ -45,8 +45,16 @@
 	</select>		
 
 	<select id="getAllUser" resultMap="Map">
-		select * from member 
+		SELECT * FROM member OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>	
+	
+	<select id="searchUser" resultMap="Map">
+		select * from member where id like '%'||#{id}||'%'
+	</select>
+	
+	<select id="userCnt" resultType="int">
+		select count(*) from member
+	</select>
 
 	<select id="searchId" resultMap="Map">
 		select * from member where name=#{name} and tel=#{tel}

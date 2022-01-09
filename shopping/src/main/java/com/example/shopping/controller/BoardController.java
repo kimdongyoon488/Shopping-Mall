@@ -62,8 +62,9 @@ public class BoardController {
 		System.out.println("==============");
 		service.plusReadcount(num);
 		List<CommentVO> list = service.getComment(num);
-		System.out.println(list.get(0));
+		System.out.println(list);
 		BoardVO vo = service.getBoard(num);
+		System.out.println(vo);
 		req.setAttribute("getBoard", vo);
 		model.addAttribute("getComment", list);
 		return "board/content";

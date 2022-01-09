@@ -45,11 +45,11 @@
 		    전화번호:<input type="tel" name="tel"/><br>
 		    아이디: <input type="text" name="id"/><br>
 		    비밀번호: <input type="password" name="password"/><br>
-		    권한: <select name="permission"> 
+		   <input type="hidden" name="permission" value="user">
+		   <!--   권한: <select name="permission"> 
 			    	<option value="user">일반 유저</option>
 			    	<option value="admin">관리자</option>
-		    	</select> 
-		    	<br><br>
+		    	</select> -->
 			<input type="submit" value="회원가입"/>
 		</form>
 		

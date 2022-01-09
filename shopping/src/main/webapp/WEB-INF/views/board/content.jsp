@@ -10,11 +10,6 @@
 	<script type="text/javascript">
 		
 		function check(){
-			if (f.writer.value==""){
-				alert("작성자를 입력해 주세요")
-				f.writer.focus()
-				return false
-			}
 			if (f.content.value==""){
 				alert("내용을 입력해 주세요")
 				f.content.focus()
@@ -86,19 +81,21 @@
 	</c:forEach>
 	
 	</table>
-	<form name="f" method="post" action="/shopping/board/writeComment" onsubmit="return check()">
-	
-		<p>
-			<label>작성자</label> <input type="text" name="writer">
-		</p>
-		<p>
-			<textarea rows="5" cols="50" name="content"></textarea>
-			<input type="hidden" name="bno" value="${getBoard.num}">
-		</p>
-		<p>
-			<button type="submit">댓글 작성</button>
-		</p>
-	</form>
+	<c:if test="${!empty loginAdmin}">
+		<form name="f" method="post" action="/shopping/board/writeComment" onsubmit="return check()">
+		
+			<p>
+				<label>작성자</label> <input type="text" name="writer" value="관리자" readonly>
+			</p>
+			<p>
+				<textarea rows="5" cols="50" name="content"></textarea>
+				<input type="hidden" name="bno" value="${getBoard.num}">
+			</p>
+			<p>
+				<button type="submit">댓글 작성</button>
+			</p>
+		</form>
+	</c:if>
 	
 </div>
 </body>

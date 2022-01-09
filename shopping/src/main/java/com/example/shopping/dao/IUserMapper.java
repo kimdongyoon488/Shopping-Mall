@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.UserVO;
 
 @Mapper
@@ -29,11 +30,19 @@ public interface IUserMapper {
 	 public int checkTel(String tel);
 	 
 	 //회원 전체조회
-	 public List<UserVO> getAllUser();
+	 public List<UserVO> getAllUser(PageVO vo);
+	 
+	 //회원 전체 수
+	 public int userCnt();
+	 
+	 //아이디로 회원 검색
+	 public List<UserVO> searchUser(String id);
 	 
 	 //아이디 찾기
 	 public UserVO searchId(UserVO vo);
 	 
 	 //비밀번호 변경
 	 public void changePw(UserVO vo);
+	 
+	 
 }

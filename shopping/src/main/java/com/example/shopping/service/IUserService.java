@@ -3,6 +3,7 @@ package com.example.shopping.service;
 import java.util.List;
 import java.util.Map;
 
+import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.UserVO;
 
 public interface IUserService {
@@ -26,7 +27,13 @@ public interface IUserService {
 	 public int checkTel(String tel);
 	 
 	 //회원 전체조회
-	 public List<UserVO> getAllUser();
+	 public List<UserVO> getAllUser(PageVO vo);
+	 
+	 //아이디로 회원 검색
+	 public List<UserVO> searchUser(String id);
+	 
+	 //회원 전체 수
+	 public int userCnt();
 	 
 	 //아이디 찾기
 	 public UserVO searchId(UserVO vo);
