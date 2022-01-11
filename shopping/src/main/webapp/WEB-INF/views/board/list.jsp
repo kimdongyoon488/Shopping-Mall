@@ -12,6 +12,7 @@
 	<c:if test="${!empty login}">
 	<table border="0" width="800">
 		<tr bgcolor="yellow">
+			<td><a href="/shopping/">쇼핑몰</a></td>
 			<td align="right"><a href="/shopping/board/write">글쓰기</a></td>
 		</tr>
 	</table>

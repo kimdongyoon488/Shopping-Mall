@@ -140,11 +140,13 @@ public class UserController {
 			}
 		}
 
+		//아이디 찾기 페이지 이동
 		@GetMapping("/searchId")
 		public String searchId() {
 			return "display/mall_login_searchId";
 		}
 		
+		//아이디 찾기
 		@PostMapping("/searchId")
 		public String searchId2(UserVO vo , HttpServletRequest req) {
 			
@@ -165,11 +167,13 @@ public class UserController {
 			return "message";
 		}
 		
+		//비밀번호 찾기 페이지 이동
 		@GetMapping("/searchPw")
 		public String searchPw() {
 			return "display/mall_login_searchPw";
 		}
 		
+		//비밀번호 찾기
 		@PostMapping("/searchPw")
 		public String searchPw2(UserVO vo, HttpServletRequest req) {
 			String msg = null, url = null;
@@ -189,11 +193,13 @@ public class UserController {
 			return "message";
 		}
 		
+		//회원 수정 페이지 이동
 		@GetMapping("/update")
 		public String updateUser() {
 			return "display/mall_user_update";
 		}
 		
+		//회원 수정
 		@PostMapping("/update")
 		public String updateUser2(UserVO vo ,  HttpServletRequest req) {
 			service.update(vo);

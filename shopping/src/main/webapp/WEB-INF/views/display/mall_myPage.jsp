@@ -16,7 +16,7 @@
 			<tr>
 				<th>주문상품</th>
 				<th>주문수량</th>
-				<th>주문취소</th>
+				<!--  <th>주문취소</th> -->
 			</tr>
 			<c:if test="${empty orderList}">
 				<tr>
@@ -27,7 +27,7 @@
 				<tr>
 					<td>${vo.pname}</td>
 					<td>${vo.qty}</td>
-					<td><a href="/shopping/orderDelete?num=${vo.num}">취소</a></td>
+					<!-- <td><a href="/shopping/orderDelete?num=${vo.num}">취소</a></td>-->
 				</tr>
 			</c:forEach>
 		</table>

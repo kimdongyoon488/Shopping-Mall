@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.example.shopping.dao.ICategoryMapper;
+import com.example.shopping.dao.IMainMapper;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
@@ -15,10 +15,10 @@ import com.example.shopping.vo.SearchVO;
 
 
 @Service
-public class CategoryService implements ICategoryService{
+public class MainService implements IMainService{
 
 	@Autowired
-	ICategoryMapper mapper;
+	IMainMapper mapper;
 
 	@Override
 	public void insert(CategoryVO vo) {

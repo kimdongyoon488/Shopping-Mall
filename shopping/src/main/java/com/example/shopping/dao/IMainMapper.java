@@ -14,7 +14,7 @@ import com.example.shopping.vo.SearchVO;
 
 
 @Mapper
-public interface ICategoryMapper {
+public interface IMainMapper {
 	
 	//카테고리 등록
 	public void insert(CategoryVO vo);

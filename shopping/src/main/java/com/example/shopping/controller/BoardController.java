@@ -25,6 +25,7 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 
+	//페이징 처리한 후 게시글 리스트 조회
 	@GetMapping("/list")
 	public String board1(HttpServletRequest req , PageVO vo) {
 		List<BoardVO> list = service.listBoard(vo);
@@ -37,12 +38,14 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	//게시글 작성 페이지 이동
 	@GetMapping("/write")
 	public String board2() {
 	
 		return "board/write";
 	}
 	
+	//게시글 작성
 	@PostMapping("/write")
 	public ModelAndView board3(HttpServletRequest req , BoardVO vo) {
 		
@@ -56,6 +59,7 @@ public class BoardController {
 		return mav;
 	}
 	
+	//게시글 보기
 	@GetMapping("/content")
 	public String board4(int num , HttpServletRequest req , Model model) {
 		System.out.println(num);
@@ -70,6 +74,7 @@ public class BoardController {
 		return "board/content";
 	}
 	
+	//게시글 수정페이지 이동
 	@GetMapping("/update")
 	public String board5(int num , HttpServletRequest req) {
 		BoardVO vo = service.getBoard(num);
@@ -77,6 +82,7 @@ public class BoardController {
 		return "board/update";
 	}
 	
+	//게시글 수정
 	@PostMapping("/update")
 	public String board6(BoardVO vo , HttpServletRequest req) {
 		service.update(vo);
@@ -85,6 +91,7 @@ public class BoardController {
 		return "message";
 	}
 	
+	//게시글 삭제
 	@GetMapping("/delete")
 	public String board7(int num ,  HttpServletRequest req) {
 		service.delete(num);
@@ -93,6 +100,7 @@ public class BoardController {
 		return "message";
 	}
 	
+	//댓글 작성
 	@PostMapping("/writeComment")
 	public String board8(CommentVO vo , HttpServletRequest req) {
 		service.insertComment(vo);
@@ -100,6 +108,7 @@ public class BoardController {
 		return "redirect:"+ referer;
 	}
 	
+	//댓글 삭제
 	@GetMapping("/deleteComment")
 	public String board9(int cno , HttpServletRequest req) {
 		service.deleteComment(cno); 

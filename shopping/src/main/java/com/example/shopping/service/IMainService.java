@@ -8,7 +8,7 @@ import com.example.shopping.vo.GoodsVO;
 import com.example.shopping.vo.OrderVO;
 import com.example.shopping.vo.SearchVO;
 
-public interface ICategoryService {
+public interface IMainService {
 
 		//카테고리 등록
 		public void insert(CategoryVO vo);

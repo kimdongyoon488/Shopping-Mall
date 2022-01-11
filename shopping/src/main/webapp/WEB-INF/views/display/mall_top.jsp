@@ -22,7 +22,7 @@
 	<div align="center">
 		<table border="1" width="800" height="600">
 			<tr height="10%">
-				<td align="center" colspan="2">쇼핑몰 | 
+				<td align="center" colspan="2"><a href="/shopping/">쇼핑몰</a> | 
 				<c:if test="${!empty login}"><a href="/shopping/cartList">장바구니|</a></c:if>
 				<c:if test="${empty login}"> <a href="/shopping/user/login">로그인</a>| </c:if> 
 				<c:if test="${!empty login}"> <a href="/shopping/user/logout">로그아웃</a>|</c:if>

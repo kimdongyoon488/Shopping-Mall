@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.shopping.paging.PageCreator;
 import com.example.shopping.paging.PageVO;
-import com.example.shopping.service.CategoryService;
+import com.example.shopping.service.MainService;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
 import com.example.shopping.vo.OrderVO;
@@ -32,10 +32,10 @@ import com.example.shopping.vo.UserVO;
 
 
 @Controller
-public class CategoryController {
+public class MainController {
 
 	@Autowired
-	CategoryService service;
+	MainService service;
 	
 	//쇼핑몰 페이지 이동
 	@GetMapping("/")
@@ -69,9 +69,17 @@ public class CategoryController {
 	
 	//관리자 페이지 이동
 	@GetMapping("/admin")
-	public String home() {
+	public String home(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVO vo = (UserVO)session.getAttribute("loginAdmin");
+		if(vo != null) {
+			return "Home/home";
+		}else {
+			req.setAttribute("msg", "관리자 외엔 접근이 불가능합니다");
+			req.setAttribute("url","/shopping/");
+			return "message";
+		}
 		
-		return "Home/home";
 		
 	}
 	
@@ -91,10 +99,12 @@ public class CategoryController {
 	
 	//카테고리 등록
 	@PostMapping("/categoryAdd2")
-	public String product3(CategoryVO vo) {
+	public String product3(CategoryVO vo , HttpServletRequest req) {
 		System.out.println(vo);
 		service.insert(vo);
-		return "ProductManagement/goodsManage";
+		req.setAttribute("msg", "카테고리 등록이 완료되었습니다");
+		req.setAttribute("url","/shopping/goodsManage");
+		return "message";
 		
 	}
 	
@@ -123,17 +133,21 @@ public class CategoryController {
 	
 	//카테고리 수정
 	@PostMapping("/category_edit2")
-	public String product6(CategoryVO vo) {
+	public String product6(CategoryVO vo , HttpServletRequest req) {
 		service.update(vo);
 		System.out.println(vo);
-		return "redirect:/category_list";
+		req.setAttribute("msg", "카테고리 수정이 완료되었습니다");
+		req.setAttribute("url","/shopping/category_list");
+		return "message";
 	}
 	
 	//카테고리 삭제
 	@GetMapping("/category_delete")
-	public String product7(int cnum) {
+	public String product7(int cnum , HttpServletRequest req) {
 		service.delete(cnum);
-		return "redirect:/category_list";
+		req.setAttribute("msg", "카테고리 삭제가 완료되었습니다");
+		req.setAttribute("url","/shopping/category_list");
+		return "message";
 	}
 	
 	//상품 등록 페이지 이동
@@ -167,7 +181,9 @@ public class CategoryController {
 		}
 		vo.setPcode(req.getParameter("category_fk") + vo.getPcode());
 		service.insertGoods(vo);
-		return "ProductManagement/goodsManage";
+		req.setAttribute("msg", "상품 등록이 완료되었습니다");
+		req.setAttribute("url","/shopping/goodsManage");
+		return "message";
 	}
 	
 	//상품 목록 페이지 이동
@@ -219,16 +235,20 @@ public class CategoryController {
 		
 		System.out.println(vo.getPimage());	
 		service.updateGoods(vo);
-		return "redirect:/goodsList";
+		req.setAttribute("msg", "상품 수정이 완료되었습니다");
+		req.setAttribute("url","/shopping/goodsList");
+		return "message";
 	}
 	
 	//상품 삭제
 	@GetMapping("/goodsDelete")
-	public String product13(int pnum,String pimage) {
+	public String product13(int pnum, String pimage, HttpServletRequest req) {
 		service.deleteGoods(pnum);
 		File file = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images",pimage);
 		file.delete();
-		return "redirect:/goodsList";
+		req.setAttribute("msg", "상품 삭제가 완료되었습니다");
+		req.setAttribute("url","/shopping/goodsList");
+		return "message";
 	}
 	
 	//상품 검색
@@ -328,7 +348,7 @@ public class CategoryController {
 		UserVO userVo = (UserVO)session.getAttribute("login");
 		if(userVo == null) {
 			req.setAttribute("msg", "로그인이 필요한 서비스입니다");
-			req.setAttribute("url", "/shopping/");
+			req.setAttribute("url", "/shopping/user/login");
 			return "message";
 		}
 		if (cart == null) {
@@ -395,7 +415,7 @@ public class CategoryController {
 		
 		if(userVo == null) {
 			msg="로그인이 필요한 서비스입니다";
-			url="/shopping/";
+			url="/shopping/user/login";
 		}else if(Integer.parseInt(qty) == 0) {
 			msg="구매할 수량이 한개 이상이어야 합니다";
 			url="/shopping/";
@@ -431,7 +451,7 @@ public class CategoryController {
 		OrderVO orderVo = new OrderVO();
 		if(userVo == null) {
 			msg="로그인이 필요한 서비스입니다";
-			url="/shopping/";
+			url="/shopping/user/login";
 			req.setAttribute("msg", msg);
 			req.setAttribute("url", url);
 			return "message";
@@ -488,6 +508,7 @@ public class CategoryController {
 		return "display/mall_myPage";
 	}
 	
+	/*
 	//주문 취소
 	@GetMapping("orderDelete")
 	public String product29(int num , HttpServletRequest req) {
@@ -495,5 +516,5 @@ public class CategoryController {
 		req.setAttribute("msg","주문이 취소되었습니다");
 		req.setAttribute("url","/shopping/myPage");
 		return "message";
-	}
+	} */
 }
