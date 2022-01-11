@@ -55,6 +55,7 @@ qty number not null,
 foreign key(member_id) references member(id),
 foreign key(product_pnum) references product(pnum));
 
+alter table myOrder add pname varchar2(50);
 create sequence myOrder_seq;
 
 

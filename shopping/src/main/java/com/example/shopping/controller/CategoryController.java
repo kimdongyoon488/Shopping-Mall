@@ -256,7 +256,7 @@ public class CategoryController {
 	}
 	
 	
-	
+	//카테고리별 상품들 조회
 	@PostMapping("/mall_categoryList")
 	public String product16(HttpServletRequest req , String code , String cname) {
 		List<GoodsVO> list = service.listPcode(code);
@@ -268,6 +268,7 @@ public class CategoryController {
 		return "display/mall_cateGoodsList";
 	}
 	
+	//특정 상품 조회
 	@GetMapping("/mall_goodsView")
 	public String product17(HttpServletRequest req , String code , int pnum){
 		HttpSession session = req.getSession();
@@ -282,6 +283,7 @@ public class CategoryController {
 		return"display/mall_goodsView"; 
 	}
 	
+	//상품 입고 페이지 이동
 	@GetMapping("/goods_input")
 	public String product18(HttpServletRequest req , int pnum) {
 		GoodsVO vo = service.selectGoods(pnum);
@@ -289,6 +291,7 @@ public class CategoryController {
 		return "ProductManagement/goods_input";
 	}
 	
+	//상품 입고
 	@PostMapping("/goods_input2")
 	public String product19(HttpServletRequest req, GoodsVO vo) {
 		vo.setPqty(vo.getPqty() + Integer.parseInt(req.getParameter("input")));
@@ -296,6 +299,7 @@ public class CategoryController {
 		return "redirect:/goodsList";
 	}
 	
+	//상품 출고 페이지 이동
 	@GetMapping("/goods_output")
 	public String product20(HttpServletRequest req , int pnum) {
 		GoodsVO vo = service.selectGoods(pnum);
@@ -303,6 +307,7 @@ public class CategoryController {
 		return "ProductManagement/goods_out";
 	}
 	
+	//상품 출고
 	@PostMapping("/goods_output2")
 	public String product21(HttpServletRequest req, GoodsVO vo) {
 		vo.setPqty(vo.getPqty() - Integer.parseInt(req.getParameter("out")));
@@ -315,21 +320,17 @@ public class CategoryController {
 		return "redirect:/goodsList";
 	}
 	
-	@GetMapping("/cartList")
-	public String product24(HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		List<GoodsVO> cart = (List)session.getAttribute("cart");
-		if (cart == null) {
-			cart = new ArrayList<GoodsVO>();
-		}
-		session.setAttribute("cart", cart);
-		return "display/mall_cartList";
-	}
-	
+	//장바구니에 추가
 	@PostMapping("/cartAdd")
 	public String product22(HttpServletRequest req , String code , String pnum , String qty) {
 		HttpSession session = req.getSession();
 		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		UserVO userVo = (UserVO)session.getAttribute("login");
+		if(userVo == null) {
+			req.setAttribute("msg", "로그인이 필요한 서비스입니다");
+			req.setAttribute("url", "/shopping/");
+			return "message";
+		}
 		if (cart == null) {
 			cart = new ArrayList<GoodsVO>();
 		}
@@ -346,6 +347,7 @@ public class CategoryController {
 		return "display/mall_cartList";
 	}
 	
+	//장바구니에서 구매 수량 수정
 	@PostMapping("/cartEdit")
 	public String product23(HttpServletRequest req , String index , String pqty) {
 		HttpSession session = req.getSession();
@@ -358,19 +360,31 @@ public class CategoryController {
 		return "display/mall_cartList";
 	}
 	
+	//장바구니 리스트 보여주기
+	@GetMapping("/cartList")
+	public String product24(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		if (cart == null) {
+			cart = new ArrayList<GoodsVO>();
+		}
+		session.setAttribute("cart", cart);
+		return "display/mall_cartList";
+	}
 	
+	//장바구니에있는 상품 삭제
 	@GetMapping("/cartDelete")
-	public String product23(HttpServletRequest req , String index) {
+	public String product25(HttpServletRequest req , String index) {
 		HttpSession session = req.getSession();
 		List<GoodsVO> cart = (List)session.getAttribute("cart");
 		cart.remove(Integer.parseInt(index));
 		return "display/mall_cartList";
 	}
+
 	
-	//cartOrder 장바구니에서 주문
-	//바로 주문
+	//즉시 주문
 	@PostMapping("/directOrder")
-	public String directOrder(String qty, String pnum, HttpServletRequest req) {
+	public String product26(String qty, String pnum, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		UserVO userVo = (UserVO)session.getAttribute("login");
 		OrderVO orderVo = new OrderVO();
@@ -397,18 +411,89 @@ public class CategoryController {
 			service.order(orderVo);
 			msg="주문이 완료되었습니다";
 			url="/shopping/";
+		}else {
+			msg="상품의 존재 수량이 주문량보다 적습니다 현재 상품 수량:" + goodsVo.getPqty();
+			url="/shopping/";
 		}
 		req.setAttribute("msg", msg);
 		req.setAttribute("url", url);
 		return "message";
 	}
 	
+	//장바구니에서 주문
+	@GetMapping("/cartOrder")
+	public String product27(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String msg = null;
+		String url = null;
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		UserVO userVo = (UserVO)session.getAttribute("login");
+		OrderVO orderVo = new OrderVO();
+		if(userVo == null) {
+			msg="로그인이 필요한 서비스입니다";
+			url="/shopping/";
+			req.setAttribute("msg", msg);
+			req.setAttribute("url", url);
+			return "message";
+		} else { 
+			for(GoodsVO cartVo : cart) {
+				
+			GoodsVO goodsVo = service.countGoods(cartVo.getPnum());
+			System.out.println(goodsVo.getPqty());
+			System.out.println(cartVo.getPqty());
+			if(goodsVo.getPqty() == 0) {
+				msg="매진된 상품이 존재합니다";
+				url="/shopping/";
+				req.setAttribute("msg", msg);
+				req.setAttribute("url", url);
+				return "message";
+			 }else if(cartVo.getPqty() == 0){
+				msg="구매할 수량이 한개 이상이어야 합니다";
+				url="/shopping/";
+				req.setAttribute("msg", msg);
+				req.setAttribute("url", url);
+				return "message";
+			 }else if(goodsVo.getPqty() >= cartVo.getPqty()){
+				service.qtySub(goodsVo.getPnum(),cartVo.getPqty());
+				orderVo.setMember_id(userVo.getId());
+				orderVo.setProduct_pnum(cartVo.getPnum());
+				orderVo.setQty(cartVo.getPqty());
+				orderVo.setPname(cartVo.getPname());
+				service.order(orderVo);	
+			 }else {
+				msg= cartVo.getPname() + "의 존재 수량이 주문량보다 적습니다 현재 상품 수량:" + goodsVo.getPqty();
+				url="/shopping/";
+				req.setAttribute("msg", msg);
+				req.setAttribute("url", url);
+				return "message";
+			 }
+			}
+		}
+		
+		msg="주문이 완료되었습니다";
+		url="/shopping/";
+		req.setAttribute("msg", msg);
+		req.setAttribute("url", url);
+		return "message";
+		
+	}
+	
+	//마이페이지 이동
 	@GetMapping("/myPage")
-	public String myPage(HttpServletRequest req, Model model) {
+	public String product28(HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession();
 		UserVO userVo = (UserVO)session.getAttribute("login");
 		List<OrderVO> list = service.orderAllList(userVo.getId());
 		model.addAttribute("orderList", list);
 		return "display/mall_myPage";
+	}
+	
+	//주문 취소
+	@GetMapping("orderDelete")
+	public String product29(int num , HttpServletRequest req) {
+		service.orderDelete(num);
+		req.setAttribute("msg","주문이 취소되었습니다");
+		req.setAttribute("url","/shopping/myPage");
+		return "message";
 	}
 }

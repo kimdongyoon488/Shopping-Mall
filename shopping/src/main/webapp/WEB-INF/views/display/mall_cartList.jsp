@@ -62,7 +62,7 @@
 			<font color="green">총 적립 포인트 : [<c:out value="${cartTotalPoint}"/>] point</font>	
 		</td>
 		<td colspan="2">
-			<a href="#">[주문하기]</a>
+			<a href="/shopping/cartOrder">[주문하기]</a>
 			<a href="/shopping/mall">[계속쇼핑]</a>
 		</td>
 	</tr>			

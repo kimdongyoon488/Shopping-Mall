@@ -107,4 +107,7 @@
 		select * from myOrder where member_id=#{member_id} 
 	</select>
 	
+	<delete id="orderDelete">
+		delete from myOrder where num=#{num}
+	</delete>
 </mapper>
