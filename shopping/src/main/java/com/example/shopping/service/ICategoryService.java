@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.OrderVO;
 import com.example.shopping.vo.SearchVO;
 
 public interface ICategoryService {
@@ -51,15 +52,30 @@ public interface ICategoryService {
 		//상품 삭제
 		public void deleteGoods(int num);
 		
-		//카테고리별 상품 조회
+		//카테고리 이름으로 상품 검색
 		public List<GoodsVO> findCategoryGoods(SearchVO vo);
 		
-		//이름별 상품 조회
+		//상품 이름으로 상품 검색
 		public List<GoodsVO> findNameGoods(SearchVO vo);
 		
+		//스펙별 상품 조회
 		public List<GoodsVO> listPspec(String pspec);
 		
+		//카테고리별 상품 조회
 		public List<GoodsVO> listPcode(String pcode);
 		
+		//상품 입출고
 		public void inOutput(GoodsVO vo); 
+		
+		//특정 상품의 상품수량 조회
+		public GoodsVO countGoods(int pnum);
+		
+		//상품 주문 수량만큼 재고 차감
+		public void qtySub(int pnum, int qty);
+		
+		//상품 주문하기
+		public void order(OrderVO vo);
+		
+		//회원별 주문 리스트 전체조회
+		public List<OrderVO> orderAllList(String member_id);
 }

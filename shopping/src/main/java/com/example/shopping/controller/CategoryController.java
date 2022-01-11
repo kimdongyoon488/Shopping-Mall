@@ -25,7 +25,9 @@ import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.CategoryService;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.OrderVO;
 import com.example.shopping.vo.SearchVO;
+import com.example.shopping.vo.UserVO;
 
 
 
@@ -365,4 +367,48 @@ public class CategoryController {
 		return "display/mall_cartList";
 	}
 	
+	//cartOrder 장바구니에서 주문
+	//바로 주문
+	@PostMapping("/directOrder")
+	public String directOrder(String qty, String pnum, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVO userVo = (UserVO)session.getAttribute("login");
+		OrderVO orderVo = new OrderVO();
+		GoodsVO goodsVo = service.countGoods(Integer.parseInt(pnum));
+		GoodsVO selectGoodsVo = service.selectGoods(Integer.parseInt(pnum));
+		String msg = null;
+		String url = null;
+		
+		if(userVo == null) {
+			msg="로그인이 필요한 서비스입니다";
+			url="/shopping/";
+		}else if(Integer.parseInt(qty) == 0) {
+			msg="구매할 수량이 한개 이상이어야 합니다";
+			url="/shopping/";
+		}else if(goodsVo.getPqty() == 0) {
+			msg="상품이 매진 되었습니다";
+			url="/shopping/";
+		}else if(goodsVo.getPqty() >= Integer.parseInt(qty)){
+			service.qtySub(Integer.parseInt(pnum), Integer.parseInt(qty));
+			orderVo.setMember_id(userVo.getId());
+			orderVo.setProduct_pnum(Integer.parseInt(pnum));
+			orderVo.setQty(Integer.parseInt(qty));
+			orderVo.setPname(selectGoodsVo.getPname());
+			service.order(orderVo);
+			msg="주문이 완료되었습니다";
+			url="/shopping/";
+		}
+		req.setAttribute("msg", msg);
+		req.setAttribute("url", url);
+		return "message";
+	}
+	
+	@GetMapping("/myPage")
+	public String myPage(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		UserVO userVo = (UserVO)session.getAttribute("login");
+		List<OrderVO> list = service.orderAllList(userVo.getId());
+		model.addAttribute("orderList", list);
+		return "display/mall_myPage";
+	}
 }

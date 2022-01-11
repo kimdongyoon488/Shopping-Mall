@@ -6,6 +6,11 @@
 		document.f.action="/shopping/cartAdd"
 		document.f.submit()
 	}
+	
+	function goOrder(){
+		document.f.action="/shopping/directOrder"
+		document.f.submit()
+	}
 </script>
 <table width="99%" border="0" class="outline">
 	<tr class="m1">

@@ -207,11 +207,5 @@ public class UserController {
 			return "message";
 		}
 		
-		//cartOrder 장바구니에서 주문
-		//directOrder 바로 주문
-		
-		@GetMapping("/myPage")
-		public String myPage() {
-			return "display/mall_myPage";
-		}
+	
 }

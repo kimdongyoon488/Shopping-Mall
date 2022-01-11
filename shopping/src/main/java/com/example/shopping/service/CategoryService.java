@@ -10,6 +10,7 @@ import com.example.shopping.dao.ICategoryMapper;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.vo.CategoryVO;
 import com.example.shopping.vo.GoodsVO;
+import com.example.shopping.vo.OrderVO;
 import com.example.shopping.vo.SearchVO;
 
 
@@ -142,6 +143,35 @@ public class CategoryService implements ICategoryService{
 	public void inOutput(GoodsVO vo) {
 		mapper.inOutput(vo);
 		
+	}
+
+
+	@Override
+	public GoodsVO countGoods(int pnum) {
+		
+		return mapper.countGoods(pnum);
+	}
+
+
+
+	@Override
+	public void qtySub(int pnum, int qty) {
+		mapper.qtySub(pnum, qty);
+		
+	}
+
+
+	@Override
+	public void order(OrderVO vo) {
+		mapper.order(vo);
+		
+	}
+
+
+	@Override
+	public List<OrderVO> orderAllList(String member_id) {
+		
+		return mapper.orderAllList(member_id);
 	}
 
 

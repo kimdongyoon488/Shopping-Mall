@@ -89,4 +89,22 @@
 		update product set pqty = #{pqty} where pnum=#{pnum}
 	</update>
 	
+	<select id="countGoods" resultType="com.example.shopping.vo.GoodsVO">
+		select * from product where pnum=#{pnum}
+	</select>
+	
+	<update id="qtySub">
+		update product set pqty=pqty-#{qty}
+		where pnum=#{pnum}
+	</update>
+	
+	<insert id="order">
+		insert into myOrder(num,member_id,product_pnum,qty,pname) 
+		values(myOrder_seq.NEXTVAL,#{member_id},#{product_pnum},#{qty},#{pname})
+	</insert>
+	
+	<select id="orderAllList" resultType="com.example.shopping.vo.OrderVO">
+		select * from myOrder where member_id=#{member_id} 
+	</select>
+	
 </mapper>

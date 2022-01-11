@@ -15,12 +15,19 @@
 		<table border="1">
 			<tr>
 				<th>주문상품</th>
-				<th>수량</th>
-				<th>금액</th>
+				<th>주문수량</th>
 			</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
+			<c:if test="${empty orderList}">
+				<tr>
+					<td colspan="2">주문하신 상품이 없습니다.</td>
+				</tr>	
+			</c:if>
+			<c:forEach var="vo" items="${orderList}">
+				<tr>
+					<td>${vo.pname}</td>
+					<td>${vo.qty}</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	

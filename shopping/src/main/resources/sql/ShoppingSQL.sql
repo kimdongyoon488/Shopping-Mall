@@ -47,4 +47,15 @@ create table member(
 alter table member add permission varchar(20) not null;
 
 
+create table myOrder
+(num number primary key,
+member_id varchar(20) not null,
+product_pnum number not null,
+qty number not null,
+foreign key(member_id) references member(id),
+foreign key(product_pnum) references product(pnum));
+
+create sequence myOrder_seq;
+
+
 
