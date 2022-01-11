@@ -188,4 +188,30 @@ public class UserController {
 			req.setAttribute("url", url);
 			return "message";
 		}
+		
+		@GetMapping("/update")
+		public String updateUser() {
+			return "display/mall_user_update";
+		}
+		
+		@PostMapping("/update")
+		public String updateUser2(UserVO vo ,  HttpServletRequest req) {
+			service.update(vo);
+			HttpSession session = req.getSession();
+			UserVO login = (UserVO)session.getAttribute("login");
+			login.setAge(vo.getAge());
+			login.setName(vo.getName());
+			session.setAttribute("login",login);
+			req.setAttribute("msg","회원 정보 수정이 완료되었습니다");
+			req.setAttribute("url", "/shopping/user/myPage");
+			return "message";
+		}
+		
+		//cartOrder 장바구니에서 주문
+		//directOrder 바로 주문
+		
+		@GetMapping("/myPage")
+		public String myPage() {
+			return "display/mall_myPage";
+		}
 }

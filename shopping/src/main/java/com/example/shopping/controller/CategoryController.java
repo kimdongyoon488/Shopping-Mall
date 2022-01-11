@@ -313,6 +313,17 @@ public class CategoryController {
 		return "redirect:/goodsList";
 	}
 	
+	@GetMapping("/cartList")
+	public String product24(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		List<GoodsVO> cart = (List)session.getAttribute("cart");
+		if (cart == null) {
+			cart = new ArrayList<GoodsVO>();
+		}
+		session.setAttribute("cart", cart);
+		return "display/mall_cartList";
+	}
+	
 	@PostMapping("/cartAdd")
 	public String product22(HttpServletRequest req , String code , String pnum , String qty) {
 		HttpSession session = req.getSession();
@@ -353,7 +364,5 @@ public class CategoryController {
 		cart.remove(Integer.parseInt(index));
 		return "display/mall_cartList";
 	}
-	
-
 	
 }
