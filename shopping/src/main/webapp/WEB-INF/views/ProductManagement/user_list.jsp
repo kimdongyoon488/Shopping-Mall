@@ -16,7 +16,7 @@
 	}
 	
 	function checkDel(id){
-		var isDel = window.confirm("정말로 삭제하시겠습니까?");
+		var isDel = window.confirm("정말로 탈퇴 시키겠습니까?");
 		if (isDel){
 			location.href="/shopping/user/delete?id="+id;
 		} 
@@ -36,7 +36,7 @@
 		<th>나이</th>
 		<th>전화번호</th>
 		<th>가입날짜</th>
-		<th>삭제</th>
+		<th>탈퇴</th>
 	</tr>
 <c:if test="${empty listUser}">
 	<tr>
@@ -51,7 +51,7 @@
 		<td>${vo.tel}	</td>
 		<td><fmt:formatDate pattern = "yyyy/MM/dd" value="${vo.joinDate}"/></td>
 		<td>
-			<a href="javascript:checkDel('${vo.id}')">삭제</a>
+			<a href="javascript:checkDel('${vo.id}')">탈퇴</a>
 		</td>
 	</tr>
 </c:forEach>

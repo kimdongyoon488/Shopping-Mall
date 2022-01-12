@@ -3,7 +3,9 @@ package com.example.shopping.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,9 @@ public class UserController {
 		
 		//로그인
 		@PostMapping("/login")
-		public String login(UserVO input , HttpSession session , HttpServletRequest req) {
-			System.out.println(input);
+		public String login(UserVO input , HttpSession session , HttpServletRequest req, 
+					HttpServletResponse response, String saveId) {
+			System.out.println(saveId);
 			UserVO vo = service.getUser(input.getId());
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			if(vo != null) {
@@ -42,6 +45,14 @@ public class UserController {
 					
 					//로그인 한사람이 일반유저 일때
 					if(vo.getPermission().equals("user")) {
+						Cookie cookie = new Cookie("saveId",vo.getId());
+						if(saveId != null) {
+							//아이디 기억 일주일간 유지
+							cookie.setMaxAge(60 * 60 * 24 * 7);
+						}else {
+							cookie.setMaxAge(0);
+						}
+						response.addCookie(cookie);
 						session.setAttribute("login", vo);
 						req.setAttribute("msg", "로그인 성공");
 						req.setAttribute("url", "/shopping/");
@@ -66,12 +77,14 @@ public class UserController {
 			}
 		}
 
+		//회원가입 페이지 이동
 		@GetMapping("/loginSign")
 		public String user2() {
 			return "display/mall_login_sign";
 		}
 		
 		
+		//회원가입
 		@PostMapping("/loginSign")
 		public String user3(UserVO vo , HttpServletRequest req) {
 			int id = service.checkId(vo.getId());
