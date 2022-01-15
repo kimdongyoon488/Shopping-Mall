@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>관리자 페이지</h1>
+	<div align="center"> <h1>관리자 페이지</h1> </div>
 <ul>
 	<li><h3><a href="/shopping/goodsManage">상품 관리</a></h3></li>
 	<br><br>

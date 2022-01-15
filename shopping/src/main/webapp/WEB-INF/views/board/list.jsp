@@ -18,7 +18,7 @@
 	</table>
 	</c:if>
 	<table border="1" width="800">
-		<tr>
+		<tr bgcolor="yellow">
 			<th>번호</th>
 			<th width="30%">제목</th>
 			<th>작성자</th>

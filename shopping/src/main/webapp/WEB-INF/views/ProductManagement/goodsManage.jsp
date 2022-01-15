@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<button type="button" onclick="location.href='/shopping/admin'">관리자 페이지로 돌아가기</button>
 	<h1 align="center">상품 관리</h1>
 	<ul>
 	<li><a href="/shopping/categoryAdd">카테고리 등록</a></li>

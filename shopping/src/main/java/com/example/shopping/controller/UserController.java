@@ -27,6 +27,7 @@ public class UserController {
 		@Autowired
 		UserService service;
 		
+		//로그인 페이지 이동
 		@GetMapping("/login")
 		public String user1() {
 			return "display/mall_login";

@@ -63,7 +63,7 @@
 		</td>
 		<td colspan="2">
 			<a href="/shopping/cartOrder">[주문하기]</a>
-			<a href="/shopping/mall">[계속쇼핑]</a>
+			<a href="/shopping/">[계속쇼핑]</a>
 		</td>
 	</tr>			
 </table>	

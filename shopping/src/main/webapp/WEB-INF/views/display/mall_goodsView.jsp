@@ -26,8 +26,8 @@
 			<form name="f" method="post">
 				상품번호 : ${getProduct.pnum}<br>
 				상품이름 : ${getProduct.pname}<br>
-				상품가격 : <font color="red">${getProduct.price}</font>원<br>
-				상품포인트 : <font color="red">[${getProduct.point}]</font>point<br>
+				상품가격 : ${getProduct.price}원<br>
+				상품포인트 : [${getProduct.point}]point<br>
 				구매할 수량 : <input type="text" name="qty" size="3" value="1" >개<br><br>
 				<input type="hidden" name="pnum" value="${getProduct.pnum}">
 				<input type="hidden" name="code" value="${param.code}">

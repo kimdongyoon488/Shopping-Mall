@@ -34,8 +34,10 @@ import com.example.shopping.vo.UserVO;
 @Controller
 public class MainController {
 
+	
 	@Autowired
 	MainService service;
+	
 	
 	//쇼핑몰 페이지 이동
 	@GetMapping("/")

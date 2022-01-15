@@ -20,7 +20,7 @@
 						<a href="/shopping/mall_goodsView?code=${param.code}&pnum=${vo.pnum}">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
 						${vo.pname} </a> <br>
-						<font color="red">${vo.price}</font>원<br>
+						<font color="blue">${vo.price}</font>원<br>
 						<font color="blue">${vo.point}</font>point
 					</td>
 					<c:set var="co" value="${co+1}"/>
