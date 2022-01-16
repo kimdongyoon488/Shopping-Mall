@@ -223,7 +223,7 @@ public class UserController {
 			login.setName(vo.getName());
 			session.setAttribute("login",login);
 			req.setAttribute("msg","회원 정보 수정이 완료되었습니다");
-			req.setAttribute("url", "/shopping/user/myPage");
+			req.setAttribute("url", "/shopping/myPage");
 			return "message";
 		}
 		

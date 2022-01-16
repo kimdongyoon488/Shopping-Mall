@@ -463,32 +463,40 @@ public class MainController {
 			GoodsVO goodsVo = service.countGoods(cartVo.getPnum());
 			System.out.println(goodsVo.getPqty());
 			System.out.println(cartVo.getPqty());
+			
 			if(goodsVo.getPqty() == 0) {
+				
 				msg="매진된 상품이 존재합니다";
 				url="/shopping/";
 				req.setAttribute("msg", msg);
 				req.setAttribute("url", url);
 				return "message";
+			
 			 }else if(cartVo.getPqty() == 0){
+				
 				msg="구매할 수량이 한개 이상이어야 합니다";
 				url="/shopping/";
 				req.setAttribute("msg", msg);
 				req.setAttribute("url", url);
 				return "message";
-			 }else if(goodsVo.getPqty() >= cartVo.getPqty()){
-				service.qtySub(goodsVo.getPnum(),cartVo.getPqty());
-				orderVo.setMember_id(userVo.getId());
-				orderVo.setProduct_pnum(cartVo.getPnum());
-				orderVo.setQty(cartVo.getPqty());
-				orderVo.setPname(cartVo.getPname());
-				service.order(orderVo);	
-			 }else {
+			 }  else if(goodsVo.getPqty() < cartVo.getPqty()){
+				
 				msg= cartVo.getPname() + "의 존재 수량이 주문량보다 적습니다 현재 상품 수량:" + goodsVo.getPqty();
 				url="/shopping/";
 				req.setAttribute("msg", msg);
 				req.setAttribute("url", url);
 				return "message";
 			 }
+			}
+			
+			for(GoodsVO cartVo : cart) {
+				GoodsVO goodsVo = service.countGoods(cartVo.getPnum());
+				service.qtySub(goodsVo.getPnum(),cartVo.getPqty());
+				orderVo.setMember_id(userVo.getId());
+				orderVo.setProduct_pnum(cartVo.getPnum());
+				orderVo.setQty(cartVo.getPqty());
+				orderVo.setPname(cartVo.getPname());
+				service.order(orderVo);	
 			}
 		}
 		
