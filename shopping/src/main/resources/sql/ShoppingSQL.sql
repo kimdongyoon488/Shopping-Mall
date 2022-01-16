@@ -28,9 +28,7 @@ create table board(
     email varchar(50),
     subject varchar(50),
     readcount number,
-    content varchar(200),
-    re_step number,
-    re_level number
+    content varchar(200)
 );
 
 alter table board add id varchar(50);
