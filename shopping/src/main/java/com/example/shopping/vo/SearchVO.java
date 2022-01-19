@@ -1,5 +1,6 @@
 package com.example.shopping.vo;
 
+//검색 클래스
 public class SearchVO {
 	
 	private String condition;

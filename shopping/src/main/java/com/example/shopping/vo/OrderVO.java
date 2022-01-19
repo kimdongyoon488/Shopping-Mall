@@ -1,5 +1,6 @@
 package com.example.shopping.vo;
 
+//주문 클래스
 public class OrderVO {
 
 	private int num;
