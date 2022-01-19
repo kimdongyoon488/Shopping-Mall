@@ -85,6 +85,5 @@ public interface IMainMapper {
 	//회원별 주문 리스트 전체조회
 	public List<OrderVO> orderAllList(String member_id);
 	
-	//주문 취소
-	public void orderDelete(int num);
+
 }

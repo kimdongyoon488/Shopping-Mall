@@ -1,5 +1,7 @@
 package com.example.shopping.vo;
 
+
+//카테고리 클래스
 public class CategoryVO {
 	
 	private int cnum;

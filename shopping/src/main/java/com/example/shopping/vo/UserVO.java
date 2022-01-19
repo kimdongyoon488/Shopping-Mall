@@ -2,6 +2,7 @@ package com.example.shopping.vo;
 
 import java.util.Date;
 
+//회원 클래스
 public class UserVO {
 	
 	private String id;

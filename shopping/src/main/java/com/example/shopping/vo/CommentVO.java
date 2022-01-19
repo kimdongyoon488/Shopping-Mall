@@ -2,6 +2,7 @@ package com.example.shopping.vo;
 
 import java.util.Date;
 
+//댓글 클래스
 public class CommentVO {
 
 	private int cno;

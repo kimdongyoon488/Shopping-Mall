@@ -172,11 +172,9 @@ public class MainController {
 		}
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
-		//File target = new File("c:\\Temp\\upload",file.getOriginalFilename());
 		File target2 = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images",file.getOriginalFilename());
 		if (file.getSize()>0) {
 			try {
-				//file.transferTo(target);
 				file.transferTo(target2);
 			}catch(IOException e) {}
 		vo.setPimage(file.getOriginalFilename());
@@ -518,13 +516,5 @@ public class MainController {
 		return "display/mall_myPage";
 	}
 	
-	/*
-	//주문 취소
-	@GetMapping("orderDelete")
-	public String product29(int num , HttpServletRequest req) {
-		service.orderDelete(num);
-		req.setAttribute("msg","주문이 취소되었습니다");
-		req.setAttribute("url","/shopping/myPage");
-		return "message";
-	} */
+	
 }

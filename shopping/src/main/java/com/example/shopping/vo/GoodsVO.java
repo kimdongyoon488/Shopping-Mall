@@ -1,5 +1,6 @@
 package com.example.shopping.vo;
 
+//상품 클래스
 public class GoodsVO {
 
 	private int pnum;

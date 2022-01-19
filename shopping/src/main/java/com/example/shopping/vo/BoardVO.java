@@ -1,5 +1,7 @@
 package com.example.shopping.vo;
 
+
+//게시판 클래스
 public class BoardVO {
 
 	private int num;

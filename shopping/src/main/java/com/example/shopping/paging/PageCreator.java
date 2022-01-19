@@ -1,6 +1,6 @@
 package com.example.shopping.paging;
 
-
+//페이징 처리 클래스
 public class PageCreator {
 
 	private PageVO paging;

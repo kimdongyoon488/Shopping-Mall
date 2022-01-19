@@ -1,5 +1,6 @@
 package com.example.shopping.paging;
 
+//페이지 클래스
 public class PageVO {
 
 	private int page;
