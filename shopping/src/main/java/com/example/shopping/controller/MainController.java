@@ -172,7 +172,7 @@ public class MainController {
 		}
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
-		File target2 = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images",file.getOriginalFilename());
+		File target2 = new File("C:\\Users\\kdy94\\IdeaProjects\\Shopping-Mall\\shopping\\src\\main\\resources\\static\\images",file.getOriginalFilename());
 		if (file.getSize()>0) {
 			try {
 				file.transferTo(target2);
@@ -217,7 +217,7 @@ public class MainController {
 		}
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
 		MultipartFile file = mr.getFile("pimage");
-		File target = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images", file.getOriginalFilename());
+		File target = new File("C:\\Users\\kdy94\\IdeaProjects\\Shopping-Mall\\shopping\\src\\main\\resources\\static\\images", file.getOriginalFilename());
 		
 		//이미지를 바꾸고 수정했을때
 		if (file.getSize()>0) {
@@ -244,7 +244,7 @@ public class MainController {
 	@GetMapping("/goodsDelete")
 	public String product13(int pnum, String pimage, HttpServletRequest req) {
 		service.deleteGoods(pnum);
-		File file = new File("C:\\Users\\김동윤\\git\\repository2\\shopping\\src\\main\\resources\\static\\images",pimage);
+		File file = new File("C:\\Users\\kdy94\\IdeaProjects\\Shopping-Mall\\shopping\\src\\main\\resources\\static\\images",pimage);
 		file.delete();
 		req.setAttribute("msg", "상품 삭제가 완료되었습니다");
 		req.setAttribute("url","/shopping/goodsList");
@@ -514,6 +514,14 @@ public class MainController {
 		List<OrderVO> list = service.orderAllList(userVo.getId());
 		model.addAttribute("orderList", list);
 		return "display/mall_myPage";
+	}
+
+	// 주문 취소
+	@GetMapping("/orderDelete")
+	public String product29(HttpServletRequest req, int num) {
+		service.orderDelete(num);
+		String referer = req.getHeader("Referer");
+		return "redirect:"+ referer;
 	}
 	
 	

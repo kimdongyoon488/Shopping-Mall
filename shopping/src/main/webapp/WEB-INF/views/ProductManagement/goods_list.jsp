@@ -11,20 +11,30 @@
 		} 
 	}
 </script>
-<button type="button" onclick="location.href='/shopping/goodsManage'">뒤로가기</button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<%--<button type="button" onclick="location.href='/shopping/goodsManage'">뒤로가기</button>--%>
+<div class="jumbotron text-center">
+	<h1 class="text-secondary">상품 목록</h1>
+</div>
 <div align="center">
-<table border="1" width="800">
-	<caption>상품목록</caption>
+<table border="1" width="800" class="table caption-top">
+	<%--<caption>상품목록</caption>--%>
 	<form action="/shopping/goodsSearch" method="post">
-		<select name="condition">
+		<select name="condition" class="form-select" aria-label="Default select example">
 			<option value="cate">카테고리명</option>
 			<option value="name">상품명</option>
 			<option value="all">전체상품</option>
 		</select>
+		&nbsp;
 		<input type="text" name="search">
-		<input type="submit" value="검색">		
+		&nbsp;
+		<input type="submit" class="btn btn-outline-primary" value="검색">
 	</form>
-	<tr bgcolor="yellow">
+	<tr>
 		<th>번호</th>
 		<th>상품명</th>
 		<th>상품코드</th>
@@ -76,4 +86,11 @@
 		</c:if>
 		
 	</c:if>
+	<div style="display: inline-block; margin: 0 5px;  float: right;">
+		<button type="button" class="btn btn-outline-primary" onclick="location.href='/shopping/goodsManage'">뒤로 가기</button>
+	</div>
+	<div class="jumbotron text-center mt-5 mb-0">
+		<h3 class="text-secondary">Shopping-Mall</h3>
+		<p>Shopping-Mall Homepage is powered by <span class="text-primary">DONGYOON</span> / Designed by <span class="text-primary">DONGYOON</span></p>
+	</div>
 </div>

@@ -175,17 +175,9 @@ public class MainService implements IMainService{
 	}
 
 
-	
+	@Override
+	public void orderDelete(int num){
+		mapper.orderDelete(num);
+	}
 
-
-
-
-	
-
-
-	
-
-	
-	
-	
 }

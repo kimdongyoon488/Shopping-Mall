@@ -5,12 +5,19 @@
 <html>
 <head>
 	<title>상품입력</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="jumbotron text-center">
+	<h1 class="text-secondary">상품 등록</h1>
+</div>
 <div align="center">
 <form name="f" action="/shopping/goodsInput2" method="post" enctype="multipart/form-data">
-	<table border="0" width="600">
-		<caption>상품등록카테고리</caption>
+	<table border="0" width="600" class="table caption-top">
+		<%--<caption>상품 등록</caption>--%>
 		<tr>
 			<th class="m2">카테고리</th>
 			<td align="left">
@@ -23,27 +30,27 @@
 			</td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품명</th>
+			<th>상품명</th>
 			<td align="left"><input type="text" name="pname"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품코드</th>
+			<th>상품코드</th>
 			<td align="left"><input type="text" name="pcode"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">제조회사</th>
+			<th>제조회사</th>
 			<td align="left"><input type="text" name="pcompany"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품이미지</th>
+			<th>상품이미지</th>
 			<td align="left"><input type="file" name="pimage"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품가격</th>
+			<th>상품가격</th>
 			<td align="left"><input type="text" name="price"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품스팩</th>
+			<th>상품스팩</th>
 			<td align="left">
 				<select name="pspec">
 					<option value="NORMAL" selected>::NORMAL::</option>
@@ -54,27 +61,31 @@
 			</td>	
 		</tr>
 		<tr>
-			<th bgcolor="yellow">SALE(%)</th>
+			<th>SALE(%)</th>
 			<td align="left"><input type="text" name="sale" value="0"></td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품소개</th>
+			<th>상품소개</th>
 			<td align="left">
 				<textarea name="pcontent" rows="5" cols="50"></textarea>
 			</td>
 		</tr>
 		<tr>
-			<th bgcolor="yellow">상품포인트</th>
+			<th>상품포인트</th>
 			<td align="left"><input type="text" name="point"></td>
 		</tr>
 		<tr>
-			<td colspan="2" bgcolor="yellow">
-				<input type="submit" value="상품등록">
-				<input type="reset" value="취소">
+			<td colspan="2" align="right">
+				<input type="submit" class="btn btn-outline-primary" value="상품등록">
+				<input type="reset" class="btn btn-outline-primary" value="취소">
 			</td>
 		</tr>			
 	</table>
 </form>
+</div>
+<div class="jumbotron text-center mt-5 mb-0">
+	<h3 class="text-secondary">Shopping-Mall</h3>
+	<p>Shopping-Mall Homepage is powered by <span class="text-primary">DONGYOON</span> / Designed by <span class="text-primary">DONGYOON</span></p>
 </div>
 </body>
 </html>

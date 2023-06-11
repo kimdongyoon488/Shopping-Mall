@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+</div>
+</div>
+</div>
 <!-- mall_bottom.jsp -->
-				</td>
-			</tr>
-			<tr height="10%">
-				<td align="center" colspan="2">
-				   고객센터<br/>
-				   Tel : 1577-1577 
-				</td>
-			</tr>
-		</table>
-	</div>
+
+			<div class="jumbotron text-center mt-5 mb-0">
+				<h3 class="text-secondary">Shopping-Mall</h3>
+				<p>Shopping-Mall Homepage is powered by <span class="text-primary">DONGYOON</span> / Designed by <span class="text-primary">DONGYOON</span></p>
+			</div>
+
 </body>
 </html>

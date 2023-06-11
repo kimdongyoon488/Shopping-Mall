@@ -12,7 +12,7 @@
 		document.f.submit()
 	}
 </script>
-<table width="99%" border="0" class="outline">
+<table width="99%" border="0" class="table caption-top">
 	<tr class="m1">
 		<td colspan="2" align="center">
 			<b>[${getProduct.pname}] 상품 정보</b>

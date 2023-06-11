@@ -38,7 +38,7 @@ create table member(
     id varchar(20) primary key,
     password varchar(100) not null,
     age number default 0,
-    tel number default 0,
+    tel varchar(20) default null,
     name VARCHAR(20) not null
 );
 

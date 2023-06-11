@@ -50,7 +50,7 @@
 			    	<option value="user">일반 유저</option>
 			    	<option value="admin">관리자</option>
 		    	</select> -->
-			<input type="submit" value="회원가입"/>
+			<input type="submit" class="btn btn-outline-primary btn-sm" value="회원가입"/>
 		</form>
 		
 	</div>

@@ -9,7 +9,7 @@ public class PageCreator {
 	private boolean prev;
 	private boolean next;
 	
-	private final int displayPage = 4;
+	private final int displayPage = 2;
 	
 	public void calc() {
 		endPage =  (int)Math.ceil(paging.getPage() / (double)displayPage) * displayPage;

@@ -30,7 +30,7 @@
 		<hr color="green">
 		<form name="f" action="/shopping/user/searchId" method="post" 
 								onsubmit="return check()">
-			<table border="1">
+			<table border="1" class="table caption-top">
 				<tr>
 					<th>이름</th>
 					<td><input type="text" name="name"></td>
@@ -40,9 +40,9 @@
 					<td><input type="text" name="tel"></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<input type="submit" value="아이디 찾기">
-						<input type="reset" value="취소">
+					<td colspan="2" align="right">
+						<input type="submit"  class="btn btn-outline-primary" value="아이디 찾기">
+						<input type="reset"  class="btn btn-outline-primary" value="취소">
 					</td>
 				</tr>
 			</table>

@@ -38,7 +38,7 @@
 		<hr color="green" width="300">
 		<form name="f" action="/shopping/user/searchPw" method="post" 
 								onsubmit="return check()">
-			<table border="1" width="500">
+			<table border="1" width="500" class="table caption-top">
 				<tr>
 					<th>이름</th>
 					<td><input type="text" name="name"></td>
@@ -56,9 +56,9 @@
 					<td><input type="text" name="password"></td>
 				</tr>		
 				<tr>
-					<td colspan="2">
-						<input type="submit" value="비밀번호 변경">
-						<input type="reset" value="취소">
+					<td colspan="2" align="right">
+						<input type="submit" class="btn btn-outline-primary" value="비밀번호 변경">
+						<input type="reset" class="btn btn-outline-primary" value="취소">
 					</td>
 				</tr>
 			</table>
