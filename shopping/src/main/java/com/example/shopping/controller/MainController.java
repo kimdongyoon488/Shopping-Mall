@@ -102,6 +102,14 @@ public class MainController {
 	//카테고리 등록
 	@PostMapping("/categoryAdd2")
 	public String product3(CategoryVO vo , HttpServletRequest req) {
+
+		CategoryVO categoryVO = service.codeCheck(vo.getCode());
+		if(categoryVO != null){
+			req.setAttribute("msg", "중복된 카테고리 코드가 존재합니다.");
+			req.setAttribute("url","/shopping/categoryAdd");
+			return "message";
+		}
+
 		System.out.println(vo);
 		service.insert(vo);
 		req.setAttribute("msg", "카테고리 등록이 완료되었습니다");

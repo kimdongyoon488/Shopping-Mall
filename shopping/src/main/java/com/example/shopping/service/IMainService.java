@@ -31,6 +31,9 @@ public interface IMainService {
 		//특정 카테고리 조회
 		public CategoryVO select(int num);
 
+		//카테고리 중복체크
+		public CategoryVO codeCheck(String code);
+
 		//상품 등록
 		public void insertGoods(GoodsVO vo);
 		

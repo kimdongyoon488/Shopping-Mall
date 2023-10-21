@@ -65,6 +65,12 @@ public class MainService implements IMainService{
 		return mapper.select(num);
 	}
 
+	@Override
+	public CategoryVO codeCheck(String code) {
+
+		return mapper.codeCheck(code);
+	}
+
 
 	@Override
 	public void insertGoods(GoodsVO vo) {

@@ -35,6 +35,10 @@
 	<delete id="delete">
 		delete from category where cnum=#{num}
 	</delete>
+
+	<select id="codeCheck" resultType="com.example.shopping.vo.CategoryVO">
+		select * from category where code=#{code}
+	</select>
 	
 	<insert id="insertGoods">
 		insert into product values(prod_seq.nextval, #{pname}, #{pcode}, #{pcompany}, #{price},
