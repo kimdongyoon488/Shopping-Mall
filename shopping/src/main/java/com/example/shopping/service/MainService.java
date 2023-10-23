@@ -2,16 +2,13 @@ package com.example.shopping.service;
 
 import java.util.List;
 
+import com.example.shopping.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
 import com.example.shopping.dao.IMainMapper;
 import com.example.shopping.paging.PageVO;
-import com.example.shopping.vo.CategoryVO;
-import com.example.shopping.vo.GoodsVO;
-import com.example.shopping.vo.OrderVO;
-import com.example.shopping.vo.SearchVO;
 
 
 @Service
@@ -185,5 +182,27 @@ public class MainService implements IMainService{
 	public void orderDelete(int num){
 		mapper.orderDelete(num);
 	}
+
+
+	@Override
+	public int countLike(LikeVO likeVo) {
+		return mapper.countLike(likeVo);
+	}
+
+	@Override
+	public int likeUp(LikeVO likeVo) {
+		return mapper.likeUp(likeVo);
+	}
+
+	@Override
+	public int likeDown(LikeVO likeVo) {
+		return mapper.likeDown(likeVo);
+	}
+
+	@Override
+	public int countGoodsLike(int pnum) {
+		return mapper.countGoodsLike(pnum);
+	}
+
 
 }

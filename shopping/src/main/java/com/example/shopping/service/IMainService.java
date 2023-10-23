@@ -3,10 +3,7 @@ package com.example.shopping.service;
 import java.util.List;
 
 import com.example.shopping.paging.PageVO;
-import com.example.shopping.vo.CategoryVO;
-import com.example.shopping.vo.GoodsVO;
-import com.example.shopping.vo.OrderVO;
-import com.example.shopping.vo.SearchVO;
+import com.example.shopping.vo.*;
 
 public interface IMainService {
 
@@ -84,6 +81,18 @@ public interface IMainService {
 
 		// 주문 취소
 		public void orderDelete(int num);
+
+		// 상품 좋아요 클릭 여부 체크
+		public int countLike(LikeVO likeVo);
+
+		// 상품 좋아요 클릭
+		public int likeUp(LikeVO likeVo);
+
+		// 상품 좋아요 취소
+		public int likeDown(LikeVO likeVo);
+
+		// 상품 좋아요 수 조회
+		public int countGoodsLike(int pnum);
 		
 		
 }

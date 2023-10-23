@@ -114,4 +114,22 @@
 	<delete id="orderDelete">
 		delete from myOrder where num=#{num}
 	</delete>
+
+	<!-- 상품 좋아요 눌럿는지 안눌럿는지 -->
+	<select id="countLike" resultType="int">
+		select count(*) from product_like where product_num = #{product_num} and member_id = #{member_id}
+	</select>
+
+	<insert id="likeUp">
+		insert into product_like (like_num ,product_num , member_id, like_cnt)
+		values(prodlike_seq.NEXTVAL, #{product_num},#{member_id},1)
+	</insert>
+
+	<delete id="likeDown">
+		delete from product_like where product_num = #{product_num} and member_id = #{member_id}
+	</delete>
+
+	<select id="countGoodsLike" resultType="int">
+		select count(*) from product_like where product_num = #{pnum}
+	</select>
 </mapper>

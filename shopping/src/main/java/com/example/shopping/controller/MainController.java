@@ -11,24 +11,21 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.example.shopping.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.shopping.paging.PageCreator;
 import com.example.shopping.paging.PageVO;
 import com.example.shopping.service.MainService;
-import com.example.shopping.vo.CategoryVO;
-import com.example.shopping.vo.GoodsVO;
-import com.example.shopping.vo.OrderVO;
-import com.example.shopping.vo.SearchVO;
-import com.example.shopping.vo.UserVO;
-
 
 
 @Controller
@@ -308,6 +305,15 @@ public class MainController {
 				break;
 			}
 		}
+
+		LikeVO likeVo = new LikeVO();
+		UserVO userVo = (UserVO)session.getAttribute("login");
+		likeVo.setProduct_num(pnum);
+		likeVo.setMember_id(userVo.getId());
+
+		req.setAttribute("like", service.countLike(likeVo));
+		req.setAttribute("goodsLike",service.countGoodsLike(pnum));
+
 		return"display/mall_goodsView"; 
 	}
 	
@@ -530,6 +536,26 @@ public class MainController {
 		service.orderDelete(num);
 		String referer = req.getHeader("Referer");
 		return "redirect:"+ referer;
+	}
+
+	// 상품 추천
+	@PostMapping("/likeUp")
+	@ResponseBody
+	public int product30(HttpServletRequest req, @RequestBody LikeVO likeVo) {
+
+		int result = service.likeUp(likeVo);
+
+		return result;
+	}
+
+	// 상품 추천 취소
+	@PostMapping("/likeDown")
+	@ResponseBody
+	public int product31(HttpServletRequest req, @RequestBody LikeVO likeVo) {
+
+		int result = service.likeDown(likeVo);
+
+		return result;
 	}
 	
 	

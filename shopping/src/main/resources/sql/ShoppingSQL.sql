@@ -58,3 +58,12 @@ create sequence myOrder_seq;
 
 
 
+
+CREATE TABLE product_like(
+                             like_num number PRIMARY KEY,
+                             product_num number,
+                             member_id varchar(20) NOT NULL,
+                             like_cnt number
+);
+
+create sequence prodlike_seq;
