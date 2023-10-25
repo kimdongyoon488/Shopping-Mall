@@ -36,7 +36,9 @@
 				<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='javascript:goCart()'">즉시구매</button>
 				<%--<a href="javascript:goCart()">장바구니에 추가</a>--%>
 				<%--<a href="javascript:goOrder()">즉시구매</a>--%>
-				<button type="button" id="likeBtn" class="btn btn-outline-primary btn-sm">추천</button>
+				<c:if test="${not empty like}">
+					<button type="button" id="likeBtn" class="btn btn-outline-primary btn-sm">추천</button>
+				</c:if>
 			</form>	
 		</td>
 	</tr>	
@@ -52,52 +54,53 @@
 <script type="text/javascript">
 
 
+		<c:if test="${not empty like}">
+			var likeval = ${like};
+			let product_num = ${getProduct.pnum};
+			let member_id = '${login.id}';
 
-		var likeval = ${like};
-		let product_num = ${getProduct.pnum};
-		let member_id = '${login.id}';
 
 
+			if(likeval > 0){
+				console.log(likeval + "좋아요 누름");
+				$('#likeBtn').html("추천 취소");
+				$('#likeBtn').click(function() {
+					$.ajax({
+						type :'post',
+						url : '<c:url value ="/likeDown"/>',
+						contentType: 'application/json',
+						data : JSON.stringify(
+								{
+									"product_num" : product_num,
+									"member_id" : member_id
+								}
+						),
+						success : function(result) {
+							location.reload();
+						}
+					})// 아작스 끝
+				})
 
-		if(likeval > 0){
-			console.log(likeval + "좋아요 누름");
-			$('#likeBtn').html("추천 취소");
-			$('#likeBtn').click(function() {
-				$.ajax({
-					type :'post',
-					url : '<c:url value ="/likeDown"/>',
-					contentType: 'application/json',
-					data : JSON.stringify(
-							{
-								"product_num" : product_num,
-								"member_id" : member_id
-							}
-					),
-					success : function(result) {
-						location.reload();
-					}
-				})// 아작스 끝
-			})
+			}else {
+				console.log(likeval + "좋아요 안누름")
+				console.log(member_id);
+				$('#likeBtn').click(function () {
+					$.ajax({
+						type: 'post',
+						url: '<c:url value ="/likeUp"/>',
+						contentType: 'application/json',
+						data: JSON.stringify(
+								{
+									"product_num": product_num,
+									"member_id": member_id
+								}
+						),
+						success: function(result) {
+							location.reload();
+						}
+					})// 아작스 끝
+				})
 
-		}else {
-			console.log(likeval + "좋아요 안누름")
-			console.log(member_id);
-			$('#likeBtn').click(function () {
-				$.ajax({
-					type: 'post',
-					url: '<c:url value ="/likeUp"/>',
-					contentType: 'application/json',
-					data: JSON.stringify(
-							{
-								"product_num": product_num,
-								"member_id": member_id
-							}
-					),
-					success: function(result) {
-						location.reload();
-					}
-				})// 아작스 끝
-			})
-
-		}
+			}
+		</c:if>
 </script>

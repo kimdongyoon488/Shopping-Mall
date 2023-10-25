@@ -308,10 +308,13 @@ public class MainController {
 
 		LikeVO likeVo = new LikeVO();
 		UserVO userVo = (UserVO)session.getAttribute("login");
-		likeVo.setProduct_num(pnum);
-		likeVo.setMember_id(userVo.getId());
+		if(userVo != null){
+			likeVo.setProduct_num(pnum);
+			likeVo.setMember_id(userVo.getId());
 
-		req.setAttribute("like", service.countLike(likeVo));
+			req.setAttribute("like", service.countLike(likeVo));
+		}
+
 		req.setAttribute("goodsLike",service.countGoodsLike(pnum));
 
 		return"display/mall_goodsView"; 
