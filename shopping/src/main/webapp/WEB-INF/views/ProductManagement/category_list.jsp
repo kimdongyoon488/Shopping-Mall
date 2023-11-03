@@ -9,6 +9,8 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 	<script type="text/javascript"> 
 	function checkDel(cnum){
 		var isDel = window.confirm("정말로 삭제하시겠습니까?");
@@ -17,6 +19,14 @@
 		} 
 	}
 </script>
+
+	<style type="text/css">
+		ul {
+			width: 200px;
+			margin: 0px auto;
+			text-align: center !important;
+		}
+	</style>
 </head>
 <body>
 <div class="jumbotron text-center">
@@ -52,20 +62,33 @@
 	</table>
 
 
-		<c:if test="${pc.prev}">
-		<a class="page-link" href="/shopping/category_list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}" 
-			style=" margin-top: 0; heght: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">이전</a>
-		</c:if>
-		<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
-			<a href="/shopping/category_list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
-		</c:forEach>
-		<c:if test="${pc.next}">
-		<a class="page-link" href="/shopping/category_list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}" 
-		style=" margin-top: 0; height: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">다음</a>
-		</c:if>
 </div>
+
+
+<ul class="pagination">
+	<c:if test="${pc.prev}">
+		<li class="page-item">
+			<a class="page-link" href="/shopping/category_list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
+			   >이전</a>
+		</li>
+	</c:if>
+	<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+		<li class="page-item">
+			<a class="page-link" href="/shopping/category_list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}">${pageNum}</a>
+		</li>
+	</c:forEach>
+	<c:if test="${pc.next}">
+		<li class="page-item">
+			<a class="page-link" href="/shopping/category_list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
+			   >다음</a>
+		</li>
+	</c:if>
+</ul>
+
+
+
 <div style="display: inline-block; margin: 0 5px;  float: right;">
-	<button type="button" class="btn btn-outline-primary" onclick="location.href='/shopping/admin'">뒤로 가기</button>
+	<button type="button" class="btn btn-outline-primary" onclick="location.href='/shopping/goodsManage'">뒤로 가기</button>
 </div>
 <div class="jumbotron text-center mt-5 mb-0">
 	<h3 class="text-secondary">Shopping-Mall</h3>

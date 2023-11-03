@@ -17,8 +17,9 @@
  			<tr>
 				<c:forEach var="vo" items="${viewGoods.HIT}">
 					<td align="center">
+						<a href="/shopping/mall_goodsView?code=HIT&pnum=${vo.pnum}">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
-						${vo.pname}<br>
+								${vo.pname}<br></a>
 						<font>${vo.price}</font>원<br>
 						<font>${vo.point}</font>point
 					</td>
@@ -43,8 +44,9 @@
  			<tr>
 				<c:forEach var="vo" items="${viewGoods.NEW}">
 					<td align="center">
+						<a href="/shopping/mall_goodsView?code=NEW&pnum=${vo.pnum}">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
-						${vo.pname}<br>
+								${vo.pname}<br></a>
 						<font>${vo.price}</font>원<br>
 						<font>${vo.point}</font>point
 					</td>
@@ -69,8 +71,9 @@
  			<tr>
 				<c:forEach var="vo" items="${viewGoods.SALE}">
 					<td align="center">
+						<a href="/shopping/mall_goodsView?code=SALE&pnum=${vo.pnum}">
 						<img src="images/${vo.pimage}" width="80" height="60"><br>
-						${vo.pname}<br>
+								${vo.pname}<br></a>
 						<font>${vo.price}</font>원<br>
 						<font>${vo.point}</font>point
 					</td>

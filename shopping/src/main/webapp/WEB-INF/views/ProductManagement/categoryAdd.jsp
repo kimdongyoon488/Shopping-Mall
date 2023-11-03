@@ -28,7 +28,8 @@
 		<tr>
 			<td colspan="2" align="right">
 				<input type="submit" class="btn btn-outline-primary" value="등록">
-				<input type="reset" class="btn btn-outline-primary" value="취소">
+				<%--<input type="reset" class="btn btn-outline-primary" value="취소">--%>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='/shopping/goodsManage'">뒤로 가기</button>
 			</td>
 		</tr>
 	</table>	
