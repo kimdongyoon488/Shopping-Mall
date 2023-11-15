@@ -63,7 +63,7 @@ public class MainController {
 			
 		
 			session.setAttribute("viewGoods",ht);
-			return "display/mall";
+			return "display/test";
 	}
 	
 	//관리자 페이지 이동
