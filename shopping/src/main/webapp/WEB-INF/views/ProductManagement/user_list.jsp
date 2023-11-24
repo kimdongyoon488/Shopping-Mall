@@ -25,7 +25,7 @@
 <div align="center">
 <table border="1" width="800" class="table caption-top">
 
-	<form name="f" action="/shopping/user/search" method="post" onsubmit="return check()">
+	<form name="f" action="/shopping/search" method="post" onsubmit="return check()">
 		<input type="text" name="id"> &nbsp;
 		<input type="submit" class="btn btn-outline-primary" value="아이디로 검색"> &nbsp;
 		<button type="button" class="btn btn-outline-primary" onclick="location.href='/shopping/admin'">뒤로 가기</button>
@@ -57,14 +57,14 @@
 	<c:if test="${not empty pc}">
 	
 		<c:if test="${pc.prev}"> 
-			<a class="page-link" href="/shopping/user/list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}" 
+			<a class="page-link" href="/shopping/list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
 				style=" margin-top: 0; heght: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">이전</a>
 			</c:if>
 			<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
-				<a href="/shopping/user/list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
+				<a href="/shopping/list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
 			</c:forEach>
 		<c:if test="${pc.next}">
-			<a class="page-link" href="/shopping/user/list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}" 
+			<a class="page-link" href="/shopping/list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
 			style=" margin-top: 0; height: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">다음</a>
 		</c:if>
 		

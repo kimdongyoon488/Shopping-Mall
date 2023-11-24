@@ -30,13 +30,13 @@
 			return true
 		}
 	</script>
-<%@ include file="mall_top.jsp"%>  
-	
+<%@ include file="mall_top.jsp"%>
+<div class="col-lg-9">
 	<div align="center">
 		<hr color="green" width="300">
 		<h2>비밀번호 변경</h2>
 		<hr color="green" width="300">
-		<form name="f" action="/shopping/user/searchPw" method="post" 
+		<form name="f" action="/shopping/searchPw" method="post"
 								onsubmit="return check()">
 			<table border="1" width="500" class="table caption-top">
 				<tr>
@@ -64,6 +64,6 @@
 			</table>
 		</form>
 	</div>
-	
+</div>
 
 <%@ include file="mall_bottom.jsp"%>

@@ -21,7 +21,7 @@
 				<%--<li class="list-group-item"><h3>관리자 메뉴</h3></li>--%>
 				<li class="list-group-item list-group-item-light"><h3><a href="/shopping/goodsManage">상품 관리</a></h3></li>
 
-				<li class="list-group-item list-group-item-light"><h3><a href="/shopping/user/list">회원 관리</a></h3></li>
+				<li class="list-group-item list-group-item-light"><h3><a href="/shopping/list">회원 관리</a></h3></li>
 
 				<li class="list-group-item list-group-item-light"><h3><a href="/shopping/board/list">Q&A게시판 관리</a></h3></li>
 

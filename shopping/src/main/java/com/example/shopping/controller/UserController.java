@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.example.shopping.service.MainService;
+import com.example.shopping.vo.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,15 +23,22 @@ import com.example.shopping.service.UserService;
 import com.example.shopping.vo.UserVO;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 	
 		@Autowired
 		UserService service;
-		
+
+		@Autowired
+		MainService mainService;
+
 		//로그인 페이지 이동
 		@GetMapping("/login")
-		public String user1() {
+		public String user1(HttpServletRequest req) {
+
+			List<CategoryVO> clist = mainService.allList();
+			HttpSession session = req.getSession();
+			session.setAttribute("listCategory", clist);
 			return "display/mall_login";
 		}
 		
@@ -68,12 +77,12 @@ public class UserController {
 					}
 				}else {
 					req.setAttribute("msg", "비밀번호가 틀렸습니다");
-					req.setAttribute("url", "/shopping/user/login");
+					req.setAttribute("url", "/shopping/login");
 					return "message";
 				}
 			}else {
 				req.setAttribute("msg", "아이디가 틀렸습니다");
-				req.setAttribute("url", "/shopping/user/login");
+				req.setAttribute("url", "/shopping/login");
 				return "message";
 			}
 		}
@@ -93,13 +102,13 @@ public class UserController {
 			if(id == 0 && tel == 0) {
 				service.insert(vo);
 				req.setAttribute("msg", "회원가입 완료");
-				req.setAttribute("url", "/shopping/user/login");
+				req.setAttribute("url", "/shopping/login");
 			} else if(id > 0) {
 				req.setAttribute("msg", "중복된 아이디가 존재합니다 다시 입력해주세요");
-				req.setAttribute("url", "/shopping/user/loginSign");
+				req.setAttribute("url", "/shopping/loginSign");
 			} else {
 				req.setAttribute("msg", "같은 전화번호의 계정이 존재합니다");
-				req.setAttribute("url", "/shopping/user/loginSign");
+				req.setAttribute("url", "/shopping/loginSign");
 			}
 			return "message";
 		}
@@ -110,7 +119,7 @@ public class UserController {
 		public String delete(String id , HttpServletRequest req) {
 			service.delete(id);
 			req.setAttribute("msg","삭제가 완료되었습니다");
-			req.setAttribute("url","/shopping/user/list");
+			req.setAttribute("url","/shopping/list");
 			return "message";
 		}
 		
@@ -170,10 +179,10 @@ public class UserController {
 			System.out.println(user);
 			if(user != null) {
 				msg = "아이디 : " + user.getId();
-				url = "/shopping/user/login";
+				url = "/shopping/login";
 			} else {
 				msg = "존재하지 않는 회원입니다 다시 입력해주세요";
-				url = "/shopping/user/login";
+				url = "/shopping/login";
 			}
 			
 			req.setAttribute("msg", msg);
@@ -196,10 +205,10 @@ public class UserController {
 			if(user != null) {
 				service.changePw(vo);
 				msg = "비밀번호가 변경되었습니다";
-				url = "/shopping/user/login";
+				url = "/shopping/login";
 			} else {
 				msg = "존재하지 않는 회원입니다 다시 입력해주세요";
-				url = "/shopping/user/login";
+				url = "/shopping/login";
 			}
 			
 			req.setAttribute("msg", msg);

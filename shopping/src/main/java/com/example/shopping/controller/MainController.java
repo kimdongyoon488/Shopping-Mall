@@ -63,7 +63,7 @@ public class MainController {
 			
 		
 			session.setAttribute("viewGoods",ht);
-			return "display/test";
+			return "display/mall";
 	}
 	
 	//관리자 페이지 이동
@@ -365,7 +365,7 @@ public class MainController {
 		UserVO userVo = (UserVO)session.getAttribute("login");
 		if(userVo == null) {
 			req.setAttribute("msg", "로그인이 필요한 서비스입니다");
-			req.setAttribute("url", "/shopping/user/login");
+			req.setAttribute("url", "/shopping/login");
 			return "message";
 		}
 		if (cart == null) {
@@ -432,7 +432,7 @@ public class MainController {
 		
 		if(userVo == null) {
 			msg="로그인이 필요한 서비스입니다";
-			url="/shopping/user/login";
+			url="/shopping/login";
 		}else if(Integer.parseInt(qty) == 0) {
 			msg="구매할 수량이 한개 이상이어야 합니다";
 			url="/shopping/";
@@ -468,7 +468,7 @@ public class MainController {
 		OrderVO orderVo = new OrderVO();
 		if(userVo == null) {
 			msg="로그인이 필요한 서비스입니다";
-			url="/shopping/user/login";
+			url="/shopping/login";
 			req.setAttribute("msg", msg);
 			req.setAttribute("url", url);
 			return "message";
@@ -560,6 +560,5 @@ public class MainController {
 
 		return result;
 	}
-	
-	
+
 }

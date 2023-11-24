@@ -11,14 +11,14 @@
 		}
 	}
 </script>
-
+<div class="col-lg-9">
 	<div align="center">
-		<h1>내정보</h1>
+		<h2>내정보</h2>
 		아이디 : <input type="text" name="id" value="${login.id}" readonly><br>
 		이름 : <input type="text" name="name" value="${login.name}" readonly><br>
 		나이 : <input type="number" name="age" value="${login.age}" readonly><br>
 		전화번호 : <input type="tel" name="tel" value="${login.tel}" readonly><br>
-	<button type="button" onclick="location.href='/shopping/user/update'" class="btn btn-outline-primary">회원수정</button><br>
+	<button type="button" onclick="location.href='/shopping/update'" class="btn btn-outline-primary">회원수정</button><br><br>
 		<h2> 내 주문 목록</h2>
 		<table border="1" class="table caption-top">
 			<tr>
@@ -40,6 +40,6 @@
 			</c:forEach>
 		</table>
 	</div>
-	
+</div>
 
 <%@ include file="mall_bottom.jsp"%>

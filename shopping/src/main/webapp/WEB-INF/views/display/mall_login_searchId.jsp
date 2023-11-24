@@ -21,14 +21,14 @@
 		}
 	</script>
 
-<%@ include file="mall_top.jsp"%>  
-	
-	
+<%@ include file="mall_top.jsp"%>
+
+<div class="col-lg-9">
 	<div align="center">
 		<hr color="green" >
 		<h2>아이디 찾기</h2>
 		<hr color="green">
-		<form name="f" action="/shopping/user/searchId" method="post" 
+		<form name="f" action="/shopping/searchId" method="post"
 								onsubmit="return check()">
 			<table border="1" class="table caption-top">
 				<tr>
@@ -48,6 +48,6 @@
 			</table>
 		</form>
 	</div>
-
+</div>
 
 <%@ include file="mall_bottom.jsp"%>

@@ -28,7 +28,7 @@
 	
 	<div align="center">
 		<h1>내정보</h1>
-		<form name="f" action="/shopping/user/update" method="post" onsubmit="return check()">
+		<form name="f" action="/shopping/update" method="post" onsubmit="return check()">
 			아이디 : <input type="text" name="id" value="${login.id}" readonly> <br>
 			이름 : <input type="text" name="name"><br>
 			나이 : <input type="number" name="age"><br>

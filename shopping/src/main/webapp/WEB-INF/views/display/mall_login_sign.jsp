@@ -35,11 +35,11 @@
 	</script>
 
 
-<%@ include file="mall_top.jsp"%>  
-	
+<%@ include file="mall_top.jsp"%>
+<div class="col-lg-9">
 	<div align="center">
-		<h1>회원가입</h1>
-		<form name="f" action="/shopping/user/loginSign" method="post" onsubmit="return check()">
+
+		<form name="f" action="/shopping/loginSign" method="post" onsubmit="return check()">
 			이름: <input type="text" name="name"/><br>
 		    나이: <input type="number" name="age"/><br>
 		    전화번호:<input type="tel" name="tel"/><br>
@@ -54,6 +54,6 @@
 		</form>
 		
 	</div>
-	
+</div>
 
 <%@ include file="mall_bottom.jsp"%>

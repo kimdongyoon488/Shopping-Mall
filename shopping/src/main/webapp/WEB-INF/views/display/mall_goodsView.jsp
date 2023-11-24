@@ -12,43 +12,45 @@
 		document.f.submit()
 	}
 </script>
-<table width="99%" border="0" class="table caption-top">
-	<tr class="m1">
-		<td colspan="2" align="center">
-			<b>[${getProduct.pname}] 상품 정보</b>
-		</td>
-	</tr>
-	<tr>
-		<td align="center" class="m3">
-			<img src="images/${getProduct.pimage}" width="200" height="200">
-		</td>
-		<td class="m3">
-			<form name="f" method="post">
-				상품번호 : ${getProduct.pnum}<br>
-				상품이름 : ${getProduct.pname}<br>
-				상품가격 : ${getProduct.price}원<br>
-				상품포인트 : [${getProduct.point}]point<br>
-				구매할 수량 : <input type="text" name="qty" size="3" value="1" >개<br><br>
-				추천 수 : <div>${goodsLike}</div> <br>
-				<input type="hidden" name="pnum" value="${getProduct.pnum}">
-				<input type="hidden" name="code" value="${param.code}">
-				<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='javascript:goCart()'">장바구니에 추가</button>
-				<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='javascript:goCart()'">즉시구매</button>
-				<%--<a href="javascript:goCart()">장바구니에 추가</a>--%>
-				<%--<a href="javascript:goOrder()">즉시구매</a>--%>
-				<c:if test="${not empty like}">
-					<button type="button" id="likeBtn" class="btn btn-outline-primary btn-sm">추천</button>
-				</c:if>
-			</form>	
-		</td>
-	</tr>	
-	<tr>
-		<td colspan="2" align="left">
-			<b>상품 상세 설명</b><br>
-			${getProduct.pcontent}
-		</td>
-	</tr>		
-</table>
+<div class="col-lg-9">
+	<table width="99%" border="0" class="table caption-top">
+		<tr class="m1">
+			<td colspan="2" align="center">
+				<b>[${getProduct.pname}] 상품 정보</b>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" class="m3">
+				<img src="images/${getProduct.pimage}" width="200" height="200">
+			</td>
+			<td class="m3">
+				<form name="f" method="post">
+					상품번호 : ${getProduct.pnum}<br>
+					상품이름 : ${getProduct.pname}<br>
+					상품가격 : ${getProduct.price}원<br>
+					상품포인트 : [${getProduct.point}]point<br>
+					구매할 수량 : <input type="text" name="qty" size="3" value="1" >개<br><br>
+					추천 수 : <div>${goodsLike}</div> <br>
+					<input type="hidden" name="pnum" value="${getProduct.pnum}">
+					<input type="hidden" name="code" value="${param.code}">
+					<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='javascript:goCart()'">장바구니에 추가</button>
+					<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='javascript:goCart()'">즉시구매</button>
+					<%--<a href="javascript:goCart()">장바구니에 추가</a>--%>
+					<%--<a href="javascript:goOrder()">즉시구매</a>--%>
+					<c:if test="${not empty like}">
+						<button type="button" id="likeBtn" class="btn btn-outline-primary btn-sm">추천</button>
+					</c:if>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left">
+				<b>상품 상세 설명</b><br>
+				${getProduct.pcontent}
+			</td>
+		</tr>
+	</table>
+</div>
 <%@ include file="mall_bottom.jsp"%>
 
 <script type="text/javascript">
