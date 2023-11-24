@@ -334,7 +334,7 @@
 <!-- Featured Section End -->--%>
 
 <!-- Banner Begin -->
-<div class="banner">
+<%--<div class="banner">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6">
@@ -349,7 +349,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>--%>
 <!-- Banner End -->
 
 <!-- Latest Product Section Begin -->
@@ -481,7 +481,7 @@
 <!-- Latest Product Section End -->
 
 <!-- Blog Section Begin -->
-<section class="from-blog spad">
+<%--<section class="from-blog spad">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -538,7 +538,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>--%>
 <!-- Blog Section End -->
 
 <%@ include file="mall_bottom.jsp"%>

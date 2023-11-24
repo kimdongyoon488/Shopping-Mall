@@ -102,10 +102,10 @@
 	</nav>
 	<div id="mobile-menu-wrap"></div>
 	<div class="header__top__right__social">
-		<a href="#"><i class="fa fa-facebook"></i></a>
-		<a href="#"><i class="fa fa-twitter"></i></a>
-		<a href="#"><i class="fa fa-linkedin"></i></a>
-		<a href="#"><i class="fa fa-pinterest-p"></i></a>
+		<a href="https://www.facebook.com/?locale=ko_KR"><i class="fa fa-facebook"></i></a>
+		<a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram"></i></a>
+		<a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D"><i class="fa fa-twitter"></i></a>
+		<a href="https://www.pinterest.co.kr/login/"><i class="fa fa-pinterest"></i></a>
 	</div>
 	<div class="humberger__menu__contact">
 		<ul>
@@ -132,10 +132,10 @@
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__right">
 						<div class="header__top__right__social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-linkedin"></i></a>
-							<a href="#"><i class="fa fa-pinterest-p"></i></a>
+							<a href="https://www.facebook.com/?locale=ko_KR"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram"></i></a>
+							<a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D"><i class="fa fa-twitter"></i></a>
+							<a href="https://www.pinterest.co.kr/login/"><i class="fa fa-pinterest"></i></a>
 						</div>
 						<div class="header__top__right__language">
 							<img src="img/language2.png" alt="">
@@ -189,15 +189,15 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-lg-3">
+			<%--<div class="col-lg-3">
 				<div class="header__cart">
 					<ul>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
 						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 					</ul>
-					<div class="header__cart__price">item: <span>$150.00</span></div>
+					&lt;%&ndash;<div class="header__cart__price">item: <span>$150.00</span></div>&ndash;%&gt;
 				</div>
-			</div>
+			</div>--%>
 		</div>
 		<div class="humberger__open">
 			<i class="fa fa-bars"></i>

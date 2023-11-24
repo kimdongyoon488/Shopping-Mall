@@ -11,9 +11,9 @@
 						<a href="./index.html"><img src="img/logo.png" alt=""></a>
 					</div>
 					<ul>
-						<li>Address: 60-49 Road 11378 New York</li>
-						<li>Phone: +65 11.188.888</li>
-						<li>Email: hello@colorlib.com</li>
+						<li>Address: Korea </li>
+						<li>Phone: +82 10-9460-0350 </li>
+						<li>Email: kdy9416@naver.com </li>
 					</ul>
 				</div>
 			</div>
@@ -42,15 +42,15 @@
 				<div class="footer__widget">
 					<h6>Join Our Newsletter Now</h6>
 					<p>Get E-mail updates about our latest shop and special offers.</p>
-					<form action="#">
+					<%--<form action="#">
 						<input type="text" placeholder="Enter your mail">
 						<button type="submit" class="site-btn">Subscribe</button>
-					</form>
+					</form>--%>
 					<div class="footer__widget__social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="https://www.facebook.com/?locale=ko_KR"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram"></i></a>
+						<a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.pinterest.co.kr/login/"><i class="fa fa-pinterest"></i></a>
 					</div>
 				</div>
 			</div>
