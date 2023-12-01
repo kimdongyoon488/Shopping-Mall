@@ -9,9 +9,11 @@ public class PageCreator {
 	private int totalCount;
 	private boolean prev;
 	private boolean next;
+
+	private int totPage; // 전체 페이지 갯수
 	
 	private final int displayPage = 2;
-	
+
 	public void calc() {
 		
 		endPage = (int)(Math.ceil((double)paging.getPage()/displayPage))*displayPage;
@@ -21,6 +23,7 @@ public class PageCreator {
 		if(!next) {
 			endPage = (int)(Math.ceil((double)totalCount / paging.getCountPerPage()));
 		}
+		totPage = (int) Math.ceil(totalCount * 1.0 / paging.getCountPerPage());
 	}
 	
 	public PageVO getPaging() {
@@ -71,8 +74,12 @@ public class PageCreator {
 	public void setNext(boolean next) {
 		this.next = next;
 	}
-	
-	
-	
-	
+
+	public int getTotPage() {
+		return totPage;
+	}
+
+	public void setTotPage(int totPage) {
+		this.totPage = totPage;
+	}
 }

@@ -68,6 +68,10 @@
 <ul class="pagination">
 	<c:if test="${pc.prev}">
 		<li class="page-item">
+			<a class="page-link" href="/shopping/category_list?page=1&countPerPage=${pc.paging.countPerPage}"
+			>처음</a>
+		</li>
+		<li class="page-item">
 			<a class="page-link" href="/shopping/category_list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
 			   >이전</a>
 		</li>
@@ -82,6 +86,11 @@
 			<a class="page-link" href="/shopping/category_list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
 			   >다음</a>
 		</li>
+		<li class="page-item">
+			<a class="page-link" href="/shopping/category_list?page=${pc.totPage}&countPerPage=${pc.paging.countPerPage}"
+			>끝</a>
+		</li>
+
 	</c:if>
 </ul>
 

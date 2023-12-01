@@ -218,7 +218,7 @@
 					</div>
 					<ul>
 						<c:forEach var="cdto" items="${listCategory}">
-							<li><a href="javascript:nextPage('${cdto.code}','${cdto.cname}')">${cdto.cname}[${cdto.code}]</a></li>
+							<li><a href="javascript:nextPage('${cdto.code}','${cdto.cname}')">${cdto.cname}</a></li>
 						</c:forEach>
 					</ul>
 				</div>

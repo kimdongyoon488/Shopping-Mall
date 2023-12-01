@@ -83,6 +83,10 @@
 
 			<c:if test="${pc.prev}">
 				<li class="page-item">
+					<a class="page-link" href="/shopping/goodsList?page=1&countPerPage=${pc.paging.countPerPage}"
+					>처음</a>
+				</li>
+				<li class="page-item">
 					<a class="page-link" href="/shopping/goodsList?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
 						>이전</a>
 				</li>
@@ -96,6 +100,10 @@
 				<li class="page-item">
 					<a class="page-link" href="/shopping/goodsList?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
 					>다음</a>
+				</li>
+				<li class="page-item">
+					<a class="page-link" href="/shopping/goodsList?page=${pc.totPage}&countPerPage=${pc.paging.countPerPage}"
+					>끝</a>
 				</li>
 			</c:if>
 
