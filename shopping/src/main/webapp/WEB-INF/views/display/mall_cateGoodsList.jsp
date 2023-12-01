@@ -35,4 +35,7 @@
 		</c:if>
 	</div>
 </div>
+</div>
+</div>
+</section>
 <%@ include file="mall_bottom.jsp"%>

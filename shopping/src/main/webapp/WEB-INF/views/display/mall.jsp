@@ -353,7 +353,7 @@
 <!-- Banner End -->
 
 <!-- Latest Product Section Begin -->
-<<%--section class="latest-product spad">
+<%--section class="latest-product spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">

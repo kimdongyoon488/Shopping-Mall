@@ -11,37 +11,28 @@
 						<a href="./index.html"><img src="img/logo.png" alt=""></a>
 					</div>
 					<ul>
-						<li>Address: Korea </li>
-						<li>Phone: +82 10-9460-0350 </li>
+						<li>주소: 대한민국 </li>
+						<li>전화번호 : +82 10-9460-0350 </li>
 						<li>Email: kdy9416@naver.com </li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
 				<div class="footer__widget">
-					<h6>Useful Links</h6>
+					<h6>유용한 링크</h6>
 					<ul>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">About Our Shop</a></li>
-						<li><a href="#">Secure Shopping</a></li>
-						<li><a href="#">Delivery infomation</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Our Sitemap</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="#">Our Services</a></li>
-						<li><a href="#">Projects</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Innovation</a></li>
-						<li><a href="#">Testimonials</a></li>
+						<li><a href="#">회사 소개</a></li>
+						<li><a href="#">안전한 쇼핑</a></li>
+						<li><a href="#">배송정보</a></li>
+						<li><a href="#">개인 정보 정책</a></li>
+						<li><a href="#">사이트맵</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12">
 				<div class="footer__widget">
-					<h6>Join Our Newsletter Now</h6>
-					<p>Get E-mail updates about our latest shop and special offers.</p>
+					<h6>지금 뉴스레터에 가입하세요.</h6>
+					<p>최신 매장 및 특별 행사에 대한 업데이트를 이메일로 받아보세요.</p>
 					<%--<form action="#">
 						<input type="text" placeholder="Enter your mail">
 						<button type="submit" class="site-btn">Subscribe</button>
