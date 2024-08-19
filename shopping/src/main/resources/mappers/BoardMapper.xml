@@ -6,7 +6,7 @@
 <mapper namespace="com.example.shopping.dao.IBoardMapper">
 
 	<select id="listBoard" resultType="com.example.shopping.vo.BoardVO">
-		SELECT * FROM board OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
+		SELECT * FROM board ORDER BY num DESC OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>
 	
 	
