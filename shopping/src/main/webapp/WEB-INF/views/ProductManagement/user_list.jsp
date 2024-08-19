@@ -18,6 +18,14 @@
 	
 </script>
 
+<style type="text/css">
+	ul {
+		width: 200px;
+		margin: 0px auto;
+		text-align: center !important;
+	}
+</style>
+
 <div class="jumbotron text-center">
 	<h1 class="text-secondary">회원 관리</h1>
 </div>
@@ -53,23 +61,41 @@
 	</tr>
 </c:forEach>
 </table>
-		
-	<c:if test="${not empty pc}">
-	
-		<c:if test="${pc.prev}"> 
-			<a class="page-link" href="/shopping/list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
-				style=" margin-top: 0; heght: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">이전</a>
-			</c:if>
-			<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
-				<a href="/shopping/list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
-			</c:forEach>
-		<c:if test="${pc.next}">
-			<a class="page-link" href="/shopping/list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
-			style=" margin-top: 0; height: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">다음</a>
-		</c:if>
-		
-	</c:if>
+
+
 </div>
+<ul class="pagination">
+	<c:if test="${not empty pc}">
+
+		<c:if test="${pc.prev}">
+			<li class="page-item">
+				<a class="page-link" href="/shopping/list?page=1&countPerPage=${pc.paging.countPerPage}"
+				>처음</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="/shopping/list?page=${pc.paging.page - 1}&countPerPage=${pc.paging.countPerPage}"
+				   style=" margin-top: 0; heght: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+			</li>
+		</c:if>
+		<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+			<li class="page-item">
+				<a href="/shopping/list?page=${pageNum}&countPerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px;">${pageNum}</a>
+			</li>
+		</c:forEach>
+		<c:if test="${pc.next}">
+			<li class="page-item">
+				<a class="page-link" href="/shopping/list?page=${pc.paging.page + 1}&countPerPage=${pc.paging.countPerPage}"
+				   style=" margin-top: 0; height: 40px; color: black; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="/shopping/list?page=${pc.totPage}&countPerPage=${pc.paging.countPerPage}"
+				>끝</a>
+			</li>
+		</c:if>
+
+	</c:if>
+</ul>
+
 
 <!-- footer -->
 <div class="jumbotron text-center mt-5 mb-0">
