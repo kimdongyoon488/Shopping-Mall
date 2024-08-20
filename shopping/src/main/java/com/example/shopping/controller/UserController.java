@@ -190,7 +190,7 @@ public class UserController {
 			return "message";
 		}
 		
-		//비밀번호 찾기 페이지 이동
+		//비밀번호 변경 페이지 이동
 		@GetMapping("/searchPw")
 		public String searchPw() {
 			return "display/mall_login_searchPw";

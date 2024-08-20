@@ -43,7 +43,7 @@
 			<input type="submit" class="btn btn-outline-primary btn-sm" value="로그인"/>
 			<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='/shopping/loginSign'">회원가입</button>
 			<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='/shopping/searchId'">아이디 찾기</button>
-			<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='/shopping/searchPw'">비밀번호 찾기</button>
+			<button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='/shopping/searchPw'">비밀번호 변경</button>
 		</form>
 
 	</div>
