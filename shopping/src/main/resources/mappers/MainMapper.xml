@@ -12,7 +12,7 @@
 	</insert>
 	
 	<select id="list" resultType="com.example.shopping.vo.CategoryVO">
-		select * from category OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY 
+		select * from category order by cnum desc OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>
 	
 	<select id="allList" resultType="com.example.shopping.vo.CategoryVO">
@@ -54,7 +54,7 @@
 	</select>
 	
 	<select id="goodsList" resultType="com.example.shopping.vo.GoodsVO">
-		SELECT * FROM product OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
+		SELECT * FROM product order by pnum desc OFFSET #{startPage} ROWS FETCH FIRST #{countPerPage} ROWS ONLY
 	</select>
 	
 	<select id="selectGoods" resultType="com.example.shopping.vo.GoodsVO">

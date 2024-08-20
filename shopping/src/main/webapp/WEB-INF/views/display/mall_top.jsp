@@ -31,7 +31,7 @@
 	<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 	<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 	<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css?after" type="text/css">
 	<script src="https://kit.fontawesome.com/a64ea1fa2d.js" crossorigin="anonymous"></script>
 
 	<script type="text/javascript">
