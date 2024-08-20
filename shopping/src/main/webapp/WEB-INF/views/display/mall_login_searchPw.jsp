@@ -53,7 +53,7 @@
 				</tr>
 				<tr>
 					<th>변경할 비밀번호</th>
-					<td><input type="text" name="password"></td>
+					<td><input type="password" name="password"></td>
 				</tr>		
 				<tr>
 					<td colspan="2" align="right">
